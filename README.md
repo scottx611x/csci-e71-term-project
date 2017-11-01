@@ -20,11 +20,9 @@ Far Vision: "Remove the overhead of managing equipment from education"
 
 Stakeholders
 ------------
-School Administrators
-    Michael Bradley, Vice Principal, Alpine Academy
-    https://app.xtensio.com/folio/m723zhos
-Administrative Assistant
-IT Personnel
+* School Administrators - Michael Bradley, Vice Principal, Alpine Academy (https://app.xtensio.com/folio/m723zhos)
+* Administrative Assistant
+* IT Personnel
 
 Product Backlog Ordering Rationale
 ----------------------------------
