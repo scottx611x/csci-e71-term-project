@@ -35,7 +35,7 @@ TODO
 
 Definition of Ready
 -------------------
-When a produt backlog item is:
+When a produt backlog item:
  * has a title
  * has an opening sentence
  * has details
