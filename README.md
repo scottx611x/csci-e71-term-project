@@ -5,9 +5,9 @@ Scrum Avengers (Group 3)
 Scrum Team
 ----------
 * Rob Dornberger (Product Owner, Developer)
-* Sri  (Scrummaster, Developer)
+* Sri Yelamanchili  (Scrummaster, Developer)
 * Nicholas Bauer (Developer)
-* Scott Ouelette (Developer)
+* Scott Ouellette (Developer)
 
 Project Name
 ------------
