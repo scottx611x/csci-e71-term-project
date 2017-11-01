@@ -25,6 +25,10 @@ Stakeholders
 * Administrative Assistant
 * IT Personnel
 
+Product Backlog
+---------------
+[View Backlog](https://github.com/scottx611x/csci-e71-term-project/projects/1)
+
 Product Backlog Ordering Rationale
 ----------------------------------
 TODO
@@ -39,10 +43,8 @@ When a produt backlog item is:
  * has user acceptance criteria
  * TODO
  
- Product Backlog
- ---------------
- [View Backlog](https://github.com/scottx611x/csci-e71-term-project/projects/1)
- 
- Relative Size Estimating Activity: TODO
+ Relative Size Estimating Activity
+ ---------------------------------
+ TODO
  
  All developers, and only developers, participated in relative size estimating. VERIFY
