@@ -1,9 +1,6 @@
 # csci-e71-term-project
-Group 3's Project Repo
-
-[View Backlog](https://github.com/scottx611x/csci-e71-term-project/projects/1)
-
-Team Name: Scrum Avengers
+Scrum Avengers (Group 3)
+========================
 
 Scrum Team
 ----------
@@ -12,11 +9,15 @@ Scrum Team
 * Nicholas Bauer (Developer)
 * Scott Ouelette (Developer)
 
-Project Name: Alpine Inventory Tracking System
+Project Name
+------------
+Alpine Inventory Tracking System
 
-Near Vision: "Automate inventory tracking system for Alpine Academy in 3 months"
+Vision
+------
+Near: "Automate inventory tracking system for Alpine Academy in 3 months"
 
-Far Vision: "Eliminate overhead of managing educational equipment"
+Far: "Eliminate overhead of managing educational equipment"
 
 Stakeholders
 ------------
@@ -38,7 +39,9 @@ When a produt backlog item is:
  * has user acceptance criteria
  * TODO
  
- Product Backlog Link: URL
+ Product Backlog
+ ---------------
+ [View Backlog](https://github.com/scottx611x/csci-e71-term-project/projects/1)
  
  Relative Size Estimating Activity: TODO
  
