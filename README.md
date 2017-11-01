@@ -16,7 +16,7 @@ Project Name: Alpine Inventory Tracking System
 
 Near Vision: "Automate inventory tracking system for Alpine Academy in 3 months"
 
-Far Vision: "Remove the overhead of managing equipment from education"
+Far Vision: "Eliminate overhead of managing equipment from education"
 
 Stakeholders
 ------------
