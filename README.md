@@ -7,10 +7,10 @@ Team Name: Scrum Avengers
 
 Scrum Team
 ----------
-Rob Dornberger (Product Owner, Developer)
-Sri  (Scrummaster, Developer)
-Nicholas Bauer (Developer)
-Scott Ouelette (Developer)
+* Rob Dornberger (Product Owner, Developer)
+* Sri  (Scrummaster, Developer)
+* Nicholas Bauer (Developer)
+* Scott Ouelette (Developer)
 
 Project Name: Alpine Inventory Tracking System
 
