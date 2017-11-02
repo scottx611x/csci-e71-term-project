@@ -41,7 +41,6 @@ When a produt backlog item:
  * has details
  * has been estimated
  * has user acceptance criteria
- * TODO
  
  Relative Size Estimating Activity
  ---------------------------------
