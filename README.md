@@ -42,6 +42,12 @@ When a produt backlog item:
  * has been estimated
  * has user acceptance criteria
  
+ Definition of Done
+-------------------
+ * As a user, I should be able to use all features within the IE11 or Edge browsers in cloud
+ * has tests
+ * Good test coverage
+
  Relative Size Estimating Activity
  ---------------------------------
  TODO
