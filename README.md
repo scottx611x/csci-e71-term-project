@@ -31,7 +31,7 @@ Product Backlog
 
 Product Backlog Ordering Rationale
 ----------------------------------
-TODO
+The core functions are manipulating the inventory items, so these are the most important to get done if we ran out of time. Searching and reporting are extremely useful add-ons, but depend on the database existing first. Having non-administrator accounts would be a nice addition for a multi-user environment, but could be dispensed with if necessary.
 
 Definition of Ready
 -------------------
