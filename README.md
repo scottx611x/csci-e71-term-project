@@ -50,6 +50,5 @@ When a produt backlog item:
 
  Relative Size Estimating Activity
  ---------------------------------
- TODO
  
- All developers, and only developers, participated in relative size estimating. VERIFY
+ All developers, and only developers, participated in relative size estimating. We accomplished this activity by doing a planning poker-like activity over a group video chat session
