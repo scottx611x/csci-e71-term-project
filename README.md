@@ -1,3 +1,5 @@
+
+
 # csci-e71-term-project
 Scrum Avengers (Group 3)
 ========================
@@ -52,3 +54,8 @@ When a produt backlog item:
  ---------------------------------
  
  All developers, and only developers, participated in relative size estimating. We accomplished this activity by doing a planning poker-like activity over a group video chat session
+
+Sprint 1 Planning
+=================
+Velocity estimate: 14.3 (Total points / 3 sprints)
+
