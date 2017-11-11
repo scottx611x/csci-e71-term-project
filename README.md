@@ -5,7 +5,7 @@
 Scrum Avengers (Group 3)
 ========================
 
-[**Local Development Docs**](https://github.com/scottx611x/csci-e71-term-project/docker-context/README.md)
+[**Local Development Docs**](https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/README.md)
 
 Scrum Team
 ----------
