@@ -4,11 +4,11 @@ services:
   # The Application
   app:
     build:
-      context: ./
+      context: ./docker-context
       dockerfile: app.dockerfile
     working_dir: /var/www
     volumes:
-      - ../app-context/:/var/www
+      - ./app-context/:/var/www
     environment:
       - "DB_PORT=3306"
       - "DB_HOST=database"
@@ -16,7 +16,7 @@ services:
   # The Web Server
   web:
     build:
-      context: ./
+      context: ./docker-context
       dockerfile: web.dockerfile
     working_dir: /var/www
     volumes_from:
