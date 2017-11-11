@@ -21,7 +21,7 @@ script:
 
 after_success:
   - pushd app-context
-  - bash <(curl -s https://codecov.io/bash)
+  - docker-compose exec -T app bash <(curl -s https://codecov.io/bash)
   - popd
 
 notifications:
