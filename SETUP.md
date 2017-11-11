@@ -13,7 +13,7 @@
 - `cd app-context`
 - `docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source`
 - `cd ..`
-- `docker-compose up --no-start`
+- `docker-compose build`
 - `docker-compose exec -T app php artisan key:generate`
 - `docker-compose exec -T app php artisan optimize`
 
