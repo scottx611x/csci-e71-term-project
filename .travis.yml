@@ -1,3 +1,5 @@
+language: php
+
 # Docker on Travis needs sudo
 sudo: True
 
