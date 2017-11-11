@@ -61,3 +61,5 @@ Sprint 1 Planning
 =================
 Velocity estimate: 14.3 (Total points / 3 sprints)
 
+Goal: To add and view items in the application
+
