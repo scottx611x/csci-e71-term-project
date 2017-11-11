@@ -11,11 +11,11 @@ before_script:
   # Run our services in a detached manner
   - docker-compose up -d 
   - docker-compose exec -T app php artisan key:generate
-  - docker-compose exec app php artisan optimize
+  - docker-compose exec -T app php artisan optimize
 
 script:
-  - docker-compose exec app vendor/bin/phpmd app text codesize design naming unusedcode
-  - docker-compose exec app vendor/bin/phpunit --testdox --coverage-text tests --coverage-clover=coverage.xml
+  - docker-compose exec -T app vendor/bin/phpmd app text codesize design naming unusedcode
+  - docker-compose exec -T app vendor/bin/phpunit --testdox --coverage-text tests --coverage-clover=coverage.xml
   - popd
 
 after_success:
