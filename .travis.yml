@@ -1,0 +1,27 @@
+# Docker on Travis needs sudo
+sudo: True
+
+before_script:
+  - cp .env.example .env
+  - pushd app-context
+  - docker run --rm -v $(pwd):/app composer/composer install
+  - popd
+
+  - pushd docker-context
+  - docker-compose exec app php artisan key:generate
+  - docker-compose exec app php artisan optimize
+  - popd
+
+script:
+  - pushd app-context
+  - docker run --rm -v $(pwd):/app vendor/bin/phpmd app text codesize design naming unusedcode
+  - docker run --rm -v $(pwd):/app vendor/bin/phpunit --testdox --coverage-text tests --coverage-clover=coverage.xml
+  - popd
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  notifications:
+    slack: agilesoftwarecourse:s88h27xWCEDdojbTRgquomEv
+  on_success: never
