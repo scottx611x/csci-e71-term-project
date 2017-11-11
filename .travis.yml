@@ -18,7 +18,9 @@ script:
   - popd
 
 after_success:
+  - pushd app-context
   - bash <(curl -s https://codecov.io/bash)
+  - popd
 
 notifications:
   notifications:
