@@ -48,7 +48,9 @@ When a produt backlog item:
 -------------------
  * As a user, I should be able to use all features within the IE11 or Edge browsers in cloud
  * has tests
- * Good test coverage
+ * good test coverage
+ * peer reviewed
+ * committed
 
  Relative Size Estimating Activity
  ---------------------------------
