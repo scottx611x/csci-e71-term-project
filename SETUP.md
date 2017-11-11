@@ -10,7 +10,9 @@
 ### Initial Setup:
 - `git clone https://github.com/scottx611x/csci-e71-term-project.git && cd csci-e71-term-project`
 - `cp app-context/.env.example app-context/.env`
+- `cd app-context`
 - `docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source`
+- `cd ..`
 - `docker-compose exec -T app php artisan key:generate`
 - `docker-compose exec -T app php artisan optimize`
 
