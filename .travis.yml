@@ -14,8 +14,7 @@ before_script:
   - docker-compose exec -T app php artisan optimize
 
 script:
-  - docker-compose exec -T app vendor/bin/phpmd app text codesize design naming unusedcode
-  - docker-compose exec -T app vendor/bin/phpunit --testdox --coverage-text tests --coverage-clover=coverage.xml
+  - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
   - popd
 
 after_success:
