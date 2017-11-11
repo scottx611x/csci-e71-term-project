@@ -17,9 +17,11 @@ before_script:
 
 script:
   - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
+  - popd
 
 after_success:
-  - docker-compose exec -T app bash <(curl -s https://codecov.io/bash)
+  - pushd app-context
+  - bash <(curl -s https://codecov.io/bash)
   - popd
 
 notifications:
