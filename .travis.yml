@@ -6,7 +6,7 @@ sudo: True
 before_script:
   - pushd app-context
   - cp .env.example .env
-  - docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source --dev
+  - docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source
   - popd
 
   - pushd docker-context
@@ -17,10 +17,8 @@ before_script:
 
 script:
   - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
-  - popd
 
 after_success:
-  - pushd app-context
   - docker-compose exec -T app bash <(curl -s https://codecov.io/bash)
   - popd
 
