@@ -1,0 +1,29 @@
+language: php
+
+# Docker on Travis needs sudo
+sudo: True
+
+before_script:
+  - pushd app-context
+  - cp .env.example .env
+  - docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source
+  - popd
+
+  # Run our services in a detached manner
+  - docker-compose up -d 
+  - docker-compose exec -T app php artisan key:generate
+  - docker-compose exec -T app php artisan optimize
+
+script:
+  - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - pushd app-context
+  - bash <(curl -s https://codecov.io/bash)
+  - popd
+
+notifications:
+  on_success: never
+  slack:
+    rooms:
+      secure: h6mnzyAo2YvFLxXf+3M4/Kn/ZoLAj1YM6UFXg1WQNlSc82SpvZPZjWmYrjFEIRmH0wT7WCkjALWgA4ejMZqY0Pxuyv84zgh9nR2703AbckhQzeXBiori6UaKvFCRguE2b/7ZGKtBpdzBFEKV9GOcq8D2BXsU72n3aNFY2L5Z0ThH3JhWsGwsTxM4CBln3HcfZQoWjcjqaCE7VKuWWAQu1ZR+5KWOEHJgA2wnpfIIsf6UE3NdBkNuBFfTwv3u0nyN3479+b9x+e/H0s6mTZKyieTJtVtcxnOft3giKC5SVMGn70RMJk9tfoc7y8K8MsBeERb/BcCAixAXw05ck4PqwZGyL9v5rUh6ovNcff8NREQiveK4laZE+lJo/j71c/+mIsYkRssSLfCbs7DvC3fuRLMX807fHkHembCgV8NRhFdPflAFqbRgoQRPeDM/4KW0M7vEDoTzL9hZTphMd2tOJsD7K/6lxufixqTpPNzQC9mKviEti9PWrDpctaRd+lomS+GKY3r2bMqDA+eqZKJ4PSHoq5AmeJyRicrq7XApVREz38UQzgiEySPtAQKEXwfuOh/DDIx8nQXcwL/qiNUpSaabKVkyMK61yqB2QSGWos5vsxRasWiXqzRJaFDR7InFdgECFR9smab2rMbAV3mNgMeRmuxLuqnJrf19W0X+AqY=

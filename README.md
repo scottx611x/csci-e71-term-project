@@ -1,8 +1,11 @@
 
 
-# csci-e71-term-project
+# csci-e71-term-project [![Build Status](https://travis-ci.org/scottx611x/csci-e71-term-project.svg?branch=master)](https://travis-ci.org/scottx611x/csci-e71-term-project)
+
 Scrum Avengers (Group 3)
 ========================
+
+[**Local Development Docs**](https://github.com/scottx611x/csci-e71-term-project/docker-context/README.md)
 
 Scrum Team
 ----------
