@@ -16,6 +16,7 @@ before_script:
 
 script:
   - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
+  - docker-compose exec blah blah blah
 
 after_success:
   - pushd app-context
