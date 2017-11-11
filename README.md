@@ -4,6 +4,8 @@
 Scrum Avengers (Group 3)
 ========================
 
+[**Local Development Docs**](https://github.com/scottx611x/csci-e71-term-project/blob/local_dev_env/docker-context/README.md)
+
 Scrum Team
 ----------
 * Rob Dornberger (Product Owner, Developer)
