@@ -2,8 +2,8 @@
 sudo: True
 
 before_script:
-  - cp .env.example .env
   - pushd app-context
+  - cp .env.example .env
   - docker run --rm -v $(pwd):/app composer/composer install
   - popd
 
