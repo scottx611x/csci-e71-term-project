@@ -8,7 +8,8 @@ before_script:
   - popd
 
   - pushd docker-context
-  - docker-compose up
+  # Run our services in a detached manner
+  - docker-compose up -d 
   - docker-compose exec app php artisan key:generate
   - docker-compose exec app php artisan optimize
 
