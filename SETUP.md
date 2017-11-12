@@ -1,4 +1,4 @@
-# Local Development
+ # # Local Development
 
 - `app-context` contains our [Laravel](https://laravel.com/)  application
 - `docker-context`: contains files that [docker-compose](https://docs.docker.com/compose/) will utilize to give us identical development environments (Nginx, MySQL, PHP)
@@ -11,7 +11,8 @@
 - `git clone https://github.com/scottx611x/csci-e71-term-project.git && cd csci-e71-term-project`
 - `cp app-context/.env.example app-context/.env`
 - `cd app-context`
-- `docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source`
+- Windows: in Docker Settings > Shared Drives, mark the drive letter you're running the container in as "shared".
+- `docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source` # PowerShell: ${PWD}
 - `cd ..`
 - `docker-compose up -d` # This step will take awhile the first time around
 - `docker-compose exec -T app php artisan key:generate`
