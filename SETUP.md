@@ -21,6 +21,10 @@
 - `docker-compose up`
 - Go to: http://localhost:8888
 
+### Shutting down:
+ - `ctrl+c`
+ - `docker-compose down`
+
 ### Running Tests:
 - `docker-compose exec -T app vendor/bin/phpunit`
 
