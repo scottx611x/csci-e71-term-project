@@ -1,4 +1,4 @@
- # # Local Development
+ ## Local Development
 
 - `app-context` contains our [Laravel](https://laravel.com/)  application
 - `docker-context`: contains files that [docker-compose](https://docs.docker.com/compose/) will utilize to give us identical development environments (Nginx, MySQL, PHP)
