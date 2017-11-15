@@ -17,10 +17,13 @@
 - `docker-compose up -d` # This step will take awhile the first time around
 - `docker-compose exec -T app php artisan key:generate`
 - `docker-compose exec -T app php artisan optimize`
+- `docker-compose exec -T app php artisan migrate`
+- `docker-compose exec -T app php artisan db:seed`
 
 ### Running the app:
 - `docker-compose up`
-- Go to: http://localhost:8888
+- Go to: http://localhost:8888/assets/
+- Voila!
 
 ### Shutting down:
  - `ctrl+c`
