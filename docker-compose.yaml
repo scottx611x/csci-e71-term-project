@@ -6,6 +6,8 @@ services:
     build:
       context: ./docker-context
       dockerfile: app.dockerfile
+    depends_on:
+      - database
     working_dir: /var/www
     volumes:
       - ./app-context/:/var/www
