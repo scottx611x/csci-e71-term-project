@@ -9,7 +9,7 @@
 
 ### Initial Setup:
 - `git clone https://github.com/scottx611x/csci-e71-term-project.git && cd csci-e71-term-project`
-- `cp app-context/.env.example app-context/.env`
+- `cp app-context/.env.dev app-context/.env`
 - `cd app-context`
 - Windows: in Docker Settings > Shared Drives, mark the drive letter you're running the container in as "shared".
 - `docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source` # PowerShell: ${PWD}
