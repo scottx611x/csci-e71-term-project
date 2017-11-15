@@ -13,15 +13,14 @@ cache:
 sudo: True
 
 before_script:
+  - cp app-context/.env.dev app-context/.env
   - pushd app-context
-  - cp .env.dev .env
   - docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source
   - popd
 
-  - sudo service mysql stop
-
+  - docker-compose build
   # Run our services in a detached manner
-  - docker-compose up -d 
+  - docker-compose up -d
   - docker-compose exec -T app php artisan key:generate
   - docker-compose exec -T app php artisan optimize
   - docker-compose exec -T app php artisan migrate
