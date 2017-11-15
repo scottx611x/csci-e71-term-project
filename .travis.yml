@@ -1,8 +1,8 @@
 language: php
 
 php:
-  - '5.4'
-  - '5.6'
+# - '5.4'
+# - '5.6'
   - '7.0'
   
 # Docker on Travis needs sudo
@@ -13,9 +13,6 @@ before_script:
   - cp .env.travis .env
   - docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source
   - popd
-
-  # Stop existing mysql
-  - sudo service mysql stop
   
   # Run our services in a detached manner
   - docker-compose up -d 
