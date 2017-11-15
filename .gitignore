@@ -1,1 +1,2 @@
-.env
+app-context/.env
+app-context/vendor
