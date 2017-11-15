@@ -33,9 +33,9 @@ services:
       - "MYSQL_DATABASE=homestead"
       - "MYSQL_USER=homestead"
       - "MYSQL_PASSWORD=secret"
-      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_ALLOW_EMPTY_PASSWORD=yes"
     ports:
-        - "33061:3306"
+        - "3306:3306"
 
 volumes:
   dbdata:
