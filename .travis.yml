@@ -21,6 +21,7 @@ before_script:
   - docker-compose build
   # Run our services in a detached manner
   - docker-compose up -d
+  - sleep 10s
   - docker-compose exec -T app php artisan key:generate
   - docker-compose exec -T app php artisan optimize
   - docker-compose exec -T app php artisan migrate --seed
