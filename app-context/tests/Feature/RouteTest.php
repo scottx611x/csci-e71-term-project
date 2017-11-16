@@ -7,18 +7,21 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RoutesTest extends TestCase
 {
-    public function assertRouteWorks($routeName)
+    public function assertRouteWorks($routeName, $detailView = True)
     {
         $response = $this->get($routeName);
         $response->assertStatus(200);
 
-        // $response = $this->get($routeName + "1/");
-        // $response->assertStatus(200);
+        if ($detailView)
+        {
+            $response = $this->get($routeName."1");
+            $response->assertStatus(200);
+        }
     }
     
     public function testAssets()
     {
-        $this->assertRouteWorks("/assets/");
+        $this->assertRouteWorks('/assets/');
     }
     
     public function testAssetRepairs()
@@ -28,7 +31,7 @@ class RoutesTest extends TestCase
     
     public function testComputers()
     {
-        $this->assertRouteWorks('/computers/');
+        $this->assertRouteWorks('/computers/', $detailView = False);
     }
     
     public function testComputerTypes()
