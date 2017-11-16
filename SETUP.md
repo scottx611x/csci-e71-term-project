@@ -9,7 +9,7 @@
 
 ### Initial Setup:
 - `git clone https://github.com/scottx611x/csci-e71-term-project.git && cd csci-e71-term-project`
-- `cp app-context/.env.example app-context/.env`
+- `cp app-context/.env.dev app-context/.env`
 - `cd app-context`
 - Windows: in Docker Settings > Shared Drives, mark the drive letter you're running the container in as "shared".
 - `docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source` # PowerShell: ${PWD}
@@ -17,10 +17,13 @@
 - `docker-compose up -d` # This step will take awhile the first time around
 - `docker-compose exec -T app php artisan key:generate`
 - `docker-compose exec -T app php artisan optimize`
+- `docker-compose exec -T app php artisan migrate`
+- `docker-compose exec -T app php artisan db:seed`
 
 ### Running the app:
 - `docker-compose up`
-- Go to: http://localhost:8888
+- Go to: http://localhost:8888/assets/
+- Voila!
 
 ### Shutting down:
  - `ctrl+c`

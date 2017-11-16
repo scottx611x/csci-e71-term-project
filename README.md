@@ -1,6 +1,6 @@
 
 
-# csci-e71-term-project [![Build Status](https://travis-ci.org/scottx611x/csci-e71-term-project.svg?branch=master)](https://travis-ci.org/scottx611x/csci-e71-term-project)
+# csci-e71-term-project [![Build Status](https://travis-ci.org/scottx611x/csci-e71-term-project.svg?branch=master)](https://travis-ci.org/scottx611x/csci-e71-term-project) [![codecov](https://codecov.io/gh/scottx611x/csci-e71-term-project/branch/master/graph/badge.svg)](https://codecov.io/gh/scottx611x/csci-e71-term-project)
 
 Scrum Avengers (Group 3)
 ========================
