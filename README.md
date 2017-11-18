@@ -74,7 +74,7 @@ What did we do since last daily scrum?
 Scott - set up and integrated development and production environment infrastructure for all of us
 Rob - set up local development environment, created PHP UI pages, communicated with stakeholder
 Sri - set up local development environment, wired up database and basic routing
-Nick - set up local development environment
+Nick - set up local development environment, kept team on track for success
 
 What will we do in next period?
 Together, we will mob to create our tests and finish the add and view pages with full functionality.
