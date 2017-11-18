@@ -15,9 +15,17 @@ View Asset
                         View Asset
                     </h2>
                     <h6 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-                        @foreach($result->toArray() as $key => $value)
-                            <h2>{{ $key }} : {{ $value }}</h2>
-                            @endforeach
+                    <p>id: {{$result->id}}</p>
+                    <p>owner: {{$result->owner}}</p>
+                    <p>description: {{$result->description}}</p>
+                    <p>purchase_price: {{$result->purchase_price}}</p>
+                    <p>purchase_date: {{$result->purchase_date}}</p>
+                    <p>serial_number: {{$result->serial_number}}</p>
+                    <p>estimated_life_months: {{$result->estimated_life_months}}</p>
+                    <p>assigned_to: {{$result->assigned_to}}</p>
+                    <p>assigned_date: {{$result->assigned_date}}</p>
+                    <p>tag: {{$result->tag}}</p>
+                    <p>scheduled_retirement_year: {{$result->scheduled_retirement_year}}</p>
                 </div>
             @endif
             @if (count($result)>1)
