@@ -1,2 +1,3 @@
 app-context/.env
 app-context/vendor
+app-context/composer.lock
