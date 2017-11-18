@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Asset;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -37,13 +38,16 @@ class RoutesTest extends TestCase
     public function testCreateNewAssetRedirectsWithInvalidPost()
     {
         // TODO: Ask Sri about this behavior
+        $initialCount = Asset::count();
         $response = $this->post('/asset/');
         $response->assertRedirect('/');
+        $this->assertEquals($initialCount, Asset::count());
     }
 
     public function testCreateNewAssetRedirectsWithValidPost()
     {
         // TODO: Ask Sri about this behavior
+        $initialCount = Asset::count();
         $response = $this->post(
             '/asset', 
             [
@@ -58,7 +62,8 @@ class RoutesTest extends TestCase
                 'scheduled_retirement_year' => 2020
             ]
         );
-        $response->assertRedirect('/asset/345');
+        $response->assertRedirect('/asset/'.($initialCount + 1));
+        $this->assertEquals($initialCount + 1, Asset::count());
     }
     
     /** Future tests **/
