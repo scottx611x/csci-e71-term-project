@@ -32,6 +32,12 @@
 ### Running Tests:
 - `docker-compose exec -T app vendor/bin/phpunit`
 
+### If DB schema changes:
+```
+docker-compose exec -T app php artisan migrate:reset
+docker-compose exec -T app php artisan migrate
+docker-compose exec -T app php artisan db:seed
+```
 ### Continuous Integration:
 - We use [Travis CI](https://travis-ci.org/scottx611x/csci-e71-term-project)
 
