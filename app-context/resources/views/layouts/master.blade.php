@@ -27,8 +27,6 @@
 
 	<section class="menu cid-qAUBBCkSrN" once="menu" id="menu1-1" data-rv-view="33">
 
-
-
 	    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
 	        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	            <div class="hamburger">
@@ -45,14 +43,14 @@
 	                         <img src="/webassets/images/alpine-log-500x352.png" alt="Mobirise" title="" media-simple="true" style="height: 3.8rem;">
 	                    </a>
 	                </span>
-	                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="http://eweek.com">Alpine Inventory Tracking System</a></span>
+	                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="/">Alpine Inventory Tracking System</a></span>
 	            </div>
 	        </div>
 	        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item dropdown">
-	                    <a class="nav-link link text-white dropdown-toggle display-4" href="http://eweek.com" data-toggle="dropdown-submenu" aria-expanded="false">
+	                    <a class="nav-link link text-white dropdown-toggle display-4" href="" data-toggle="dropdown-submenu" aria-expanded="false">
 	                        <span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>
-	                        New</a><div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="index.html">Asset</a></div>
+	                        New</a><div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="/asset/create">Asset</a></div>
 	                </li>
 	                <li class="nav-item dropdown open">
 	                    <a class="nav-link link text-white dropdown-toggle display-4" href="http://eweek.com" data-toggle="dropdown-submenu" aria-expanded="true">
@@ -63,6 +61,10 @@
 	        </div>
 	    </nav>
 	</section>
+
+	@if(session('message'))
+	    <div class='alert'>{{ session('message') }}</div>
+	@endif
 
 	<section>
 		@yield('content')

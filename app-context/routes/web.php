@@ -42,7 +42,13 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
-Route::get('/assets/{id?}', 'AssetController@index');
+Route::get('/asset/create', 'AssetController@create');
+Route::post('/asset', 'AssetController@store');
+Route::get('/asset/{id?}', 'AssetController@index');
+Route::get('/asset/{id?}/edit', 'AssetController@edit');
+Route::put('/asset/{id?}', 'AssetController@update');
+
+
 Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
 Route::get('/computers/{id?}', 'ComputerController@index');
 Route::get('/computertypes/{id?}', 'ComputerTypeController@index');
