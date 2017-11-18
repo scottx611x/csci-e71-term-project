@@ -1,5 +1,3 @@
-11/
-
 # csci-e71-term-project [![Build Status](https://travis-ci.org/scottx611x/csci-e71-term-project.svg?branch=master)](https://travis-ci.org/scottx611x/csci-e71-term-project) [![codecov](https://codecov.io/gh/scottx611x/csci-e71-term-project/branch/master/graph/badge.svg)](https://codecov.io/gh/scottx611x/csci-e71-term-project)
 
 Scrum Avengers (Group 3)
@@ -19,7 +17,8 @@ Project Name
 Alpine Inventory Tracking System
 
 Vision
------Near: "Automate inventory tracking system for Alpine Academy in 3 months"
+------
+Near: "Automate inventory tracking system for Alpine Academy in 3 months"
 
 Far: "Eliminate overhead of managing educational equipment"
 
@@ -54,14 +53,16 @@ When a produt backlog item:
  * peer reviewed
  * committed
 
- Relative Size Estimating Activity
- ---------------------------------
+Relative Size Estimating Activity
+---------------------------------
  
- All developers, and only developers, participated in relative size estimating. We accomplished this activity by doing a planning poker-like activity over a group video chat session
+All developers, and only developers, participated in relative size estimating. We accomplished this activity by doing a planning poker-like activity over a group video chat session
 
 Sprint 1 Planning
 =================
 Velocity estimate: 14.3 (Total points / 3 sprints)
+
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT1.png)
 
 Goal: To add and view items in the application
 
@@ -79,4 +80,8 @@ What will we do in next period?
 Together, we will mob to create our tests and finish the add and view pages with full functionality.
 
 Impediments?
-Our major impediments have been communication, figuring out how to get set up, and working as a team. This made for a slow start, but we've figured out how to get through them and the way should be clear to completing our goals for the sprint.
+Our major impediments have been communication, figuring out how to get set up, and working as a team. This made for a slow start, but we've figured out how to get through them and the way should be clear to completing our goals for the sprint. Checking in to Slack regularly and setting up meeting times in advance with expectation of attending have addressed these issues.
+
+Mobbing Video
+---------
+TODO: Link
