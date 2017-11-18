@@ -18,7 +18,7 @@ class ComputerController extends Controller
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = Computer::where('asset_id', '=', $n)->firstOrFail();;
+        $result = Computer::where('asset_id', '=', $n)->findOrFail();;
         dump($result->toArray());
     }
 }

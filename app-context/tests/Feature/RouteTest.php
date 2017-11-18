@@ -11,19 +11,31 @@ class RoutesTest extends TestCase
     {
         $response = $this->get($routeName);
         $response->assertStatus(200);
+    }
 
-        if ($detailView)
-        {
-            $response = $this->get($routeName."1");
-            $response->assertStatus(200);
-        }
+    public function assertItemIdExists($routeName, $id)
+    {
+        $response = $this->get($routeName.$id);
+        $response->assertStatus(200);
     }
     
-    public function testAssets()
+    public function testasset()
     {
         $this->assertRouteWorks('/asset/');
     }
+
+    public function testGetAsset()
+    {
+        $this->assertItemIdExists('/asset/', '1');
+    }
+
+    public function testAssetCreatePage()
+    {
+        $this->assertRouteWorks('/asset/create/');
+    }
     
+    /** Future tests **/
+
     public function testAssetRepairs()
     {
         $this->assertRouteWorks('/assetrepairs/');
@@ -31,7 +43,7 @@ class RoutesTest extends TestCase
     
     public function testComputers()
     {
-        $this->assertRouteWorks('/computers/', $detailView = False);
+        $this->assertRouteWorks('/computers/');
     }
     
     public function testComputerTypes()
