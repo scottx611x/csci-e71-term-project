@@ -1,4 +1,4 @@
-
+11/
 
 # csci-e71-term-project [![Build Status](https://travis-ci.org/scottx611x/csci-e71-term-project.svg?branch=master)](https://travis-ci.org/scottx611x/csci-e71-term-project) [![codecov](https://codecov.io/gh/scottx611x/csci-e71-term-project/branch/master/graph/badge.svg)](https://codecov.io/gh/scottx611x/csci-e71-term-project)
 
@@ -19,8 +19,7 @@ Project Name
 Alpine Inventory Tracking System
 
 Vision
-------
-Near: "Automate inventory tracking system for Alpine Academy in 3 months"
+-----Near: "Automate inventory tracking system for Alpine Academy in 3 months"
 
 Far: "Eliminate overhead of managing educational equipment"
 
@@ -66,3 +65,18 @@ Velocity estimate: 14.3 (Total points / 3 sprints)
 
 Goal: To add and view items in the application
 
+Daily Scrum 11/17/17
+--------------------
+"Daily Scrum"s are held on M-W-F schedule
+
+What did we do since last daily scrum? 
+Scott - set up and integrated development and production environment infrastructure for all of us
+Rob - set up local development environment, created PHP UI pages, communicated with stakeholder
+Sri - set up local development environment, wired up database and basic routing
+Nick - set up local development environment
+
+What will we do in next period?
+Together, we will mob to create our tests and finish the add and view pages with full functionality.
+
+Impediments?
+Our major impediments have been communication, figuring out how to get set up, and working as a team. This made for a slow start, but we've figured out how to get through them and the way should be clear to completing our goals for the sprint.
