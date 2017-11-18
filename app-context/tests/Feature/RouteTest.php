@@ -21,7 +21,7 @@ class RoutesTest extends TestCase
     
     public function testAssets()
     {
-        $this->assertRouteWorks('/assets/');
+        $this->assertRouteWorks('/asset/');
     }
     
     public function testAssetRepairs()
