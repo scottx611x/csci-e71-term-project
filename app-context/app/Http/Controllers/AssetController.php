@@ -36,18 +36,20 @@ class AssetController extends Controller
     {
         $this->validate($request, [
             'owner' => 'required|max:50',
+            'description' => 'required|max:50',
             'purchase_price' => 'required|numeric',
             'purchase_date' => 'required|date',
             'serial_number' => 'required|alphanum',
             'estimated_life_months' => 'required|numeric',
-            'assigned_to' => 'required|alpha',
+            'assigned_to' => 'required|alpha|max:30',
             'assigned_date' => 'required|date',
-            'tag' => 'required|alphanum',
+            'tag' => 'required|alphanum|max:20',
             'scheduled_retirement_year' => 'required|numeric'
         ]);
 
         $asset = new Asset();
         $asset->owner = $request->input('owner');
+        $asset->description = $request->input('description');
         $asset->purchase_price = $request->input('purchase_price');
         $asset->purchase_date = $request->input('purchase_date');
         $asset->serial_number = $request->input('serial_number');

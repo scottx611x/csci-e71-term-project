@@ -52,6 +52,7 @@ class RoutesTest extends TestCase
             '/asset', 
             [
                 'owner' => 'Mr. Bradley',
+                'description' => 'Cool Asset',
                 'purchase_price' => 100,
                 'purchase_date' => '2017/11/17',
                 'serial_number' => '9wyf897t23r87t2',
