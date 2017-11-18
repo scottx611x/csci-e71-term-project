@@ -55,7 +55,7 @@
 	                <li class="nav-item dropdown open">
 	                    <a class="nav-link link text-white dropdown-toggle display-4" href="http://eweek.com" data-toggle="dropdown-submenu" aria-expanded="true">
 	                        <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-	                        Search</a><div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="#top">Asset</a></div>
+	                        Search</a><div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="/asset/">Assets</a></div>
 	                </li></ul>
 
 	        </div>
