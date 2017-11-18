@@ -19,7 +19,7 @@ class RoutesTest extends TestCase
         $response->assertStatus(200);
     }
     
-    public function testasset()
+    public function testAsset()
     {
         $this->assertRouteWorks('/asset/');
     }
@@ -32,6 +32,31 @@ class RoutesTest extends TestCase
     public function testAssetCreatePage()
     {
         $this->assertRouteWorks('/asset/create/');
+    }
+
+    public function testCreateNewAssetRedirectsWithInvalidPost()
+    {
+        // TODO: Ask Sri about this behavior
+        $response = $this->post('/asset/');
+        $response->assertRedirect('/');
+    }
+
+    public function testCreateNewAssetRedirectsWithValidPost()
+    {
+        // TODO: Ask Sri about this behavior
+        $response = $this->post(
+            '/asset', 
+            [
+                'owner' => 'Mr. Bradley',
+                'purchase_price' => 100,
+                'purchase_date' => '2017/11/17',
+                'serial_number' => '9wyf897t23r87t2',
+                'estimated_life_months' => 36,
+                'assigned_to' => 'abc',
+                'assigned_date' => '2017/11/17',
+            ]
+        );
+        $response->assertRedirect('/asset/345');
     }
     
     /** Future tests **/
