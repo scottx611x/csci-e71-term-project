@@ -54,6 +54,8 @@ class RoutesTest extends TestCase
                 'estimated_life_months' => 36,
                 'assigned_to' => 'abc',
                 'assigned_date' => '2017/11/17',
+                'tag' => 'JAFUfE',
+                'scheduled_retirement_year' => 2020
             ]
         );
         $response->assertRedirect('/asset/345');

@@ -42,19 +42,23 @@ class AssetController extends Controller
             'estimated_life_months' => 'required|numeric',
             'assigned_to' => 'required|alpha',
             'assigned_date' => 'required|date',
+            'tag' => 'required|alphanum',
+            'scheduled_retirement_year' => 'required|numeric'
         ]);
-        
-        // $asset = new Asset();
-        // $asset->owner = $request->input('owner');
-        // $asset->purchase_price = $request->input('purchase_price');
-        // $asset->purchase_date = $request->input('purchase_date');
-        // $asset->serial_number = $request->input('serial_number');
-        // $asset->estimated_life_months = $request->input('estimated_life_months');
-        // $asset->assigned_to = $request->input('assigned_to');
-        // $asset->assigned_date = $request->input('assigned_date');
-        // $asset->save();
+
+        $asset = new Asset();
+        $asset->owner = $request->input('owner');
+        $asset->purchase_price = $request->input('purchase_price');
+        $asset->purchase_date = $request->input('purchase_date');
+        $asset->serial_number = $request->input('serial_number');
+        $asset->estimated_life_months = $request->input('estimated_life_months');
+        $asset->assigned_to = $request->input('assigned_to');
+        $asset->assigned_date = $request->input('assigned_date');
+        $asset->tag = $request->input('tag');
+        $asset->scheduled_retirement_year = $request->input('scheduled_retirement_year');
+        $asset->save();
 
         # Redirect the user to the page to view the asset
-        return redirect('/asset/'.$asset->$id)->with('alert', 'Your asset was added.');
+        return redirect('/asset/'.$asset->id)->with('alert', 'Your asset was added.');
     }
 }
