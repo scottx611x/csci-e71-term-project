@@ -35,7 +35,7 @@ class RoutesTest extends TestCase
         $this->assertRouteWorks('/asset/create/');
     }
 
-    public function testCreateNewAssetRedirectsWithInvalidPost()
+    public function testCreateNewAssetRedirectsWithInvalidPostAndDatabaseUnchanged()
     {
         // TODO: Ask Sri about this behavior
         $initialCount = Asset::count();
@@ -44,10 +44,10 @@ class RoutesTest extends TestCase
         $this->assertEquals($initialCount, Asset::count());
     }
 
-    public function testCreateNewAssetRedirectsWithValidPost()
+    public function testCreateNewAssetInsertsItemAndRedirectsWithValidPost()
     {
-        // TODO: Ask Sri about this behavior
         $initialCount = Asset::count();
+        $id = Asset::count() + 1;
         $response = $this->post(
             '/asset', 
             [
@@ -63,9 +63,23 @@ class RoutesTest extends TestCase
                 'scheduled_retirement_year' => 2020
             ]
         );
-        $response->assertRedirect('/asset/'.($initialCount + 1));
-        $this->assertEquals($initialCount + 1, Asset::count());
+        $response->assertRedirect('/asset/'.$id);
+        $this->assertEquals($id, Asset::count());
+
+        $savedAsset = Asset::findOrFail($id);
+
+        $this->assertEquals('Mr. Bradley', $savedAsset->owner);
+        $this->assertEquals('Cool Asset', $savedAsset->description);
+        $this->assertEquals(100, $savedAsset->purchase_price);
+        $this->assertEquals('2017-11-17', $savedAsset->purchase_date);
+        $this->assertEquals('9wyf897t23r87t2', $savedAsset->serial_number);
+        $this->assertEquals(36, $savedAsset->estimated_life_months);
+        $this->assertEquals('abc', $savedAsset->assigned_to);
+        $this->assertEquals('2017-11-17', $savedAsset->assigned_date);
+        $this->assertEquals('JAFUfE', $savedAsset->tag);
+        $this->assertEquals(2020, $savedAsset->scheduled_retirement_year);    
     }
+
     
     /** Future tests **/
 
