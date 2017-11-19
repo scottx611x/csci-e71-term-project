@@ -31,10 +31,8 @@ class AssetController extends Controller
         return view('asset.create');
     }
 
-    // Process the form for adding a new asset
-    public function store(Request $request)
-    {
-        $this->validate($request, [
+    private function validateAsset($requestData) {
+        $this->validate($requestData, [
             'owner' => 'required|max:50',
             'description' => 'required|max:50',
             'purchase_price' => 'required|numeric',
@@ -46,19 +44,29 @@ class AssetController extends Controller
             'tag' => 'required|alphanum|max:20',
             'scheduled_retirement_year' => 'required|numeric'
         ]);
-
+    }
+    private function createAsset($requestData)
+    {
         $asset = new Asset();
-        $asset->owner = $request->input('owner');
-        $asset->description = $request->input('description');
-        $asset->purchase_price = $request->input('purchase_price');
-        $asset->purchase_date = $request->input('purchase_date');
-        $asset->serial_number = $request->input('serial_number');
-        $asset->estimated_life_months = $request->input('estimated_life_months');
-        $asset->assigned_to = $request->input('assigned_to');
-        $asset->assigned_date = $request->input('assigned_date');
-        $asset->tag = $request->input('tag');
-        $asset->scheduled_retirement_year = $request->input('scheduled_retirement_year');
+        $asset->owner = $requestData->input('owner');
+        $asset->description = $requestData->input('description');
+        $asset->purchase_price = $requestData->input('purchase_price');
+        $asset->purchase_date = $requestData->input('purchase_date');
+        $asset->serial_number = $requestData->input('serial_number');
+        $asset->estimated_life_months = $requestData->input('estimated_life_months');
+        $asset->assigned_to = $requestData->input('assigned_to');
+        $asset->assigned_date = $requestData->input('assigned_date');
+        $asset->tag = $requestData->input('tag');
+        $asset->scheduled_retirement_year = $requestData->input('scheduled_retirement_year');
         $asset->save();
+
+        return $asset;
+    }
+    // Process the form for adding a new asset
+    public function store(Request $request)
+    {
+        $this->validateAsset($request);
+        $asset = $this->createAsset($request);
 
         # Redirect the user to the page to view the asset
         return redirect('/asset/'.$asset->id)->with('alert', 'Your asset was added.');
