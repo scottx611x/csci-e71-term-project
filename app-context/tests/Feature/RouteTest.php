@@ -83,44 +83,44 @@ class RoutesTest extends TestCase
     
     /** Future tests **/
 
-    // public function testAssetRepairs()
-    // {
-    //     $this->assertRouteWorks('/assetrepairs/');
-    // }
+    public function testAssetRepairs()
+    {
+        $this->assertRouteWorks('/assetrepairs/');
+    }
     
-    // public function testComputers()
-    // {
-    //     $this->assertRouteWorks('/computers/');
-    // }
+    public function testComputers()
+    {
+        $this->assertRouteWorks('/computers/');
+    }
     
-    // public function testComputerTypes()
-    // {
-    //     $this->assertRouteWorks('/computertypes/');
-    // }
+    public function testComputerTypes()
+    {
+        $this->assertRouteWorks('/computertypes/');
+    }
     
-    // public function testGroups()
-    // {
-    //     $this->assertRouteWorks('/groups/');
-    // }
+    public function testGroups()
+    {
+        $this->assertRouteWorks('/groups/');
+    }
     
-    // public function testLocations()
-    // {
-    //     $this->assertRouteWorks('/locations/');
-    // }
+    public function testLocations()
+    {
+        $this->assertRouteWorks('/locations/');
+    }
     
-    // public function testOutOfServiceCodes()
-    // {
-    //     $this->assertRouteWorks('/outofservicecodes/');
-    // }
+    public function testOutOfServiceCodes()
+    {
+        $this->assertRouteWorks('/outofservicecodes/');
+    }
 
-    // public function testVendors()
-    // {
-    //     $this->assertRouteWorks('/vendors/');
-    // }
+    public function testVendors()
+    {
+        $this->assertRouteWorks('/vendors/');
+    }
 
-    // public function testWarranties()
-    // {
-    //     $this->assertRouteWorks('/warranties/');
-    // }
+    public function testWarranties()
+    {
+        $this->assertRouteWorks('/warranties/');
+    }
 
 }
