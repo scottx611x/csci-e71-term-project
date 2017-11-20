@@ -85,3 +85,6 @@ Our major impediments have been communication, figuring out how to get set up, a
 Mobbing Video
 ---------
 https://drive.google.com/file/d/1H0U9OEZrssp668rpRPh5tOKXA-IcIFV2/view?usp=sharing
+
+Sprint 1 Backlog:
+https://github.com/scottx611x/csci-e71-term-project/milestone/2?closed=1
