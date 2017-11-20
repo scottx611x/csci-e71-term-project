@@ -96,4 +96,4 @@ We have Feature tests and Unit tests (app-context/tests). The Feature folder htt
 
 Sprint Review 11/19/17
 ----------------------
-
+We conducted our sprint review on 11/19/2017.  Our Stakeholder Mr. Bradley was present for the Sprint Review.  Using Mr. Bradley’s suggestions, we updated our product backlog.
