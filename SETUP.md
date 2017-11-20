@@ -12,7 +12,9 @@
 - `cp app-context/.env.dev app-context/.env`
 - `cd app-context`
 - Windows: in Docker Settings > Shared Drives, mark the drive letter you're running the container in as "shared".
+- `docker run --rm -v $(pwd):/app composer/composer require behat/behat behat/mink behat/mink-extension laracasts/behat-laravel-extension --dev`
 - `docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source` # PowerShell: ${PWD}
+- `docker-compose exec -T app vendor/bin/behat --init`
 - `cd ..`
 - `docker-compose up -d` # This step will take awhile the first time around
 - `docker-compose exec -T app php artisan key:generate`
