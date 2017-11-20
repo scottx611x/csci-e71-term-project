@@ -47,7 +47,7 @@ When a produt backlog item:
  
  Definition of Done
 -------------------
- * As a user, I should be able to use all features within the IE11 or Edge browsers in cloud
+ * works in the IE11 or Edge browsers in cloud
  * has tests
  * good test coverage
  * peer reviewed
@@ -89,3 +89,7 @@ https://drive.google.com/file/d/1H0U9OEZrssp668rpRPh5tOKXA-IcIFV2/view?usp=shari
 Sprint 1 Backlog:
 ---------
 https://github.com/scottx611x/csci-e71-term-project/milestone/2?closed=1
+
+Testing
+-------
+We have Feature tests and Unit tests (app-context/tests). The Feature folder is how we are staring with our BDD testing--testing large operations at a high-level (e.g. HTTP requests integrated with database handling). The Unit folder is where we are testing individual bits of code to behave as expected. As we are all getting familiar with this new framework, and understanding its full scope of testing abilities, we've become aware of aspects of code that could be conducted test-first that we didn't realize and will adapt next sprint. We are also going to test out a BDD framework for Laravel in the next sprint that allows Cucumber-like semantics for Feature tests. Test output is visible in Travis CI.
