@@ -12,13 +12,13 @@ class ComputerController extends Controller
         if (is_null($n)) {
             // Get all rows
             $result = Computer::all();
-            dump($result->toArray());
+            // dump($result->toArray());
             return;
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
         $result = Computer::where('asset_id', '=', $n)->findOrFail();;
-        dump($result->toArray());
+        // dump($result->toArray());
     }
 }

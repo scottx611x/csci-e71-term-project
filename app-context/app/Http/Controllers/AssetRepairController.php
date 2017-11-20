@@ -12,13 +12,13 @@ class AssetRepairController extends Controller
         if (is_null($n)) {
             // Get all rows
             $result = AssetRepair::all();
-            dump($result->toArray());
+            // dump($result->toArray());
             return;
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
         $result = AssetRepair::where('asset_id', '=', $n)->get();;
-        dump($result->toArray());
+        // dump($result->toArray());
     }
 }
