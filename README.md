@@ -58,8 +58,8 @@ Relative Size Estimating Activity
  
 All developers, and only developers, participated in relative size estimating. We accomplished this activity by doing a planning poker-like activity over a group video chat session
 
-Sprint 1 Planning
-=================
+Sprint 1
+========
 Velocity estimate: 14.3 (Total points / 3 sprints)
 
 Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT1.png)
@@ -71,10 +71,10 @@ Daily Scrum 11/17/17
 "Daily Scrum"s are held on M-W-F schedule
 
 What did we do since last daily scrum? 
-Scott - set up and integrated development and production environment infrastructure for all of us
-Rob - set up local development environment, created PHP UI pages, communicated with stakeholder
-Sri - set up local development environment, wired up database and basic routing
-Nick - set up local development environment, kept team on track for success
+ * Scott - set up and integrated development and production environment infrastructure for all of us
+ * Rob - set up local development environment, created PHP UI pages, communicated with stakeholder
+ * Sri - set up local development environment, wired up database and basic routing
+ * Nick - set up local development environment, kept team on track for success
 
 What will we do in next period?
 Together, we will mob to create our tests and finish the add and view pages with full functionality.
