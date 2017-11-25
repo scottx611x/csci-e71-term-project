@@ -10,7 +10,6 @@ sudo: True
 before_script:
   - cp app-context/.env.dev app-context/.env
   - pushd app-context
-  - docker run --rm -v $(pwd):/app composer/composer require behat/behat behat/mink behat/mink-extension laracasts/behat-laravel-extension --dev
   - docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source
   - popd
 
