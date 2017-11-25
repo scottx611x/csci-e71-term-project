@@ -1,11 +1,9 @@
-Feature: Asset Viewing
-  In order to make the tracking of inventory items easier
-  As a user
-  I want to be able to view these assets.
+Feature: Create Assets
+  In order keep our users happy
+  Users should be able to create new assets
 
-  Scenario: View an existing Asset
-    Given I am on the homepage
-    When I c
-    Then the url should match "/example"
-    And I should see "It works!"
-    And I should be able to do something with Laravel
+  Scenario: Create New Asset
+    Given there is a properly populated asset form
+    When I post to the asset url
+    Then I should be redirected to the newly created Asset's detail view
+    And there should be one more Asset than what existed originally
