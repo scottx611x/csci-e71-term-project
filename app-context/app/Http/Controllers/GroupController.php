@@ -12,13 +12,13 @@ class GroupController extends Controller
         if (is_null($n)) {
             // Get all rows
             $result = Group::all();
-            dump($result->toArray());
+            // dump($result->toArray());
             return;
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
         $result = Group::findOrFail($n);
-        dump($result->toArray());
+        // dump($result->toArray());
     }
 }

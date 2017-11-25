@@ -47,7 +47,7 @@ When a produt backlog item:
  
  Definition of Done
 -------------------
- * As a user, I should be able to use all features within the IE11 or Edge browsers in cloud
+ * works in the IE11 or Edge browsers in cloud
  * has tests
  * good test coverage
  * peer reviewed
@@ -58,8 +58,8 @@ Relative Size Estimating Activity
  
 All developers, and only developers, participated in relative size estimating. We accomplished this activity by doing a planning poker-like activity over a group video chat session
 
-Sprint 1 Planning
-=================
+Sprint 1
+========
 Velocity estimate: 14.3 (Total points / 3 sprints)
 
 Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT1.png)
@@ -71,10 +71,10 @@ Daily Scrum 11/17/17
 "Daily Scrum"s are held on M-W-F schedule
 
 What did we do since last daily scrum? 
-Scott - set up and integrated development and production environment infrastructure for all of us
-Rob - set up local development environment, created PHP UI pages, communicated with stakeholder
-Sri - set up local development environment, wired up database and basic routing
-Nick - set up local development environment, kept team on track for success
+ * Scott - set up and integrated development and production environment infrastructure for all of us
+ * Rob - set up local development environment, created PHP UI pages, communicated with stakeholder
+ * Sri - set up local development environment, wired up database and basic routing
+ * Nick - set up local development environment, kept team on track for success
 
 What will we do in next period?
 Together, we will mob to create our tests and finish the add and view pages with full functionality.
@@ -85,3 +85,15 @@ Our major impediments have been communication, figuring out how to get set up, a
 Mobbing Video
 ---------
 https://drive.google.com/file/d/1H0U9OEZrssp668rpRPh5tOKXA-IcIFV2/view?usp=sharing
+
+Sprint 1 Backlog:
+---------
+https://github.com/scottx611x/csci-e71-term-project/milestone/2?closed=1
+
+Testing
+-------
+We have Feature tests and Unit tests (app-context/tests). The Feature folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Feature is how we are staring with our BDD testing--testing large operations at a high-level (e.g. HTTP requests integrated with database handling). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. As we are all getting familiar with this new framework, and understanding its full scope of testing abilities, we've become aware of aspects of code that could be conducted test-first that we didn't realize and will adapt next sprint. We are also going to test out a BDD framework for Laravel in the next sprint that allows Cucumber-like semantics for Feature tests. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
+
+Sprint Review 11/19/17
+----------------------
+We conducted our sprint review on 11/19/2017.  Our Stakeholder Mr. Bradley was present for the Sprint Review.  Using Mr. Bradley’s suggestions, we updated our product backlog.
