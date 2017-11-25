@@ -31,7 +31,10 @@
  - `docker-compose down`
 
 ### Running Tests:
-- `docker-compose exec -T app vendor/bin/phpunit`
+    - **Unit tests:**
+        - `docker-compose exec -T app vendor/bin/phpunit`
+    - **BDD tests:**
+        - `docker-compose exec -T app vendor/bin/behat`
 
 ### If DB schema changes:
 ```
