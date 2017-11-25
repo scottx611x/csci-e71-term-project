@@ -4,3 +4,12 @@ default:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
             default_session: laravel
             laravel: ~
+        LeanPHP\Behat\CodeCoverage\Extension:
+          auth:       ~
+          drivers:
+            - local
+          filter:     ~
+          report:
+            format:   html
+            options:
+              target: build/behat-coverage
