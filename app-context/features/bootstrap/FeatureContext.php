@@ -18,10 +18,11 @@ use Tests\TestCase;
  */
 class TestCaseContext extends TestCase {
     public function setUp(){
-        TestCase::setUp();
+        parent::setUp();
     }
+
     public function postData($uri, $data){
-        return TestCase::post($uri, $data);;
+        return parent::post($uri, $data);;
     }
 }
 
