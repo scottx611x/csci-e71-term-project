@@ -63,7 +63,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     }
 
     /**
-     * @When I post to the :arg1 url
+     * @When I post to the asset url
      */
     public function iPostToTheAssetUrl()
     {
