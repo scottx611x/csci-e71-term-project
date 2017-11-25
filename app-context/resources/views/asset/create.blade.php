@@ -22,8 +22,8 @@
             @endif
 
 
-    <form method='POST' action='/asset'>
-        {{ csrf_field() }}
+             <form method='POST' action='/asset'>
+    {{ csrf_field() }}
 
     <label for='owner'>Owner</label> <input type='text' name='owner' id='owner' value='{{ old('owner') }}'> </br>
     <label for='description'>description</label> <input type='text' name='description' id='description' value='{{ old('description') }}'> </br>
