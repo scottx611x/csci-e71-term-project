@@ -39,6 +39,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
         $this->TestCase = new TestCaseContext();
         $this->TestCase->setUp();
         $this->initialAssetCount = Asset::count();
+        $this->postResponse = null;
     }
 
     /**
@@ -65,8 +66,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iPostToTheAssetUrl()
     {
-        $response = $this->TestCase->postData("/asset", $this::thereIsAProperlyPopulatedAssetForm());
-        return $response;
+        $this->postResponse = $this->TestCase->postData("/asset", $this::thereIsAProperlyPopulatedAssetForm());
     }
 
     /**
@@ -74,8 +74,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldBeRedirectedToTheNewlyCreatedAssetsDetailView()
     {
-        $this->iPostToTheAssetUrl()->assertRedirect('/asset/'.($this->initialAssetCount + 2));
-
+        $this->postResponse->assertRedirect('/asset/'.($this->initialAssetCount + 1));
     }
 
     /**
@@ -83,6 +82,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function thereShouldBeOneMoreAssetThanWhatExistedOriginally()
     {
-        return $this->TestCase->assertEquals($this->initialAssetCount + 2, Asset::count());
+        return $this->TestCase->assertEquals($this->initialAssetCount + 1, Asset::count());
     }
 }
