@@ -4,6 +4,6 @@ Feature: Create Assets
 
   Scenario: Create New Asset
     Given there is a properly populated asset form
-    When I post to the asset url
+    When I post to the Asset url
     Then I should be redirected to the newly created Asset's detail view
     And there should be one more Asset than what existed originally
