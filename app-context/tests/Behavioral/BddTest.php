@@ -8,6 +8,7 @@ use Tests\TestCase;
 class BehatTest extends TestCase
 {
     /**
+     * @group Behat
      * Run our Behat BDD tests through PHPUnit to be able to 
      * gather code coverage data on them
      */
