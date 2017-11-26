@@ -5,11 +5,11 @@ default:
             default_session: laravel
             laravel: ~
         LeanPHP\Behat\CodeCoverage\Extension:
-          auth:       ~
+          auth:  ~
           drivers:
             - local
-          filter:     ~
+          filter: ~
           report:
-            format:   html
+            format: html
             options:
               target: build/behat-coverage
