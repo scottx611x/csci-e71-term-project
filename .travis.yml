@@ -23,7 +23,6 @@ before_script:
 
 script:
   - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
-  - docker-compose exec -T app vendor/bin/behat
 
 after_success:
   - pushd app-context
