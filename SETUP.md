@@ -30,7 +30,12 @@
  - `docker-compose down`
 
 ### Running Tests:
-- `docker-compose exec -T app vendor/bin/phpunit`
+    - **Unit tests:**
+        - `docker-compose exec -T app vendor/bin/phpunit --exclude-group Behat`
+    - **BDD tests:**
+        - `docker-compose exec -T app vendor/bin/behat`
+    - **All tests:**
+        - `docker-compose exec -T app vendor/bin/phpunit`
 
 ### If DB schema changes:
 ```
