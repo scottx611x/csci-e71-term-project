@@ -34,7 +34,7 @@ deploy:
   secret_access_key:
     secure: "$SECRETACCESSKEY"
   region: "us-west-1c"  
-  app: "alpineacademy-assets"
+  app: "Alpine Academy"
   env: "alpineAcademy-env"
   bucket_name: "arn:aws:s3:::elasticbeanstalk-us-west-1-970407962922"
   on:
