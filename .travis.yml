@@ -34,7 +34,7 @@ deploy:
   access_key_id: $ACCESSKEYID
   secret_access_key:
     secure: "$SECRETACCESSKEY"
-  region: "us-west-1c"  
+  region: "us-west-1"  
   app: "alpineacademy-assets"
   env: "alpineAcademy-env"
   bucket_name: "arn:aws:s3:::elasticbeanstalk-us-west-1-970407962922"
