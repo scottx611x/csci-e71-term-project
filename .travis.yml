@@ -28,6 +28,7 @@ after_success:
   - pushd app-context
   - bash <(curl -s https://codecov.io/bash)
   - popd
+  #DEPLOY DOCKER TO AWS
 deploy:
   provider: elasticbeanstalk
   access_key_id: $ACCESSKEYID
