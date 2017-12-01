@@ -31,6 +31,9 @@ after_success:
   #DEPLOY DOCKER TO AWS
 deploy:
   provider: elasticbeanstalk
+  edge: true
+    skip_cleanup: true
+    zip-file: 'aws/s3/ebs.zip'
   access_key_id: $ACCESSKEYID
   secret_access_key:
     secure: "$SECRETACCESSKEY"
