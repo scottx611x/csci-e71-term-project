@@ -16,8 +16,18 @@ use Tests\Unit\AssetDatabaseTest;
  * Defines application features from the specific context.
  */
 class TestCaseContext extends TestCase {
+    public function setUp(){
+        parent::setUp();
+    }
+
     public function postData($uri, $data){
-        return parent::post($uri, $data);
+        return parent::post($uri, $data);;
+    }
+}
+
+class AssetDatabaseTestContext extends AssetDatabaseTest {
+    public function setUp(){
+        parent::setUp();
     }
 }
 
@@ -33,7 +43,11 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     public function __construct()
     {   
         $this->TestCase = new TestCaseContext();
-        $this->AssetDatabaseTest = new AssetDatabaseTest();
+        $this->TestCase->setUp();
+
+        $this->AssetDatabaseTest = new AssetDatabaseTestContext();
+        $this->AssetDatabaseTest->setup();
+
         $this->initialAssetCount = Asset::count();
         $this->assetPostResponse = null;
     }
