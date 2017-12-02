@@ -1,32 +1,34 @@
 @extends('layouts.master')
 
 @section('title')
-New Asset
+Edit Asset
 @endsection
 
 
 @section('content')
-<section >
+<section>
     <div class="container">
         <div class="row justify-content-center">
             <h2>
-                Add Asset
+                Edit Asset
             </h2>
         </div>
-        <form method='POST' action='/asset'>
+        <form method='POST' action='/asset/{{ $result->id }}'>
+            {{ method_field('put') }}
             {{ csrf_field() }}
 
             @include('asset.form');
 
             <div class="row justify-content-center">
                 <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Add</button>
+                    <div >
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a class="btn btn-secondary" href="{{ URL::to('asset/'. $result->id.'') }}">Cancel</a>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-</div>
 </section>
+
 @endsection

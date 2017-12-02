@@ -20,9 +20,9 @@ class CreateAssetRepairsTable extends Migration
             $table->decimal('repair_cost', 10, 2);
             $table->text('notes');
 
-            $table->index(["asset_id"], 'fk_asset_id_idx');
+            $table->index(["asset_id"], 'fk_asset_id_idx_from_asset_repairs');
 
-            $table->foreign('asset_id', 'fk_asset_id_idx')
+            $table->foreign('asset_id', 'fk_asset_id_idx_from_asset_repairs')
             ->references('id')->on('assets')
             ->onDelete('no action')
             ->onUpdate('no action');
