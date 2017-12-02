@@ -4,27 +4,3 @@ default:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
             default_session: laravel
             laravel: ~
-        LeanPHP\Behat\CodeCoverage\Extension:
-            auth:       ~
-            drivers:
-              - local
-            filter:
-              forceCoversAnnotation:                true
-              mapTestClassNameToCoveredClassName:   true
-              whitelist:
-                addUncoveredFilesFromWhitelist:     true
-                processUncoveredFilesFromWhitelist: true
-                include:
-                  directories:
-                    'src':
-                      prefix: 'src'
-                    'tests':
-                      prefix: 'src'
-                exclude:
-                  directories:
-                    'vendor':
-                      prefix: 'vendor'
-            report:
-              format:   html
-              options:
-                target: build/behat-coverage
