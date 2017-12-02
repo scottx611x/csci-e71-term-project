@@ -36,6 +36,7 @@ class AssetDatabaseTest extends TestCase
         $asset->is_out_of_service = true;
         $asset->out_of_service_id = 1;
         $asset->out_of_service_date = "2020-11-17";
+        $asset->is_computer = true;
         $asset->memory = "4GB";
         $asset->model = "Cool Model";
         $asset->operating_system = "Ubuntu 16.04 LTS";

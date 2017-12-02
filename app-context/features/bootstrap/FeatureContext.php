@@ -65,7 +65,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iPostToTheAssetUrl()
     {
-        $this->assetPostResponse = $this->TestCase->postData("/asset", $this::thereIsAProperlyPopulatedAssetForm());
+        $this->assetPostResponse = $this->TestCase->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
     }
 
     /**
