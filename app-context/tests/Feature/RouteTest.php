@@ -7,7 +7,7 @@ use Tests\TestCase;
 use Tests\Unit\AssetDatabaseTest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class RoutesTest extends AssetDatabaseTest
+class RoutesTest extends TestCase
 {
 
     public function assertRouteWorks($routeName, $detailView = True)
@@ -48,9 +48,10 @@ class RoutesTest extends AssetDatabaseTest
     public function testCreateNewAssetInsertsItemAndRedirectsWithValidPost()
     {
         $initialCount = Asset::count();
-        $id = Asset::count() + 1;
+        $id = $initialCount + 1;
 
         $response = $this->post('/asset', $this->createTestAssetAsJSON());
+       
         $response->assertRedirect('/asset/'.$id);
         $this->assertEquals($id, Asset::count());
 
@@ -70,6 +71,7 @@ class RoutesTest extends AssetDatabaseTest
 
     public function testEditNonExistantAssetRedirectsToAssetListing()
     {
+
         $response = $this->get('/asset/999999999999999999999999/edit/');
         $response->assertRedirect('/asset');
     }
@@ -107,25 +109,13 @@ class RoutesTest extends AssetDatabaseTest
 
     public function testDeleteNonExistantAssetRedirectsToAssetListing()
     {
+        $initialCount = Asset::count();
+
         $response = $this->get('/asset/999999999999999999999999/delete/');
         $response->assertRedirect('/asset');
+
+        $this->assertEquals($initialCount, Asset::count());
     }
-
-    // public function testDeleteExistingAsset()
-    // {
-    //     $assetAsJSON = $this->createTestAssetAsJSON();
-    //     $initialCount = Asset::count();
-    //     $id = $initialCount + 1;
-    //     $response = $this->post('/asset', $assetAsJSON);
-    //     $this->assertEquals($id, Asset::count());
-
-    //     $savedAsset = Asset::findOrFail($id);
-
-    //     $response = $this->get('/asset/'.$savedAsset->id.'/delete/');
-    //     $response->assertRedirect('/');
-        
-    //     $this->assertEquals(Asset::count(), $initialCount);
-    // }
     
     /** Future tests **/
 

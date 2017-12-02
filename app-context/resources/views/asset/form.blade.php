@@ -1,5 +1,5 @@
 <div class="form-group has-success row">
-    <label for="owner" class="col-sm-2 col-form-label">Owner</label>
+    <label for="owner" class="col-sm-2 col-form-label">Owner*</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" name="owner" id="owner" value='{{ old('owner', $result->owner) }}' maxlength="50" placeholder="Owner">
         @if($errors->get('owner'))
@@ -25,7 +25,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="purchase_price" class="col-sm-2 col-form-label">Purchase Price</label>
+    <label for="purchase_price" class="col-sm-2 col-form-label">Purchase Price*</label>
     <div class="col-sm-10">
         <input type="number" step="0.01" class="form-control" name="purchase_price" id="purchase_price" value='{{ old('purchase_price', $result->purchase_price) }}' placeholder="Purchase Price">
         @if($errors->get('purchase_price'))
@@ -38,7 +38,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="purchase_date" class="col-sm-2 col-form-label">Purchase Date</label>
+    <label for="purchase_date" class="col-sm-2 col-form-label">Purchase Date*</label>
     <div class="col-sm-10">
         <input type="date" step="0.01" class="form-control" name="purchase_date" id="purchase_date" value='{{ old('purchase_date', $result->purchase_date) }}' placeholder="Purchase Date">
         @if($errors->get('purchase_date'))
@@ -51,7 +51,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="serial_number" class="col-sm-2 col-form-label">Serial Number</label>
+    <label for="serial_number" class="col-sm-2 col-form-label">Serial Number*</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" name="serial_number" id="serial_number" value='{{ old('serial_number', $result->serial_number) }}' maxlength="50" placeholder="Serial Number">
         @if($errors->get('serial_number'))
@@ -77,7 +77,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="estimated_life_months" class="col-sm-2 col-form-label">Estimated life (months)</label>
+    <label for="estimated_life_months" class="col-sm-2 col-form-label">Estimated life (months)*</label>
     <div class="col-sm-10">
         <input type="number" class="form-control" name="estimated_life_months" id="estimated_life_months" value='{{ old('estimated_life_months', $result->estimated_life_months) }}' placeholder="Estimated life (months)">
         @if($errors->get('estimated_life_months'))
@@ -90,7 +90,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="assigned_to" class="col-sm-2 col-form-label">Assigned To</label>
+    <label for="assigned_to" class="col-sm-2 col-form-label">Assigned To*</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" name="assigned_to" id="assigned_to" value='{{ old('assigned_to', $result->assigned_to) }}' maxlength="30" placeholder="Assigned To">
         @if($errors->get('assigned_to'))
@@ -103,7 +103,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="assigned_date" class="col-sm-2 col-form-label">Assigned Date</label>
+    <label for="assigned_date" class="col-sm-2 col-form-label">Assigned Date*</label>
     <div class="col-sm-10">
         <input type="date" class="form-control" name="assigned_date" id="assigned_date" value='{{ old('assigned_date', $result->assigned_date) }}' placeholder="Assigned Date">
         @if($errors->get('assigned_date'))
@@ -116,7 +116,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="tag" class="col-sm-2 col-form-label">Tag</label>
+    <label for="tag" class="col-sm-2 col-form-label">Tag*</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" name="tag" id="tag" value='{{ old('tag', $result->tag) }}' maxlength="10" placeholder="Tag">
         @if($errors->get('tag'))
@@ -129,7 +129,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="assigned_date" class="col-sm-2 col-form-label">Scheduled Retirement Year</label>
+    <label for="assigned_date" class="col-sm-2 col-form-label">Scheduled Retirement Year*</label>
     <div class="col-sm-10">
         <input type="number" class="form-control"  min="2017" max="9999" name='scheduled_retirement_year' id="scheduled_retirement_year" value='{{ old('scheduled_retirement_year', $result->scheduled_retirement_year) }}' placeholder="Scheduled Retirement Year">
         @if($errors->get('scheduled_retirement_year'))
@@ -142,7 +142,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="group_id" class="col-sm-2 col-form-label">Group</label>
+    <label for="group_id" class="col-sm-2 col-form-label">Group*</label>
     <div class="col-sm-10">
         <select name="group_id">
             <option value="" selected="selected" disabled="disabled">Please choose one</option>
@@ -162,7 +162,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="location_id" class="col-sm-2 col-form-label">Location</label>
+    <label for="location_id" class="col-sm-2 col-form-label">Location*</label>
     <div class="col-sm-10">
         <select name="location_id">
             <option value="" selected="selected" disabled="disabled">Please choose one</option>
@@ -182,7 +182,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="warranty_id" class="col-sm-2 col-form-label">Warranty</label>
+    <label for="warranty_id" class="col-sm-2 col-form-label">Warranty*</label>
     <div class="col-sm-10">
         <select name="warranty_id">
             <option value="" selected="selected" disabled="disabled">Please choose one</option>
@@ -202,7 +202,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="vendor_id" class="col-sm-2 col-form-label">Vendor</label>
+    <label for="vendor_id" class="col-sm-2 col-form-label">Vendor*</label>
     <div class="col-sm-10">
         <select name="vendor_id">
             <option value="" selected="selected" disabled="disabled">Please choose one</option>
@@ -238,7 +238,7 @@
         </div>
     </div>
 </div>
-<div  style="display: block;" id="outofservice_form">
+<div  style="display: block; padding: 20px; background-color: lightgray;" id="outofservice_form">
     <fieldset class="form-group">
         <legend>Out Of Service Details</legend>
         <div class="form-group row">
@@ -293,9 +293,29 @@
         </div>
     </div>
 </div>
-<div  style="display: block;" id="computer_form">
+<div  style="display: block; padding: 20px; background-color: lightgray;" id="computer_form">
     <fieldset class="form-group">
         <legend>Computer Details</legend>
+        <div class="form-group row">
+            <label for="computer_type_id" class="col-sm-2 col-form-label">Computer Type</label>
+            <div class="col-sm-10">
+                <select name="computer_type_id">
+                    <option value="" selected="selected" disabled="disabled">Please choose one</option>
+                    @if ($computerTypesForDropDown->count())
+                    @foreach($computerTypesForDropDown as $key => $val)
+                    <option value="{{ $key }}" {{ old('computer_type_id', isset($result->computer->computer_type_id) ? $result->computer->computer_type_id : "") == $key ? 'selected="selected"' : '' }}>{{ $val }}</option>
+                    @endforeach
+                    @endif
+                </select>
+                @if($errors->get('computer_type_id'))
+                <ul class="alert alert-danger" role="alert">
+                    @foreach($errors->get('computer_type_id') as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
+            </div>
+        </div>
         <div class="form-group row">
             <label for="memory" class="col-sm-2 col-form-label">Memory</label>
             <div class="col-sm-10">

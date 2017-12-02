@@ -10,6 +10,7 @@ use App\Location;
 use App\Vendor;
 use App\Warranty;
 use App\OutOfServiceCode;
+use App\ComputerType;
 
 class AssetController extends Controller
 {
@@ -53,6 +54,10 @@ class AssetController extends Controller
         $outOfServiceCodesForDropDown = $outOfServiceCodes->pluck('reason','id');
         $outOfServiceCodesForDropDown->all();
 
+        $computerTypes = ComputerType::orderBy('description', 'ASC')->get();
+        $computerTypesForDropDown = $computerTypes->pluck('description','id');
+        $computerTypesForDropDown->all();
+
         return view('asset.create')->with([
             'result' => $result,
             'groupsForDropDown' => $groupsForDropDown,
@@ -60,7 +65,7 @@ class AssetController extends Controller
             'vendorsForDropDown' => $vendorsForDropDown,
             'warrantiesForDropDown' => $warrantiesForDropDown,
             'outOfServiceCodesForDropDown' => $outOfServiceCodesForDropDown,
-
+            'computerTypesForDropDown' => $computerTypesForDropDown,
         ]);
     }
 
@@ -95,6 +100,7 @@ class AssetController extends Controller
 
         if ($request->has('is_computer')) {
             $this->validate($request, [
+                'computer_type_id' => 'required|numeric',
                 'memory' => 'required|max:30',
                 'model' => 'required|max:30',
                 'operating_system' => 'required|max:30',
@@ -167,6 +173,10 @@ class AssetController extends Controller
         $outOfServiceCodesForDropDown = $outOfServiceCodes->pluck('reason','id');
         $outOfServiceCodesForDropDown->all();
 
+        $computerTypes = ComputerType::orderBy('description', 'ASC')->get();
+        $computerTypesForDropDown = $computerTypes->pluck('description','id');
+        $computerTypesForDropDown->all();
+
         return view('asset.edit')->with([
             'result' => $result,
             'groupsForDropDown' => $groupsForDropDown,
@@ -174,7 +184,7 @@ class AssetController extends Controller
             'vendorsForDropDown' => $vendorsForDropDown,
             'warrantiesForDropDown' => $warrantiesForDropDown,
             'outOfServiceCodesForDropDown' => $outOfServiceCodesForDropDown,
-
+            'computerTypesForDropDown' => $computerTypesForDropDown,
         ]);
     }
 
@@ -208,6 +218,7 @@ class AssetController extends Controller
 
         if ($request->has('is_computer')) {
             $this->validate($request, [
+                'computer_type_id' => 'required|numeric',
                 'memory' => 'required|max:30',
                 'model' => 'required|max:30',
                 'operating_system' => 'required|max:30',
@@ -251,7 +262,7 @@ class AssetController extends Controller
         if ($asset->is_computer) {
             $computer = new Computer();
             $computer->asset_id = $asset->id;
-            $computer->computer_type_id = 1;
+            $computer->computer_type_id = $request->input('computer_type_id');
             $computer->memory = $request->input('memory');
             $computer->model = $request->input('model');
             $computer->operating_system = $request->input('operating_system');

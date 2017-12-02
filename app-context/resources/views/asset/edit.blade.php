@@ -17,7 +17,7 @@ Edit Asset
             {{ method_field('put') }}
             {{ csrf_field() }}
 
-            @include('asset.form');
+            @include('asset.form')
 
             <div class="row justify-content-center">
                 <div class="form-group row">

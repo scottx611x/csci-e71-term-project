@@ -16,7 +16,7 @@ New Asset
         <form method='POST' action='/asset'>
             {{ csrf_field() }}
 
-            @include('asset.form');
+            @include('asset.form')
 
             <div class="row justify-content-center">
                 <div class="form-group row">
