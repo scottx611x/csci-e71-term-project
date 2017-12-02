@@ -23,10 +23,19 @@ class CreateComputersTable extends Migration
             $table->string('operating_system', 30);
             $table->string('mac_address', 30);
 
+            $table->primary('asset_id');
+
             $table->index(["computer_type_id"], 'fk_computer_type_id_idx');
 
             $table->foreign('computer_type_id', 'fk_computer_type_id_idx')
             ->references('id')->on('computer_types')
+            ->onDelete('no action')
+            ->onUpdate('no action');
+
+            $table->index(["asset_id"], 'fk_asset_id_idx_from_computer_types');
+
+            $table->foreign('asset_id', 'fk_asset_id_idx_from_computer_types')
+            ->references('id')->on('assets')
             ->onDelete('no action')
             ->onUpdate('no action');
         });

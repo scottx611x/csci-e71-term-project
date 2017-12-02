@@ -13,7 +13,7 @@ class VendorsTableSeeder extends Seeder
     public function run()
     {
         $records = [
-            [
+            [   1,
                 "Ap #440-2284 Odio St.",
                 "3377 Ullamcorper. Av.",
                 "Great Falls",
@@ -25,6 +25,7 @@ class VendorsTableSeeder extends Seeder
                 "(980) 726-0405"
             ],
             [
+                2,
                 "P.O. Box 823, 1707 Metus. Rd.",
                 null,
                 "Allentown",
@@ -36,6 +37,7 @@ class VendorsTableSeeder extends Seeder
                 "(341) 796-9100"
             ],
             [
+                3,
                 "751-4882 Tellus. St.",
                 "167-4587 Justo. Avenue",
                 "Indianapolis",
@@ -47,6 +49,7 @@ class VendorsTableSeeder extends Seeder
                 "(603) 253-8954"
             ],
             [
+                4,
                 "Ap #166-4086 Maecenas Rd.",
                 "303-4747 Amet Av.",
                 "New Haven",
@@ -58,6 +61,7 @@ class VendorsTableSeeder extends Seeder
                 "(481) 872-5591"
             ],
             [
+                5,
                 "Ap #523-2084 Duis St.",
                 "687-4537 Integer Rd.",
                 "Erie",
@@ -69,6 +73,7 @@ class VendorsTableSeeder extends Seeder
                 null
             ],
             [
+                6,
                 "724-2564 Phasellus Ave",
                 "P.O. Box 890, 1577 Pede Rd.",
                 "Great Falls",
@@ -80,6 +85,7 @@ class VendorsTableSeeder extends Seeder
                 "(962) 151-4919"
             ],
             [
+                7,
                 "Ap #833-595 Lorem Road",
                 "826-9364 Tincidunt Av.",
                 "Hilo",
@@ -91,6 +97,7 @@ class VendorsTableSeeder extends Seeder
                 "(780) 990-3800"
             ],
             [
+                8,
                 "P.O. Box 556, 7165 Elit. Road",
                 "446-7082 Nullam Street",
                 "Fort Wayne",
@@ -102,6 +109,7 @@ class VendorsTableSeeder extends Seeder
                 "(597) 558-1295"
             ],
             [
+                9,
                 "P.O. Box 330, 7980 Montes, Road",
                 "P.O. Box 728, 2427 Placerat Road",
                 "Fort Collins",
@@ -113,6 +121,7 @@ class VendorsTableSeeder extends Seeder
                 "(325) 705-8887"
             ],
             [
+                10,
                 "759-185 Pellentesque Street",
                 "Ap #611-9352 Aenean St.",
                 "Richmond",
@@ -131,15 +140,16 @@ class VendorsTableSeeder extends Seeder
             Vendor::insert([
                 'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
-                'address1' => $record[0],
-                'address2' => $record[1],
-                'city' => $record[2],
-                'state' => $record[3],
-                'zip' => $record[4],
-                'company' => $record[5],
-                'email' => $record[6],
-                'phone' => $record[7],
-                'fax' => $record[8]
+                'id' => $record[0],
+                'address1' => $record[1],
+                'address2' => $record[2],
+                'city' => $record[3],
+                'state' => $record[4],
+                'zip' => $record[5],
+                'company' => $record[6],
+                'email' => $record[7],
+                'phone' => $record[8],
+                'fax' => $record[9]
             ]);
             $count--;
         }

@@ -28,23 +28,24 @@ after_success:
   - pushd app-context
   - bash <(curl -s https://codecov.io/bash)
   - popd
-  #DEPLOY DOCKER TO AWS
-deploy:
-  provider: elasticbeanstalk
-  edge: true
-    skip_cleanup: true
-    zip-file: 'aws/s3/ebs.zip'
-  access_key_id: $ACCESSKEYID
-  secret_access_key:
-    secure: "$SECRETACCESSKEY"
 
-  region: "us-west-1"  
-  app: "Alpine Academy"
+# #DEPLOY DOCKER TO AWS
+# deploy:
+#   provider: elasticbeanstalk
+#   edge: true
+#     skip_cleanup: true
+#     zip-file: 'aws/s3/ebs.zip'
+#   access_key_id: $ACCESSKEYID
+#   secret_access_key:
+#     secure: "$SECRETACCESSKEY"
 
-  env: "alpineAcademy-env"
-  bucket_name: "arn:aws:s3:::elasticbeanstalk-us-west-1-970407962922"
-  on:
-    branch: master
+#   region: "us-west-1"  
+#   app: "Alpine Academy"
+
+#   env: "alpineAcademy-env"
+#   bucket_name: "arn:aws:s3:::elasticbeanstalk-us-west-1-970407962922"
+#   on:
+#     branch: master
 notifications:
   on_success: never
   slack:
