@@ -129,7 +129,7 @@ class AssetController extends Controller
         $asset->save();
 
         # Redirect the user to the page to view the asset
-        return redirect('/asset/'.$asset->id)->with('alert', 'Asset '.$id.' was Added.');
+        return redirect('/asset/'.$asset->id)->with('alert', 'Asset '.$asset->id.' was Added.');
     }
 
     public function edit($id)
