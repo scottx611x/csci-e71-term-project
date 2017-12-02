@@ -10,17 +10,14 @@ use Behat\MinkExtension\Context\MinkContext;
 
 use App\Asset;
 use Tests\TestCase;
+use Tests\Unit\AssetDatabaseTest;
 
 /**
  * Defines application features from the specific context.
  */
 class TestCaseContext extends TestCase {
-    public function setUp(){
-        parent::setUp();
-    }
-
     public function postData($uri, $data){
-        return parent::post($uri, $data);;
+        return parent::post($uri, $data);
     }
 }
 
@@ -36,7 +33,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     public function __construct()
     {   
         $this->TestCase = new TestCaseContext();
-        $this->TestCase->setUp();
+        $this->AssetDatabaseTest = new AssetDatabaseTest();
         $this->initialAssetCount = Asset::count();
         $this->assetPostResponse = null;
     }
@@ -44,20 +41,9 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     /**
      * @Given there is a properly populated asset form
      */
-    public static function thereIsAProperlyPopulatedAssetForm()
-    {
-        return [
-                'owner' => 'Mr. Bradley',
-                'description' => 'Cool Asset',
-                'purchase_price' => 100,
-                'purchase_date' => '2017-11-17',
-                'serial_number' => '9wyf897t23r87t2',
-                'estimated_life_months' => 36,
-                'assigned_to' => 'abc',
-                'assigned_date' => '2017-11-17',
-                'tag' => 'JAFUfE',
-                'scheduled_retirement_year' => 2020
-            ];
+    public function thereIsAProperlyPopulatedAssetForm()
+    {   
+        return $this->AssetDatabaseTest->createTestAssetAsJSON();
     }
 
     /**
