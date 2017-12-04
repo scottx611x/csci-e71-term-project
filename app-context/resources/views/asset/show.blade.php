@@ -6,58 +6,74 @@ View Asset
 
 
 @section('content')
-<section class="engine"><a href="/">bootstrap modal popup</a></section><section class="mbr-section form1 cid-qAUFMxQIkB" id="form1-3" data-rv-view="44">
+
+<section >
     <div class="container">
-        <div class="row justify-content-center">
-            @if (count($result)===1)
-                <div class="title col-12 col-lg-12 col-xl-12">
-                    <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-                        View Asset
-                    </h2>
-                    <h6 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-                    <p>id: {{$result->id}}</p>
-                    <p>owner: {{$result->owner}}</p>
-                    <p>description: {{$result->description}}</p>
-                    <p>purchase_price: {{$result->purchase_price}}</p>
-                    <p>purchase_date: {{$result->purchase_date}}</p>
-                    <p>serial_number: {{$result->serial_number}}</p>
-                    <p>estimated_life_months: {{$result->estimated_life_months}}</p>
-                    <p>assigned_to: {{$result->assigned_to}}</p>
-                    <p>assigned_date: {{$result->assigned_date}}</p>
-                    <p>tag: {{$result->tag}}</p>
-                    <p>scheduled_retirement_year: {{$result->scheduled_retirement_year}}</p>
-                </div>
+        @if (count($result)===1)
+        <div>
+            <div class="row justify-content-center">
+                <h2>
+                    View Asset
+                </h2>
+            </div>
+            <a class="btn btn-warning" href="{{ URL::to('asset/'. $result->id.'/edit') }}">Edit</a>
+            <a class="btn btn-danger" href="{{ URL::to('asset/'. $result->id.'/delete') }}">Delete</a>
+            @if (count($result->assetrepairs)>=1)
+            <div class="row">
+                <p class="bg-primary text-white">This asset has {{ count($result->assetrepairs) }} repairs<a class="btn btn-info" href="{{ URL::to('assetrepairs/'. $result->id) }}" target="_blank">View Repairs</a></p>
+            </div>
             @endif
-            @if (count($result)>1)
-                <div class="title col-12 col-lg-12 col-xl-12">
-                    <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-                        View Assets
-                    </h2>
-                        <h6 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-12">
-                            <table>
-                                @foreach ($result as $rec)
-                                    <tr>
-                                        @foreach($rec->toArray() as $key => $value)
-                                            <th>{{ $key }}</th>
-                                            @endforeach
-                                        </tr>
-                                        @break
-                                @endforeach
-                                @foreach ($result as $rec)
-                                    <tr>
-                                        @foreach($rec->toArray() as $key => $value)
-                                            @if ($key=='id')
-                                                <td><a href="./{{$value}}">{{$value}}</a></td>
-                                            @else
-                                                <td>{{ $value }}</td>
-                                            @endif
-                                        @endforeach
-                                    </tr>
-                                @endforeach
-                            </table>
+            <dl class="row">
+                @foreach($result->toArray() as $key => $value)
+                @if (gettype($value)!='array')
+                <dt class="col-sm-3">{{ $key }}</dt>
+                <dd class="col-sm-9">{{ $value }}</dd>
+                @endif
+                @endforeach
+            </dl>
+        </div>
+        @endif
+
+        @if (count($result)>1)
+        <div>
+            <div class="row justify-content-center">
+                <h2>
+                    View Assets
+                </h2>
+            </div>
+            <h6 >
+                <div class="table-responsive">
+                    <table class="table">
+                        @foreach ($result as $rec)
+                        <tr>
+                            <th>Details</th>
+                            @foreach($rec->toArray() as $key => $value)
+                            <th>{{ $key }}</th>
+                            @endforeach
+                        </tr>
+                        @break
+                        @endforeach
+
+                        @foreach ($result as $rec)
+                        <tr>
+                            <td><a href="{{ URL::to('asset/'. $rec->id) }}" target="_blank">View</a></td>
+                            @foreach($rec->toArray() as $key => $value)
+                            @if ($key === 'group_id')
+                                <td><a href="{{ URL::to('groups/'. $value) }}" target="_blank">{{ $value }}</a></td>
+                            @elseif ($key === 'location_id')
+                                <td><a href="{{ URL::to('locations/'. $value) }}" target="_blank">{{ $value }}</a></td>
+                            @else
+                                <td>{{ $value }}</td>
+                            @endif
+                            @endforeach
+                        </tr>
+                        @endforeach
+                    </table>
                 </div>
+            </div>
             @endif
         </div>
+
     </div>
 </section>
 @endsection
