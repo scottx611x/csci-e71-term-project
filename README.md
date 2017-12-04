@@ -135,6 +135,10 @@ Testing
 -------
 We have Behavior tests (app-context/features) and Unit tests (app-context/tests). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. The Beharior folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/features is where we are using the Gherkin-style Behat tests to test whole features of the application. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
 
+Product Increment Working Software
+----------------------------------
+http://aits.srinivasyelamanchili.me/
+
 Deployment
 ----------
 I wasn’t able to get the continuous delivery system finished.  I worked on it for three days and realized I need more experience with Docker.   I have concluded that our Docker container that we created to optimize our tests needs to be redesigned to deploy to an AWS Elastic Beanstalk Environment.  We currently have our web server and database in the same container, and they need to be separated out.  Our production environment build is continuously deploying to AWS using Travis.  After Elastic Beanstalk receives our build, it tries to create an application using Docker containers.  AWS Elastic Beanstalk is erroring out when it tries to create our build.
