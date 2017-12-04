@@ -56,7 +56,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     }
 
     /**
-     * @When I populate and submit the new asset page
+     * @Given there is a properly populated asset form
      */
     public function thereIsAProperlyPopulatedAssetForm()
     {   
@@ -64,11 +64,20 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     }
 
     /**
+     * @When I post the properly populated asset form to the asset URL
+     */
+    public function iPostTheProperlyPopulatedAssetFormToTheAssetURL()
+    {   
+        $this->assetPostResponse = $this->TestCase->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
+    }
+
+    /**
      * @Then I should be redirected to the newly created Asset's detail view
      */
     public function iShouldBeRedirectedToTheNewlyCreatedAssetsDetailView()
     {
-        $this->assetPostResponse = $this->TestCase->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
+        $id = Asset::count();
+        $this->assetPostResponse->assertRedirect("/asset/".$id);
     }
 
     /**
@@ -76,31 +85,19 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function theNewAssetShouldBeInTheDatabase()
     {
-        throw new PendingException();
+        $id = Asset::count();
+        $savedAsset = Asset::findOrFail($id);
+
+        $this->TestCase->assertEquals($this->TestCase->createTestAsset()->owner, $savedAsset->owner);
     }
 
-    /**
-     * @Then I should be returned to the form with warning
-     */
-    public function iShouldBeReturnedToTheFormWithWarning()
-    {
-        throw new PendingException();
-    }
-
-    /**
-     * @Then the database should be unchanged
-     */
-    public function theDatabaseShouldBeUnchanged()
-    {
-        throw new PendingException();
-    }
     
     /**
      * @When I visit the asset page without an id
      */
     public function iVisitTheAssetPageWithoutAnId()
     {
-        throw new PendingException();
+        $this->assetPostResponse = $this->TestCase->get("/asset/");
     }
 
     /**
@@ -108,7 +105,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldSeeATableOfAllAssets()
     {
-        throw new PendingException();
+        $this->assetPostResponse->assertSee("View Assets");
     }
 
     /**
@@ -116,7 +113,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iVisitTheAssetPageWithAnId()
     {
-        throw new PendingException();
+        $this->assetPostResponse = $this->TestCase->get("/asset/2");
     }
 
     /**
@@ -124,15 +121,15 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldSeeTheAssetsDetails()
     {
-        throw new PendingException();
+        $this->assetPostResponse->assertSee("Delete");
     }
 
-        /**
+    /**
      * @Given database has at least one asset
      */
     public function databaseHasAtLeastOneAsset()
     {
-        throw new PendingException();
+        $this->TestCase->assertTrue(Asset::count() > 0);
     }
 
     /**
@@ -140,7 +137,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iDeleteAnAsset()
     {
-        throw new PendingException();
+        $this->assetPostResponse = $this->TestCase->get("/asset/1/delete");
     }
 
     /**
@@ -148,7 +145,8 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function theAssetShouldBeRemoved()
     {
-        throw new PendingException();
+        $a = Asset::find(1);
+        $this->TestCase->assertEquals(0, $a);
     }
 
     /**
@@ -156,51 +154,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldBeReturnedToTheHomepage()
     {
-        throw new PendingException();
+        $this->assetPostResponse->assertRedirect("/");
     }
-
-
-
-    // /**
-    //  * @Given there is a properly populated asset form
-    //  */
-    // public static function thereIsAProperlyPopulatedAssetForm()
-    // {
-    //     return [
-    //             'owner' => 'Mr. Bradley',
-    //             'description' => 'Cool Asset',
-    //             'purchase_price' => 100,
-    //             'purchase_date' => '2017-11-17',
-    //             'serial_number' => '9wyf897t23r87t2',
-    //             'estimated_life_months' => 36,
-    //             'assigned_to' => 'abc',
-    //             'assigned_date' => '2017-11-17',
-    //             'tag' => 'JAFUfE',
-    //             'scheduled_retirement_year' => 2020
-    //         ];
-    // }
-
-    // /**
-    //  * @When I post to the asset url
-    //  */
-    // public function iPostToTheAssetUrl()
-    // {
-    //     $this->assetPostResponse = $this->TestCase->postData("/asset", $this::thereIsAProperlyPopulatedAssetForm());
-    // }
-
-    // /**
-    //  * @Then I should be redirected to the newly created Asset's detail view
-    //  */
-    // public function iShouldBeRedirectedToTheNewlyCreatedAssetsDetailView()
-    // {
-    //     $this->assetPostResponse->assertRedirect('/asset/'.($this->initialAssetCount + 1));
-    // }
-
-    // /**
-    //  * @Then there should be one more Asset than what existed originally
-    //  */
-    // public function thereShouldBeOneMoreAssetThanWhatExistedOriginally()
-    // {
-    //     return $this->TestCase->assertEquals($this->initialAssetCount + 1, Asset::count());
-    // }
 }
