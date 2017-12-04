@@ -13,6 +13,7 @@
                 }
             ],
             "essential": true,
+            "image": "App-Context",
             "mountPoints": [
                 {
                     "containerPath": "/var/www",
