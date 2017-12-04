@@ -13,6 +13,8 @@
                 }
             ],
             "essential": true,
+            "image": "cscie71termproject_app",
+            "memory": 128,
             "mountPoints": [
                 {
                     "containerPath": "/var/www",
@@ -59,7 +61,8 @@
         },
         {
             "essential": true,
-            "image": "alpine-web",
+            "image": "cscie71termproject_web",
+            "memory": 128,
             "name": "web",
             "portMappings": [
                 {
