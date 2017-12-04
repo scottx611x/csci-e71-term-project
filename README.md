@@ -131,6 +131,11 @@ Sprint 2 Backlog:
 ---------
 https://github.com/scottx611x/csci-e71-term-project/milestone/3?closed=1
 
+Sprint Review 12/04/17
+----------------------
+
+We conducted our sprint review on 12/04/2017. Our Stakeholder Mr. Bradley was not able to make it he had to teach classes.  Mr. Bradley sent an email with a list of current inventory items https://drive.google.com/file/d/1Uadf9LPi9kvK50A0wqMSa1nLRXAzVb54/view?usp=sharing. 
+
 Testing
 -------
 We have Behavior tests (app-context/features) and Unit tests (app-context/tests). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. The Beharior folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/features is where we are using the Gherkin-style Behat tests to test whole features of the application. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
