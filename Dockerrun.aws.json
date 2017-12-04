@@ -45,6 +45,7 @@
             ],
             "essential": true,
             "image": "mysql:5.6",
+            "memory": 128,
             "mountPoints": [
                 {
                     "containerPath": "/var/lib/mysql",
