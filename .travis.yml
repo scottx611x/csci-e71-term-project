@@ -7,6 +7,10 @@ cache:
 # Docker on Travis needs sudo
 sudo: True
 
+env:
+  global:
+  - secure: pG5QD7bTE+WSJqRKwBXH1exeGhGUAHJrT8gj4YtGS35KYnanv+G7FBZZqX91zRjW59gpJTb+J2NFTVQXqb1Ddbi/DlCq5C1ChANS9c+IwVcm1qGjZ1EDsFSB1biS9bVlRGOnQTPwEzCLOcmZ2gMF1tB9h7IIAt4oIkZXjnHiz7BTIMR2LZIreKuyc6pTBO7SRWxZC5wvKRLsn0obpISXN2gZLIdioifvnuujDdREMyzqDO+IsSGvGsGFKF3uLZ8mVSUTiftQnKfzyhzwhtTBoDB9OAdt7+MxpTudHhMgZzC1DUOjtk7yXN57V2eOj0gt7oRKARCesgTFAkjT1nGOr6eVqzuVIl95pkmUUCqr5reISw6gO3te4keNuEdrIMZR9KHJXAWq82PaXIE0Fa62KbGRvVNHA8wkuwO3DjpEjHGat9nVVgRCbTdNh/qYgIv8oTq+04IcgvmLUSXgGMu2LQn99r5XqPP/CwKopY7XOw+Jtww16KBtczSlCZdiW+SkLgJP5Wjk/iynUvwi3aPyUbTBNxUIQTqNExTW48HG3xRj3hUnskxfP7xeehTg4k0ZdZZM9xW+S8BVBGdhTb1aqX/vRnb1/oDc5HnueEUIX0Ky8EMHb7xbweBKTzCBw/Jocg5wDJQB8lRr4A8KAOcWQPHE2hvQizFkSKsTzAb2Bzo=
+  - secure: s9z4f0mh/u2JcuZttyEGPnq9TP4wS96FDmIYRncgEp+GEvmgcfhnTHgTlGUNKXtQyr1Rvm3fBGGZ36eLowF7SK9fujzsHtJtrHgJ88MDMrciQ5uijPZsBc51aNMH7Fo6ELmQ74L1sk/UW8Xbc9nNCvgPArEWJlYbAL0pLNEk1PGZW8zAbzhHmufxCrxzW8r/XtgMfwgkb2BAz9HzZDI8LB3dr2WThkfOX7TeJTtH/P3PgghRPG1BJqPvTLziM8/s7bVGd+2nekBAhyd8R42eTt6ruSKYKhiJYDOYdOjR67vMrEVywTiFYJ7bR6yHXneCQfWwSHrC7y+WxogDUjDtA5aHjtJgHeC8xCCKNFK44I0MkXmbXwb1XSKBRJr7zmyLquG2YaYZCBsExT2AOQ9HaMTncFDQszBS0IMiqeV0hC3lqRTKDDGdA+5+KGPpyFVnO2JS8oy0osmeN37sHrJCJRhQG31dksGDnAmmmPY8yEo7AMP3USTgylttRCa7/FZ1Cl3HraPCcJDZgEMv2h1u4+eBZcn2sltUJQ2L1NN2PNcMElbtum1rkQQ1KP+oV+d0o3rlbvh3Q7v8so7RRIvBz55gTSXpqIzibixHhxokFmBXhwvQDT3Muiyo6Lh2/Qipc4BcOwwFo/Y2kUBzcBVF38fSM9zRtNqnSCPIa0mc7Gg=
 before_script:
   - cp app-context/.env.dev app-context/.env
   - pushd app-context
@@ -29,6 +33,9 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - popd
 
+  - pushd deployment
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then sudo ./docker_tag_push.sh; fi
+  
 # Deploy Container to AWS
 deploy:
   provider: elasticbeanstalk
@@ -41,6 +48,7 @@ deploy:
   bucket_name: "elasticbeanstalk-us-west-1-970407962922"
   on:
     branch: master
+
 notifications:
   on_success: never
   slack:
