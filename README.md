@@ -125,7 +125,7 @@ Installing and learning a new part of a framework adds a week of downtime. Unfor
 
 Mobbing Video
 ---------
-URL
+TODO: URL
 
 Sprint 2 Backlog:
 ---------
@@ -133,8 +133,8 @@ https://github.com/scottx611x/csci-e71-term-project/milestone/3?closed=1
 
 Testing
 -------
-TODO
-We have Behavior tests (app-context/features), Feature tests, and Unit tests (app-context/tests). The Feature folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Feature is how we are staring with our BDD testing--testing large operations at a high-level (e.g. HTTP requests integrated with database handling). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. As we are all getting familiar with this new framework, and understanding its full scope of testing abilities, we've become aware of aspects of code that could be conducted test-first that we didn't realize and will adapt next sprint. We are also going to test out a BDD framework for Laravel in the next sprint that allows Cucumber-like semantics for Feature tests. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
+We have Behavior tests (app-context/features) and Unit tests (app-context/tests). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. The Beharior folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/features is where we are using the Gherkin-style Behat tests to test whole features of the application. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
 
 Deployment
 ----------
+TODO: Document
