@@ -8,6 +8,9 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 use App\Asset;
 use Tests\TestCase;
 use Tests\Unit\AssetDatabaseTest;
@@ -61,10 +64,10 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     }
 
     /**
-     * @When I post to the asset url
+     * @When I post the properly populated asset form to the asset URL
      */
-    public function iPostToTheAssetUrl()
-    {
+    public function iPostTheProperlyPopulatedAssetFormToTheAssetURL()
+    {   
         $this->assetPostResponse = $this->TestCase->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
     }
 
@@ -73,14 +76,84 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldBeRedirectedToTheNewlyCreatedAssetsDetailView()
     {
-        $this->assetPostResponse->assertRedirect('/asset/'.($this->initialAssetCount + 1));
+        $id = Asset::count();
+        $this->assetPostResponse->assertRedirect("/asset/".$id);
     }
 
     /**
-     * @Then there should be one more Asset than what existed originally
+     * @Then the new asset should be in the database
      */
-    public function thereShouldBeOneMoreAssetThanWhatExistedOriginally()
+    public function theNewAssetShouldBeInTheDatabase()
     {
-        return $this->TestCase->assertEquals($this->initialAssetCount + 1, Asset::count());
+        $id = Asset::count();
+        $savedAsset = Asset::findOrFail($id);
+
+        $this->TestCase->assertEquals($this->TestCase->createTestAsset()->owner, $savedAsset->owner);
+    }
+
+    
+    /**
+     * @When I visit the asset page without an id
+     */
+    public function iVisitTheAssetPageWithoutAnId()
+    {
+        $this->assetPostResponse = $this->TestCase->get("/asset/");
+    }
+
+    /**
+     * @Then I should see a table of all assets
+     */
+    public function iShouldSeeATableOfAllAssets()
+    {
+        $this->assetPostResponse->assertSee("View Assets");
+    }
+
+    /**
+     * @When I visit the asset page with an id
+     */
+    public function iVisitTheAssetPageWithAnId()
+    {
+        $this->assetPostResponse = $this->TestCase->get("/asset/2");
+    }
+
+    /**
+     * @Then I should see the asset's details
+     */
+    public function iShouldSeeTheAssetsDetails()
+    {
+        $this->assetPostResponse->assertSee("Delete");
+    }
+
+    /**
+     * @Given database has at least one asset
+     */
+    public function databaseHasAtLeastOneAsset()
+    {
+        $this->TestCase->assertTrue(Asset::count() > 0);
+    }
+
+    /**
+     * @When I delete an asset
+     */
+    public function iDeleteAnAsset()
+    {
+        $this->assetPostResponse = $this->TestCase->get("/asset/1/delete");
+    }
+
+    /**
+     * @Then the asset should be removed
+     */
+    public function theAssetShouldBeRemoved()
+    {
+        $a = Asset::find(1);
+        $this->TestCase->assertEquals(0, $a);
+    }
+
+    /**
+     * @Then I should be returned to the homepage
+     */
+    public function iShouldBeReturnedToTheHomepage()
+    {
+        $this->assetPostResponse->assertRedirect("/");
     }
 }

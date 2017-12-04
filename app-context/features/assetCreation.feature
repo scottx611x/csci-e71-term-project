@@ -1,9 +1,10 @@
 Feature: Create Assets
-  In order keep our users happy
-  Users should be able to create new assets
+  As a School Administrator
+  I want to be able to enter an item into the inventory
+  so that I can have a record of our equipment.
 
   Scenario: Create New Asset
     Given there is a properly populated asset form
-    When I post to the Asset url
+    When I post the properly populated asset form to the asset URL
     Then I should be redirected to the newly created Asset's detail view
-    And there should be one more Asset than what existed originally
+    And the new asset should be in the database
