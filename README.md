@@ -135,6 +135,10 @@ Testing
 -------
 We have Behavior tests (app-context/features) and Unit tests (app-context/tests). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. The Beharior folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/features is where we are using the Gherkin-style Behat tests to test whole features of the application. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
 
+Continuous Integration System
+-----------------------------
+We use Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds as our continuous integration system.  Travis runs each time we merge to our master.
+
 Product Increment Working Software
 ----------------------------------
 http://aits.srinivasyelamanchili.me/
