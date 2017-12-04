@@ -13,7 +13,7 @@
                 }
             ],
             "essential": true,
-            "image": "cscie71termproject_app:latest",
+            "image": "scottx611x/cscie71termproject_app:latest",
             "memory": 1024,
             "mountPoints": [
                 {
@@ -62,7 +62,7 @@
         },
         {
             "essential": true,
-            "image": "cscie71termproject_web:latest",
+            "image": "scottx611x/cscie71termproject_web:latest",
             "memory": 1024,
             "name": "web",
             "portMappings": [
