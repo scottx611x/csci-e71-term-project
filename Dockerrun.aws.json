@@ -13,7 +13,6 @@
                 }
             ],
             "essential": true,
-            "image": "App-Context",
             "mountPoints": [
                 {
                     "containerPath": "/var/www",
@@ -60,6 +59,7 @@
         },
         {
             "essential": true,
+            "image": "alpine-web",
             "name": "web",
             "portMappings": [
                 {
