@@ -137,7 +137,7 @@ We have Behavior tests (app-context/features) and Unit tests (app-context/tests)
 
 Continuous Integration System
 -----------------------------
-We use Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds as our continuous integration system.  Travis runs each time we merge to our master.
+We use Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds as our continuous integration system.  Travis runs each time we merge to our master.  Travis passing tests merged to master https://drive.google.com/file/d/11-5Y38W0EJmIFi3Ro9Fufhe_aiU6o80Q/view?usp=sharing.
 
 Product Increment Working Software
 ----------------------------------
