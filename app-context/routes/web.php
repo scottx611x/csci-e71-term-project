@@ -47,6 +47,7 @@ Route::post('/asset', 'AssetController@store');
 Route::get('/asset/{id?}', 'AssetController@index');
 Route::get('/asset/{id?}/edit', 'AssetController@edit');
 Route::put('/asset/{id?}', 'AssetController@update');
+Route::get('/asset/{id?}/delete', 'AssetController@delete');
 
 
 Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');

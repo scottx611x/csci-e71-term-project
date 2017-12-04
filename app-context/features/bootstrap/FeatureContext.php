@@ -13,6 +13,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 use App\Asset;
 use Tests\TestCase;
+use Tests\Unit\AssetDatabaseTest;
 
 /**
  * Defines application features from the specific context.
@@ -24,6 +25,12 @@ class TestCaseContext extends TestCase {
 
     public function postData($uri, $data){
         return parent::post($uri, $data);;
+    }
+}
+
+class AssetDatabaseTestContext extends AssetDatabaseTest {
+    public function setUp(){
+        parent::setUp();
     }
 }
 
@@ -40,6 +47,10 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     {   
         $this->TestCase = new TestCaseContext();
         $this->TestCase->setUp();
+
+        $this->AssetDatabaseTest = new AssetDatabaseTestContext();
+        $this->AssetDatabaseTest->setup();
+
         $this->initialAssetCount = Asset::count();
         $this->assetPostResponse = null;
     }
@@ -47,9 +58,15 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     /**
      * @When I populate and submit the new asset page
      */
+<<<<<<< HEAD
     public function iPopulateAndSubmitTheNewAssetPage()
     {
         throw new PendingException();
+=======
+    public function thereIsAProperlyPopulatedAssetForm()
+    {   
+        return $this->AssetDatabaseTest->createTestAssetAsJSON();
+>>>>>>> origin/master
     }
 
     /**
@@ -57,7 +74,11 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldBeRedirectedToTheNewlyCreatedAssetsDetailView()
     {
+<<<<<<< HEAD
         throw new PendingException();
+=======
+        $this->assetPostResponse = $this->TestCase->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
+>>>>>>> origin/master
     }
 
     /**

@@ -2,89 +2,97 @@
 <html>
 <head>
 	<title>
-        @yield('title', 'Alpine Inventory Tracking System')
-    </title>
+		@yield('title', 'Alpine Inventory Tracking System')
+	</title>
 
-	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	 <meta name="generator" content="Mobirise v4.4.1, mobirise.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="/webassets/images/alpine-log-500x352.png" type="image/x-icon">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/4da62dae18.js"></script>
 
-    <link rel="stylesheet" href="/webassets/web/assets/mobirise-icons/mobirise-icons.css">
-    <link rel="stylesheet" href="/webassets/tether/tether.min.css">
-    <link rel="stylesheet" href="/webassets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/webassets/bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="/webassets/bootstrap/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="/webassets/dropdown/css/style.css">
-    <link rel="stylesheet" href="/webassets/theme/css/style.css">
-    <link rel="stylesheet" href="/webassets/mobirise/css/mbr-additional.css" type="text/css">
-
-    @stack('head')
+	@stack('head')
 
 </head>
 <body>
 
-	<section class="menu cid-qAUBBCkSrN" once="menu" id="menu1-1" data-rv-view="33">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="/">
+			<img src="/images/alpine-log-500x352.png" alt="Inventory Logo" title="Alpine Inventory Tracking System" style="height: 3.8rem;">
+		</a>
+		<a class="navbar-brand" href="/">Alpine Inventory Tracking System
+		</a>
 
-	    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-	        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	            <div class="hamburger">
-	                <span></span>
-	                <span></span>
-	                <span></span>
-	                <span></span>
-	            </div>
-	        </button>
-	        <div class="menu-logo">
-	            <div class="navbar-brand">
-	                <span class="navbar-logo">
-	                    <a href="#top">
-	                         <img src="/webassets/images/alpine-log-500x352.png" alt="Mobirise" title="" media-simple="true" style="height: 3.8rem;">
-	                    </a>
-	                </span>
-	                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-5" href="/">Alpine Inventory Tracking System</a></span>
-	            </div>
-	        </div>
-	        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item dropdown">
-	                    <a class="nav-link link text-white dropdown-toggle display-4" href="" data-toggle="dropdown-submenu" aria-expanded="false">
-	                        <span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>
-	                        New</a><div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="/asset/create">Asset</a></div>
-	                </li>
-	                <li class="nav-item dropdown open">
-	                    <a class="nav-link link text-white dropdown-toggle display-4" href="http://eweek.com" data-toggle="dropdown-submenu" aria-expanded="true">
-	                        <span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-	                        Search</a><div class="dropdown-menu"><a class="text-white dropdown-item display-4" href="/asset/">Assets</a></div>
-	                </li></ul>
+		<!-- Links -->
+		<ul class="navbar-nav">
 
-	        </div>
-	    </nav>
-	</section>
+			<!-- Dropdown -->
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					<i class="fa fa-plus" aria-hidden="true"></i>
+					New
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="/asset/create">Asset</a>
+				</div>
+			</li>
+			<!-- Dropdown -->
+			<li class="nav-item dropdown">
 
-	@if(session('message'))
-	    <div class='alert'>{{ session('message') }}</div>
-	@endif
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					<i class="fa fa-search" aria-hidden="true"></i>
+					View
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="/asset">Asset</a>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<br>
+
+	<div class="container">
+		<div class="row justify-content-center">
+			@if(session('alert'))
+			<div class='alert alert-success' role="alert">{{ session('alert') }}</div>
+			@endif
+		</div>
+	</div>
 
 	<section>
 		@yield('content')
 	</section>
 
-	<footer>
-		&copy; {{ date('Y') }}
-	</footer>
+	<section>
 
-    @stack('body')
 
-	<script src="/webassets/web/assets/jquery/jquery.min.js"></script>
-    <script src="/webassets/popper/popper.min.js"></script>
-    <script src="/webassets/tether/tether.min.js"></script>
-    <script src="/webassets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/webassets/smooth-scroll/smooth-scroll.js"></script>
-    <script src="/webassets/dropdown/js/script.min.js"></script>
-    <script src="/webassets/touch-swipe/jquery.touch-swipe.min.js"></script>
-    <script src="/webassets/theme/js/script.js"></script>
-    <script src="/webassets/formoid/formoid.min.js"></script>
+		@stack('body')
 
-</body>
-</html>
+		<footer>
+			&copy; {{ date('Y') }}
+		</footer>
+
+		<script>
+		showComputerForm();
+		function showComputerForm() {
+			if (document.getElementById("is_computer").checked == true) {
+				document.getElementById("computer_form").style.display = "block";
+			} else {
+				document.getElementById("computer_form").style.display = "none";
+			}
+		}
+
+		showOutofserviceForm();
+		function showOutofserviceForm() {
+			if (document.getElementById("is_out_of_service").checked == true) {
+				document.getElementById("outofservice_form").style.display = "block";
+			} else {
+				document.getElementById("outofservice_form").style.display = "none";
+			}
+		}
+		</script>
+	</body>
+	</html>
