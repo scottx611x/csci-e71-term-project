@@ -97,3 +97,44 @@ We have Feature tests and Unit tests (app-context/tests). The Feature folder htt
 Sprint Review 11/19/17
 ----------------------
 We conducted our sprint review on 11/19/2017.  Our Stakeholder Mr. Bradley was present for the Sprint Review.  Using Mr. Bradley’s suggestions, we updated our product backlog.
+
+
+Sprint 2
+========
+Velocity estimate: 14 (Based on Sprint 1)
+
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT2.png)
+
+Goal: More user friendly UI, Add additional fields to Asset, Be able to Modify and Delete Assets from the UI.
+
+Daily Scrum 11/27/17
+--------------------
+"Daily Scrum"s are held on M-W-F schedule
+
+What did we do since last daily scrum? 
+ * Scott - Set up BDD and integrated with CI
+ * Rob - UI design work
+ * Sri - UI design work, delete and edit functionality
+ * Nick - Wrote tests, looked into refactoring Controllers
+
+What will we do in next period?
+Figure out and write BDD, unit tests during mobbing for modify and delete and code. Offline/separate: set up Dusk for testing browser views and actions (Nick), set up AWS continuous deployment (Rob), refined design to industry standards (Sri), improve BDD efficiency (Scott).
+
+Impediments?
+Installing and learning a new part of a framework adds a week of downtime. Unfortunately, this is a necessary part of the learning curve, and allows us to gain important new capabilities. If we had a longer-term project, these costs would be much more reduced over time.
+
+Mobbing Video
+---------
+URL
+
+Sprint 2 Backlog:
+---------
+https://github.com/scottx611x/csci-e71-term-project/milestone/3?closed=1
+
+Testing
+-------
+TODO
+We have Behavior tests (app-context/features), Feature tests, and Unit tests (app-context/tests). The Feature folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Feature is how we are staring with our BDD testing--testing large operations at a high-level (e.g. HTTP requests integrated with database handling). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. As we are all getting familiar with this new framework, and understanding its full scope of testing abilities, we've become aware of aspects of code that could be conducted test-first that we didn't realize and will adapt next sprint. We are also going to test out a BDD framework for Laravel in the next sprint that allows Cucumber-like semantics for Feature tests. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
+
+Deployment
+----------
