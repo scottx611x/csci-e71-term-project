@@ -9,7 +9,8 @@ use Illuminate\Database;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class AssetDatabaseTest extends TestCase
-{
+{   
+    # TODO: Utilize DatabaseTransactions for some of our tests?
     public function testAddNewAssetIncrementsCount()
     {
         $initialCount = Asset::count();
