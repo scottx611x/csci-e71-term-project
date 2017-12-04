@@ -139,4 +139,4 @@ Deployment
 ----------
 I wasn’t able to get the continuous delivery system finished.  I worked on it for three days and realized I need more experience with Docker.   I have concluded that our Docker container that we created to optimize our tests needs to be redesigned to deploy to an AWS Elastic Beanstalk Environment.  We currently have our web server and database in the same container, and they need to be separated out.  Our production environment build is continuously deploying to AWS using Travis.  After Elastic Beanstalk receives our build, it tries to create an application using Docker containers.  AWS Elastic Beanstalk is erroring out when it tries to create our build.
 
-Here is our JSON file https://github.com/scottx611x/csci-e71-term-project/blob/master/Dockerrun.aws.json for AWS deployment, our code to deploy to AWS and our Elastic Beanstalk Environment.
+Here is our JSON file https://github.com/scottx611x/csci-e71-term-project/blob/master/Dockerrun.aws.json for AWS deployment, our code to deploy to AWS and run tests https://github.com/scottx611x/csci-e71-term-project/blob/master/.travis.yml and our Elastic Beanstalk Environment.
