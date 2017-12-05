@@ -37,7 +37,7 @@ after_success:
   - popd
 
   - pushd deployment
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then sudo sh scripts/docker_tag_push.sh; fi
+  - if [ "$TRAVIS_BRANCH" = "scottx611x/deployment_test" ]; then sudo sh scripts/docker_tag_push.sh; fi
 
 # Deploy Container to AWS
 deploy:
