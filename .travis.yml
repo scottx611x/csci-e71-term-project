@@ -46,7 +46,7 @@ deploy:
   secret_access_key: "$AWS_SECRET_ACCESS_KEY_ID"
   region: us-east-1
   app: Alpine_Academy
-  env: Default-Environment
+  env: alpineAcademy-dev
   bucket_name: elastic-beanstalk-alpineacademy-dev
   on:
     branch: scottx611x/deployment_test
