@@ -21,6 +21,7 @@
                 }
             ],
             "name": "app",
+            "memoryReservation": 512,
             "workingDirectory": "/var/www"
         },
         {
@@ -51,6 +52,7 @@
                 }
             ],
             "name": "database",
+            "memoryReservation": 512,
             "portMappings": [
                 {
                     "containerPort": 3306,
@@ -62,6 +64,7 @@
             "essential": true,
             "image": "scottx611x/cscie71termproject_web:latest",
             "name": "web",
+            "memoryReservation": 512,
             "portMappings": [
                 {
                     "containerPort": 80,
