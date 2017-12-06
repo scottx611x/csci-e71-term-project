@@ -83,7 +83,7 @@
     "volumes": [
         {
             "host": {
-                "sourcePath": "app-context/"
+                "sourcePath": "$PWD/app-context/"
             },
             "name": "_App-Context"
         },
