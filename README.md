@@ -5,7 +5,7 @@ Scrum Avengers (Group 3)
 
 [**Local Development Docs**](https://github.com/scottx611x/csci-e71-term-project/blob/master/SETUP.md)
 
-Scrum Team
+Scrum Team 
 ----------
 * Rob Dornberger (Product Owner, Developer)
 * Sri Yelamanchili  (Developer)
