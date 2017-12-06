@@ -39,6 +39,9 @@ after_success:
   - pushd deployment
   - if [ "$TRAVIS_BRANCH" = "scottx611x/deployment_test" ]; then sudo sh scripts/docker_tag_push.sh; fi
 
+  - gem 'aws-sdk-resources', :git => "git://github.com/aws/aws-sdk-ruby.git", :tag => "v2.10.97"
+  - bundle install
+
 # Deploy Container to AWS
 deploy:
   provider: elasticbeanstalk
