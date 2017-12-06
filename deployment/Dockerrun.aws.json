@@ -21,7 +21,7 @@
                 }
             ],
             "name": "app",
-            "memory": "1024",
+            "memory": 1024,
             "workingDirectory": "/var/www"
         },
         {
@@ -52,7 +52,7 @@
                 }
             ],
             "name": "database",
-            "memory": "1024",
+            "memory": 1024,
             "portMappings": [
                 {
                     "containerPort": 3306,
@@ -64,7 +64,7 @@
             "essential": true,
             "image": "scottx611x/cscie71termproject_web:latest",
             "name": "web",
-            "memory": "1024",
+            "memory": 1024,
             "portMappings": [
                 {
                     "containerPort": 80,
@@ -83,7 +83,7 @@
     "volumes": [
         {
             "host": {
-                "sourcePath": "./app-context/"
+                "sourcePath": "app-context/"
             },
             "name": "_App-Context"
         },
