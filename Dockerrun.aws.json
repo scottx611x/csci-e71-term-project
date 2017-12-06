@@ -73,7 +73,7 @@
             ],
             "volumesFrom": [
                 {
-                    "sourceContainer": "cscie71termproject_app"
+                    "sourceContainer": "app"
                 }
             ],
             "workingDirectory": "/var/www"
