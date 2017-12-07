@@ -3,9 +3,9 @@ docker login -u $DOCKER_USER -p $DOCKER_PASS
 tag=""
 
 if [ $# -eq 0 ]; then
-  $tag="latest"
+    tag="latest"
 else
-   $tag="aws"
+    tag="aws"
 fi
 
 docker tag cscie71termproject_app scottx611x/cscie71termproject_app:$tag
