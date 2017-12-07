@@ -1,5 +1,14 @@
 docker login -u $DOCKER_USER -p $DOCKER_PASS
-docker tag cscie71termproject_app scottx611x/cscie71termproject_app:latest
-docker tag cscie71termproject_web scottx611x/cscie71termproject_web:latest
-docker push scottx611x/cscie71termproject_app:latest
-docker push scottx611x/cscie71termproject_web:latest
+
+tag=""
+
+if [ $# -eq 0 ]; then
+  $tag="latest"
+else
+   $tag="aws"
+fi
+
+docker tag cscie71termproject_app scottx611x/cscie71termproject_app:$tag
+docker tag cscie71termproject_web scottx611x/cscie71termproject_web:$tag
+docker push scottx611x/cscie71termproject_app:$tag
+docker push scottx611x/cscie71termproject_web:$tag
