@@ -13,7 +13,7 @@
                 }
             ],
             "essential": true,
-            "image": "scottx611x/cscie71termproject_app:latest",
+            "image": "scottx611x/cscie71termproject_app:aws",
             "mountPoints": [
                 {
                     "containerPath": "/var/www",
@@ -63,7 +63,7 @@
         },
         {
             "essential": true,
-            "image": "scottx611x/cscie71termproject_web:latest",
+            "image": "scottx611x/cscie71termproject_web:aws",
             "name": "web",
             "memory": 1024,
             "portMappings": [
