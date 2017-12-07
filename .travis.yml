@@ -21,6 +21,7 @@ before_script:
   - popd
 
   - docker-compose build
+
   # Run our services in a detached manner
   - docker-compose up -d
   - sleep 10s
@@ -36,10 +37,13 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - popd
 
-  - docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
-  - pushd deployment
-  - if [ "$TRAVIS_BRANCH" = "scottx611x/deployment_test" ]; then sudo sh scripts/docker_tag_push.sh; fi
-  - popd
+  - >
+      if [ "$TRAVIS_BRANCH" = "scottx611x/deployment_test" ]; then 
+        echo "Build latest docker images";
+        sudo sh deployment/scripts/docker_tag_push.sh;
+        docker-compose -f docker-compose.yml -f docker-compose.prod.yml build;
+        sudo sh deployment/scripts/docker_tag_push.sh aws;
+      fi
 
 # Deploy Container to AWS
 deploy:
