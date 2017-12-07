@@ -1,3 +1,5 @@
-# The Web Server
-web:
-  dockerfile: web.aws.dockerfile
+version: '2'
+services:
+  web:
+    build:
+      dockerfile: web.aws.dockerfile
