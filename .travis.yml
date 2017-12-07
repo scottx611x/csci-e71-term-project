@@ -36,6 +36,7 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - popd
 
+  - docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
   - pushd deployment
   - if [ "$TRAVIS_BRANCH" = "scottx611x/deployment_test" ]; then sudo sh scripts/docker_tag_push.sh; fi
   - popd
