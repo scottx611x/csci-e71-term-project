@@ -135,7 +135,12 @@ Sprint Review 12/04/17
 ----------------------
 
 We conducted our sprint review on 12/04/2017. Our Stakeholder Mr. Bradley was not able to make it he had to teach classes.  Mr. Bradley sent an email with a list of current inventory items https://drive.google.com/file/d/1Uadf9LPi9kvK50A0wqMSa1nLRXAzVb54/view?usp=sharing. 
-   
+
+Update 12/06/2017
+-----------------
+
+We conducted another  Sprint Review with Mr. Bradley present.  Mr. Bradley really liked the system.  After reviewing the system Mr. Bradley wanted to add the fields item quantity, funding source, and federal participation %.  Mr. Bradley also discussed the fields that will be required on the creation of a new asset. We will now perform our Sprint planning for our next sprint.
+
 Testing
 -------
 We have Behavior tests (app-context/features) and Unit tests (app-context/tests). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. The Beharior folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/features is where we are using the Gherkin-style Behat tests to test whole features of the application. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
@@ -153,3 +158,6 @@ Deployment
 I wasn’t able to get the continuous delivery system finished.  I worked on it for three days and realized I need more experience with Docker.   I have concluded that our Docker container that we created to optimize our tests needs to be redesigned to deploy to an AWS Elastic Beanstalk Environment.  We currently have our web server and database in the same container, and they need to be separated out.  Our production environment build is continuously deploying to AWS using Travis.  After Elastic Beanstalk receives our build, it tries to create an application using Docker containers.  AWS Elastic Beanstalk is erroring out when it tries to create our build.
 
 Here is our JSON file https://github.com/scottx611x/csci-e71-term-project/blob/master/Dockerrun.aws.json for AWS deployment, our code to deploy to AWS and run tests https://github.com/scottx611x/csci-e71-term-project/blob/master/.travis.yml and our Elastic Beanstalk Environment https://drive.google.com/file/d/1yrATro5b3R6UeuT9F-1ld-aGqQe_iP6C/view?usp=sharing.
+
+Sprint 3
+========
