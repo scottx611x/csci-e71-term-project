@@ -8,6 +8,8 @@ else
     tag="aws"
 fi
 
+echo "Tagging with: $tag..."
+
 docker tag cscie71termproject_app scottx611x/cscie71termproject_app:$tag
 docker tag cscie71termproject_web scottx611x/cscie71termproject_web:$tag
 docker push scottx611x/cscie71termproject_app:$tag
