@@ -42,7 +42,7 @@ after_success:
         echo "Tag and push latest docker images";
         sudo sh deployment/scripts/docker_tag_push.sh;
         echo "Build AWS specific docker images";
-        docker-compose -f docker-compose.yml -f docker-compose.prod.yml build;
+        docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml build;
         echo "Tag and push aws-specific docker images";
         sudo sh deployment/scripts/docker_tag_push.sh aws;
       fi
