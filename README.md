@@ -134,7 +134,7 @@ https://github.com/scottx611x/csci-e71-term-project/milestone/3?closed=1
 Sprint Review 12/04/17
 ----------------------
 
-We conducted our sprint review on 12/04/2017. Our Stakeholder Mr. Bradley was not able to make it he had to teach classes.  Mr. Bradley sent an email with a list of current inventory items https://drive.google.com/file/d/1Uadf9LPi9kvK50A0wqMSa1nLRXAzVb54/view?usp=sharing. 
+e conducted our sprint review on 12/04/2017. Our Stakeholder Mr. Bradley was not able to make it he had to teach classes.  Mr. Bradley sent an email with a list of current inventory items https://drive.google.com/file/d/1Uadf9LPi9kvK50A0wqMSa1nLRXAzVb54/view?usp=sharing. 
 
 Update 12/06/2017
 -----------------
@@ -189,7 +189,7 @@ Mobbing Video
 ---------
 TODO
 
-Sprint 2 Backlog:
+Sprint 3 Backlog:
 ---------
 https://github.com/scottx611x/csci-e71-term-project/milestone/4?closed=1
 
