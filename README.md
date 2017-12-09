@@ -161,3 +161,47 @@ Here is our JSON file https://github.com/scottx611x/csci-e71-term-project/blob/m
 
 Sprint 3
 ========
+Velocity estimate: 14 (Based on Sprint 1 + 2)
+
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT3.png) TODO
+
+Goal: TODO
+
+Daily Scrum 12/xx/17
+--------------------
+"Daily Scrum"s are held on M-W-F schedule
+
+TODO
+
+What did we do since last daily scrum? 
+ * Scott - 
+ * Rob - 
+ * Sri - 
+ * Nick - 
+
+What will we do in next period?
+TODO
+
+Impediments?
+TODO
+
+Mobbing Video
+---------
+TODO
+
+Sprint 2 Backlog:
+---------
+https://github.com/scottx611x/csci-e71-term-project/milestone/4?closed=1
+
+Sprint Review 12/04/17
+----------------------
+
+TODO
+
+Product Increment Working Software
+----------------------------------
+http://aits.srinivasyelamanchili.me/
+
+Deployment
+----------
+TODO
