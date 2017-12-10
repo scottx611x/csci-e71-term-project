@@ -62,7 +62,7 @@ Sprint 1
 ========
 Velocity estimate: 14.3 (Total points / 3 sprints)
 
-Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT1.png)
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/BURNDOWN-SPRINT1.png)
 
 Goal: To add and view items in the application
 
@@ -103,7 +103,7 @@ Sprint 2
 ========
 Velocity estimate: 14 (Based on Sprint 1)
 
-Burndown chart: (https://csci-e71-term-project/docker-context/BURNDOWN-SPRINT2.png)
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/BURNDOWN-SPRINT2.png)
 
 Goal: More user friendly UI, Add additional fields to Asset, Be able to Modify and Delete Assets from the UI.
 
