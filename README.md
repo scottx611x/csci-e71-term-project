@@ -103,7 +103,7 @@ Sprint 2
 ========
 Velocity estimate: 14 (Based on Sprint 1)
 
-Burndown chart: (csci-e71-term-project/docker-context/BURNDOWN-SPRINT2.png)
+Burndown chart: (https://csci-e71-term-project/docker-context/BURNDOWN-SPRINT2.png)
 
 Goal: More user friendly UI, Add additional fields to Asset, Be able to Modify and Delete Assets from the UI.
 
