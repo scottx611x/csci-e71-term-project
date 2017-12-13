@@ -62,7 +62,7 @@ Sprint 1
 ========
 Velocity estimate: 14.3 (Total points / 3 sprints)
 
-Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT1.png)
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/BURNDOWN-SPRINT1.png)
 
 Goal: To add and view items in the application
 
@@ -103,7 +103,7 @@ Sprint 2
 ========
 Velocity estimate: 14 (Based on Sprint 1)
 
-Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT2.png)
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/BURNDOWN-SPRINT2.png)
 
 Goal: More user friendly UI, Add additional fields to Asset, Be able to Modify and Delete Assets from the UI.
 
@@ -134,7 +134,7 @@ https://github.com/scottx611x/csci-e71-term-project/milestone/3?closed=1
 Sprint Review 12/04/17
 ----------------------
 
-We conducted our sprint review on 12/04/2017. Our Stakeholder Mr. Bradley was not able to make it he had to teach classes.  Mr. Bradley sent an email with a list of current inventory items https://drive.google.com/file/d/1Uadf9LPi9kvK50A0wqMSa1nLRXAzVb54/view?usp=sharing. 
+e conducted our sprint review on 12/04/2017. Our Stakeholder Mr. Bradley was not able to make it he had to teach classes.  Mr. Bradley sent an email with a list of current inventory items https://drive.google.com/file/d/1Uadf9LPi9kvK50A0wqMSa1nLRXAzVb54/view?usp=sharing. 
 
 Update 12/06/2017
 -----------------
@@ -161,3 +161,47 @@ Here is our JSON file https://github.com/scottx611x/csci-e71-term-project/blob/m
 
 Sprint 3
 ========
+Velocity estimate: 14 (Based on Sprint 1 + 2)
+
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT3.png) TODO
+
+Goal: TODO
+
+Daily Scrum 12/xx/17
+--------------------
+"Daily Scrum"s are held on M-W-F schedule
+
+TODO
+
+What did we do since last daily scrum? 
+ * Scott - 
+ * Rob - 
+ * Sri - 
+ * Nick - 
+
+What will we do in next period?
+TODO
+
+Impediments?
+TODO
+
+Mobbing Video
+---------
+TODO
+
+Sprint 3 Backlog:
+---------
+https://github.com/scottx611x/csci-e71-term-project/milestone/4?closed=1
+
+Sprint Review 12/04/17
+----------------------
+
+TODO
+
+Product Increment Working Software
+----------------------------------
+http://aits.srinivasyelamanchili.me/
+
+Deployment
+----------
+TODO
