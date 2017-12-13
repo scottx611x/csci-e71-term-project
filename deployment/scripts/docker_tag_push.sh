@@ -1,12 +1,6 @@
 docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-tag=""
-
-if [ $# -eq 0 ]; then
-    tag="latest"
-else
-    tag="aws"
-fi
+tag="latest"
 
 echo "Tagging with: $tag..."
 
