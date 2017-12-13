@@ -25,8 +25,8 @@
             "memory": 1024,
             "portMappings": [
                 {
-                    "containerPort": 9000,
-                    "hostPort": 8000
+                    "containerPort": 8000,
+                    "hostPort": 9000
                 }
             ],
             "workingDirectory": "/var/www"
@@ -71,6 +71,9 @@
             "essential": true,
             "image": "scottx611x/cscie71termproject_web:latest",
             "name": "web",
+            "links": [
+              "app"
+            ],
             "memory": 1024,
             "portMappings": [
                 {
