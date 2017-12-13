@@ -17,8 +17,8 @@
             "image": "scottx611x/cscie71termproject_app:latest",
             "mountPoints": [
                 {
-                    "containerPath": "/var/www",
-                    "sourceVolume": "_App-Context"
+                    "containerPath": "/",
+                    "sourceVolume": "app_context"
                 }
             ],
             "name": "app",
@@ -29,7 +29,7 @@
                     "hostPort": 9000
                 }
             ],
-            "workingDirectory": "/var/www"
+            "workingDirectory": "/"
         },
         {
             "environment": [
@@ -55,7 +55,7 @@
             "mountPoints": [
                 {
                     "containerPath": "/var/lib/mysql",
-                    "sourceVolume": "Dbdata"
+                    "sourceVolume": "db_data"
                 }
             ],
             "name": "database",
@@ -93,15 +93,15 @@
     "volumes": [
         {
             "host": {
-                "sourcePath": "app-context"
+                "sourcePath": "/var/app/current/app-context"
             },
-            "name": "_App-Context"
+            "name": "app_context"
         },
         {
             "host": {
                 "sourcePath": "dbdata"
             },
-            "name": "Dbdata"
+            "name": "db_data"
         }
     ]
 }
