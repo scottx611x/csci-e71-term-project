@@ -11,14 +11,13 @@ class VendorController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $result = Vendor::all();
-            // dump($result->toArray());
-            return;
+            $vendors = Vendor::all();
+            return view('vendor.list')->with(['vendors' => $vendors]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = Vendor::findOrFail($n);
-        // dump($result->toArray());
+        $vendor = Vendor::findOrFail($n);
+        return view('vendor.show')->with(['vendor' => $vendor]);
     }
 }

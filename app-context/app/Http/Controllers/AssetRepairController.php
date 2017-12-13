@@ -11,14 +11,13 @@ class AssetRepairController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $result = AssetRepair::all();
-            // dump($result->toArray());
-            return;
+            $assetrepairs = AssetRepair::orderBy('asset_id')->orderBy('repair_date')->get();
+            return view('assetrepairs.list')->with(['assetrepairs' => $assetrepairs]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = AssetRepair::where('asset_id', '=', $n)->get();;
-        // dump($result->toArray());
+        $assetrepairs = AssetRepair::where('asset_id', '=', $n)->orderBy('repair_date')->get();;
+        return view('assetrepairs.list')->with(['assetrepairs' => $assetrepairs]);
     }
 }

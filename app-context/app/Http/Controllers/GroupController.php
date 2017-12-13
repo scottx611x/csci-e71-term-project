@@ -11,14 +11,13 @@ class GroupController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $result = Group::all();
-            // dump($result->toArray());
-            return;
+            $groups = Group::all();
+            return view('group.list')->with(['groups' => $groups]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = Group::findOrFail($n);
-        // dump($result->toArray());
+        $group = Group::findOrFail($n);
+        return view('group.show')->with(['group' => $group]);
     }
 }

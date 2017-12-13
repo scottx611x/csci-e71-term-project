@@ -42,19 +42,31 @@ Route::get('/debug', function () {
     dump($debug);
 });
 
-Route::get('/asset/create', 'AssetController@create');
-Route::post('/asset', 'AssetController@store');
-Route::get('/asset/{id?}', 'AssetController@index');
-Route::get('/asset/{id?}/edit', 'AssetController@edit');
-Route::put('/asset/{id?}', 'AssetController@update');
-Route::get('/asset/{id?}/delete', 'AssetController@delete');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/asset/search', 'AssetController@search');
+    Route::get('/asset/create', 'AssetController@create');
+    Route::post('/asset', 'AssetController@store');
+    Route::get('/asset/{id?}', 'AssetController@index');
+    Route::get('/asset/{id?}/edit', 'AssetController@edit');
+    Route::put('/asset/{id?}', 'AssetController@update');
+    Route::get('/asset/{id?}/delete', 'AssetController@delete');
+    Route::delete('/asset/{id}', 'AssetController@destroy');
 
+    Route::get('/computertype/create', 'ComputerTypeController@create');
+    Route::post('/computertype', 'ComputerTypeController@store');
+    Route::get('/computertype/{id?}', 'ComputerTypeController@index');
+    Route::get('/computertype/{id?}/edit', 'ComputerTypeController@edit');
+    Route::put('/computertype/{id?}', 'ComputerTypeController@update');
 
-Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
-Route::get('/computers/{id?}', 'ComputerController@index');
-Route::get('/computertypes/{id?}', 'ComputerTypeController@index');
-Route::get('/groups/{id?}', 'GroupController@index');
-Route::get('/locations/{id?}', 'LocationController@index');
-Route::get('/outofservicecodes/{id?}', 'OutOfServiceCodeController@index');
-Route::get('/vendors/{id?}', 'VendorController@index');
-Route::get('/warranties/{id?}', 'WarrantyController@index');
+    Route::get('/assetrepairs/{id?}', 'AssetRepairController@index');
+    Route::get('/computer/{id?}', 'ComputerController@index');
+    Route::get('/computertype/{id?}', 'ComputerTypeController@index');
+    Route::get('/group/{id?}', 'GroupController@index');
+    Route::get('/location/{id?}', 'LocationController@index');
+    Route::get('/outofservicecode/{id?}', 'OutOfServiceCodeController@index');
+    Route::get('/vendor/{id?}', 'VendorController@index');
+    Route::get('/warranty/{id?}', 'WarrantyController@index');
+    Route::get('/keyword/{id?}', 'KeywordController@index');
+});
+
+Auth::routes();

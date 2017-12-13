@@ -29,14 +29,14 @@ class CreateComputersTable extends Migration
 
             $table->foreign('computer_type_id', 'fk_computer_type_id_idx')
             ->references('id')->on('computer_types')
-            ->onDelete('no action')
+            ->onDelete('cascade')
             ->onUpdate('no action');
 
-            $table->index(["asset_id"], 'fk_asset_id_idx_from_computer_types');
+            $table->index(["asset_id"], 'fk_asset_id_idx');
 
-            $table->foreign('asset_id', 'fk_asset_id_idx_from_computer_types')
+            $table->foreign('asset_id', 'fk_asset_id_idx')
             ->references('id')->on('assets')
-            ->onDelete('no action')
+            ->onDelete('cascade')
             ->onUpdate('no action');
         });
     }

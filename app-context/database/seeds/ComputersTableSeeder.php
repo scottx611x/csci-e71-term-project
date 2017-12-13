@@ -61,6 +61,14 @@ class ComputersTableSeeder extends Seeder
                 "Flynn Keith",
                 "3CEA42AE-EEE8-2F46-C72F-4D624C"
             ],
+            [
+                17,
+                2,
+                "L5I 9C3",
+                "Q3H 2K1",
+                "Flynn Keith",
+                "3CEA42AE-EEE8-2F46-C72F-4D624C"
+            ],
         ];
 
         $count = count($records);

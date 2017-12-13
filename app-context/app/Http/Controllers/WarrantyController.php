@@ -11,14 +11,13 @@ class WarrantyController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $result = Warranty::all();
-            // dump($result->toArray());
-            return;
+            $warranties = Warranty::all();
+            return view('warranty.list')->with(['warranties' => $warranties]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = Warranty::findOrFail($n);
-        // dump($result->toArray());
+        $warranty = Warranty::findOrFail($n);
+        return view('warranty.show')->with(['warranty' => $warranty]);
     }
 }
