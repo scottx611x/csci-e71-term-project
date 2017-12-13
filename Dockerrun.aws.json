@@ -22,7 +22,6 @@
                 }
             ],
             "name": "app",
-            "hostname": "app",
             "memory": 1024,
             "portMappings": [
                 {
