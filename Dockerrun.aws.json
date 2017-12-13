@@ -24,6 +24,12 @@
             "name": "app",
             "hostname": "app",
             "memory": 1024,
+            "portMappings": [
+                {
+                    "containerPort": 8000,
+                    "hostPort": 9000
+                }
+            ],
             "workingDirectory": "/var/www"
         },
         {
