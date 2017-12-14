@@ -23,7 +23,7 @@ class AssetDatabaseTestContext extends AssetDatabaseTest {
     }
 
     public function postData($uri, $data){
-        return parent::post($uri, $data);;
+        return parent::post($uri, $data);
     }
 }
 
@@ -42,9 +42,22 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
         $this->AssetDatabaseTest->setUp();
 
         $this->initialAssetCount = Asset::count();
-        $this->assetPostResponse = null;
+        $this->assetResponse = null;
+        $this->testAsset = null;
     }
 
+    private function searchForAsset($data, $query, $searchById = False){
+        if ($searchById === True){
+            $submit = "submit-search-by-id";
+        }
+        else {
+            $submit = "submit-advanced-search";
+        }
+
+        $queryString = "/asset/search?".$query."=".urlencode($data)."&submitbtn=".$submit;
+        dump($queryString);
+        return $this->AssetDatabaseTest->get($queryString);
+    }
     /**
      * @Given there is a properly populated asset form
      */
@@ -58,7 +71,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iPostTheProperlyPopulatedAssetFormToTheAssetURL()
     {   
-        $this->assetPostResponse = $this->AssetDatabaseTest->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
+        $this->assetResponse = $this->AssetDatabaseTest->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
     }
 
     /**
@@ -67,7 +80,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     public function iShouldBeRedirectedToTheNewlyCreatedAssetsDetailView()
     {
         $id = Asset::count();
-        $this->assetPostResponse->assertRedirect("/asset/".$id);
+        $this->assetResponse->assertRedirect("/asset/".$id);
     }
 
     /**
@@ -87,7 +100,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iVisitTheAssetPageWithoutAnId()
     {
-        $this->assetPostResponse = $this->AssetDatabaseTest->get("/asset/");
+        $this->assetResponse = $this->AssetDatabaseTest->get("/asset/");
     }
 
     /**
@@ -95,7 +108,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldSeeATableOfAllAssets()
     {
-        $this->assetPostResponse->assertSee("View Assets");
+        $this->assetResponse->assertSee("View Assets");
     }
 
     /**
@@ -103,7 +116,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iVisitTheAssetPageWithAnId()
     {
-        $this->assetPostResponse = $this->AssetDatabaseTest->get("/asset/2");
+        $this->assetResponse = $this->AssetDatabaseTest->get("/asset/2");
     }
 
     /**
@@ -111,7 +124,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldSeeTheAssetsDetails()
     {
-        $this->assetPostResponse->assertSee("Delete");
+        $this->assetResponse->assertSee("Delete");
     }
 
     /**
@@ -127,7 +140,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iDeleteAnAsset()
     {
-        $this->assetPostResponse = $this->AssetDatabaseTest->delete("/asset/1");
+        $this->assetResponse = $this->AssetDatabaseTest->delete("/asset/1");
     }
 
     /**
@@ -144,6 +157,79 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iShouldBeReturnedToTheHomepage()
     {
-        $this->assetPostResponse->assertRedirect("/");
+        $this->assetResponse->assertRedirect("/");
+    }
+
+    /**
+     * @When I search for an asset by its id
+     */
+    public function iSearchForAnAssetByItsId()
+    {
+        $this->assetResponse = $this->searchForAsset(
+            $this->testAsset->id, 
+            "id_search_input", 
+            $searchById = true
+        );
+    }
+
+    /**
+     * @Then I should see the asset listed on the search page
+     */
+    public function iShouldSeeTheAssetListedOnTheSearchPage()
+    {
+        $this->assetResponse->assertSee($this->testAsset->description);
+    }
+
+    /**
+     * @Given that there is a test asset
+     */
+    public function thatThereIsATestAsset()
+    {
+        $this->testAsset = $this->AssetDatabaseTest->createTestAsset();
+        $this->testAsset->save();
+    }
+
+    /**
+     * @When I search for the test asset by its description
+     */
+    public function iSearchForTheTestAssetByItsDescription()
+    {
+        $this->assetResponse = $this->searchForAsset(
+            $this->testAsset->description, 
+            "description_search_input"
+        );
+    }
+
+    /**
+     * @When I search for the test asset by its funding source
+     */
+    public function iSearchForTheTestAssetByItsFundingSource()
+    {
+        $this->assetResponse = $this->searchForAsset(
+            $this->testAsset->funding_source, 
+            "funding_source_search_input"
+        );
+    }
+
+    /**
+     * @When I search for the test asset by its assigned to
+     */
+    public function iSearchForTheTestAssetByItsAssignedTo()
+    {
+        $this->assetResponse = $this->searchForAsset(
+            $this->testAsset->assigned_to, 
+            "assigned_to_search_input"
+        );
+    }
+
+    /**
+     * @When I search for the test asset by its owner
+     */
+    public function iSearchForTheTestAssetByItsOwner()
+    {
+        $this->assetResponse = $this->searchForAsset(
+            $this->testAsset->owner, 
+            "owner_search_input"
+        );
     }
 }
