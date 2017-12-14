@@ -117,8 +117,6 @@ class RoutesTest extends TestCase
         $this->assertEquals($initialCount, Asset::count());
     }
     
-    /** Future tests **/
-
     public function testAssetRepairs()
     {
         $this->assertRouteWorks('/assetrepairs/');
@@ -126,37 +124,37 @@ class RoutesTest extends TestCase
     
     public function testComputers()
     {
-        $this->assertRouteWorks('/computers/');
+        $this->assertRouteWorks('/computer/');
     }
     
     public function testComputerTypes()
     {
-        $this->assertRouteWorks('/computertypes/');
+        $this->assertRouteWorks('/computertype/');
     }
     
     public function testGroups()
     {
-        $this->assertRouteWorks('/groups/');
+        $this->assertRouteWorks('/group/');
     }
     
     public function testLocations()
     {
-        $this->assertRouteWorks('/locations/');
+        $this->assertRouteWorks('/location/');
     }
     
     public function testOutOfServiceCodes()
     {
-        $this->assertRouteWorks('/outofservicecodes/');
+        $this->assertRouteWorks('/outofservicecode/');
     }
 
     public function testVendors()
     {
-        $this->assertRouteWorks('/vendors/');
+        $this->assertRouteWorks('/vendor/');
     }
 
     public function testWarranties()
     {
-        $this->assertRouteWorks('/warranties/');
+        $this->assertRouteWorks('/warranty/');
     }
 
 }

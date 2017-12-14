@@ -42,6 +42,8 @@ abstract class TestCase extends BaseTestCase
         $asset->model = "Cool Model";
         $asset->operating_system = "Ubuntu 16.04 LTS";
         $asset->mac_address = "1A:2A:3A:4A:5A:6A";
+        $asset->quantity = 1;
+        $asset->funding_source = "Town";
         return json_decode(json_encode($asset), true);
     }
 }

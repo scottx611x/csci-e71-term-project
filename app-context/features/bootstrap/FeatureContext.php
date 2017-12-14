@@ -137,7 +137,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iDeleteAnAsset()
     {
-        $this->assetPostResponse = $this->TestCase->get("/asset/1/delete");
+        $this->assetPostResponse = $this->TestCase->delete("/asset/1");
     }
 
     /**
