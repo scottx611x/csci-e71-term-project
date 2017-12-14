@@ -3,11 +3,21 @@
 namespace Tests;
 
 use App\Asset;
+use App\User;
+
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+
+    public function setUp()
+    {   
+        parent::setUp();
+
+        // Authenticate a User for all test runs
+        $this->be(User::find(1));
+    }
 
     public function createTestAsset() : Asset
     {
