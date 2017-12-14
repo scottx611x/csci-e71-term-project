@@ -12,25 +12,18 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 use App\Asset;
-use Tests\TestCase;
 use Tests\Unit\AssetDatabaseTest;
 
 /**
  * Defines application features from the specific context.
  */
-class TestCaseContext extends TestCase {
+class AssetDatabaseTestContext extends AssetDatabaseTest {
     public function setUp(){
         parent::setUp();
     }
 
     public function postData($uri, $data){
         return parent::post($uri, $data);;
-    }
-}
-
-class AssetDatabaseTestContext extends AssetDatabaseTest {
-    public function setUp(){
-        parent::setUp();
     }
 }
 
@@ -45,11 +38,8 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function __construct()
     {   
-        $this->TestCase = new TestCaseContext();
-        $this->TestCase->setUp();
-
         $this->AssetDatabaseTest = new AssetDatabaseTestContext();
-        $this->AssetDatabaseTest->setup();
+        $this->AssetDatabaseTest->setUp();
 
         $this->initialAssetCount = Asset::count();
         $this->assetPostResponse = null;
@@ -68,7 +58,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iPostTheProperlyPopulatedAssetFormToTheAssetURL()
     {   
-        $this->assetPostResponse = $this->TestCase->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
+        $this->assetPostResponse = $this->AssetDatabaseTest->postData("/asset", $this->thereIsAProperlyPopulatedAssetForm());
     }
 
     /**
@@ -88,7 +78,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
         $id = Asset::count();
         $savedAsset = Asset::findOrFail($id);
 
-        $this->TestCase->assertEquals($this->TestCase->createTestAsset()->owner, $savedAsset->owner);
+        $this->AssetDatabaseTest->assertEquals($this->AssetDatabaseTest->createTestAsset()->owner, $savedAsset->owner);
     }
 
     
@@ -97,7 +87,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iVisitTheAssetPageWithoutAnId()
     {
-        $this->assetPostResponse = $this->TestCase->get("/asset/");
+        $this->assetPostResponse = $this->AssetDatabaseTest->get("/asset/");
     }
 
     /**
@@ -113,7 +103,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iVisitTheAssetPageWithAnId()
     {
-        $this->assetPostResponse = $this->TestCase->get("/asset/2");
+        $this->assetPostResponse = $this->AssetDatabaseTest->get("/asset/2");
     }
 
     /**
@@ -129,7 +119,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function databaseHasAtLeastOneAsset()
     {
-        $this->TestCase->assertTrue(Asset::count() > 0);
+        $this->AssetDatabaseTest->assertTrue(Asset::count() > 0);
     }
 
     /**
@@ -137,7 +127,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
      */
     public function iDeleteAnAsset()
     {
-        $this->assetPostResponse = $this->TestCase->delete("/asset/1");
+        $this->assetPostResponse = $this->AssetDatabaseTest->delete("/asset/1");
     }
 
     /**
@@ -146,7 +136,7 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
     public function theAssetShouldBeRemoved()
     {
         $a = Asset::find(1);
-        $this->TestCase->assertEquals(0, $a);
+        $this->AssetDatabaseTest->assertEquals(0, $a);
     }
 
     /**
