@@ -46,17 +46,18 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
         $this->testAsset = null;
     }
 
-    private function searchForAsset($data, $query, $searchById = False){
+    public function searchForAsset($data, $query, $searchById = False){
         if ($searchById === True){
             $submit = "submit-search-by-id";
+            $_GET['id_search_input'] = $data;
         }
         else {
             $submit = "submit-advanced-search";
+            $_GET[$query] = $data;
         }
+        $_GET["submitbtn"] = $submit;
 
-        $queryString = "/asset/search?".$query."=".urlencode($data)."&submitbtn=".$submit;
-        dump($queryString);
-        return $this->AssetDatabaseTest->get($queryString);
+        return $this->AssetDatabaseTest->get("/asset/search/");
     }
     /**
      * @Given there is a properly populated asset form
