@@ -40,4 +40,9 @@ class Asset extends Model
     {
         return $this->belongsTo('App\OutOfServiceCode','out_of_service_id');
     }
+
+    public function keywords()
+    {
+        return $this->belongsToMany('App\Keyword')->withTimestamps();
+    }
 }

@@ -117,46 +117,60 @@ class RoutesTest extends TestCase
         $this->assertEquals($initialCount, Asset::count());
     }
     
-    /** Future tests **/
-
     public function testAssetRepairs()
     {
-        $this->assertRouteWorks('/assetrepairs/');
+        $route = "/assetrepairs/";
+        $this->assertRouteWorks($route);
+        $this->assertItemIdExists($route, '1');
     }
     
     public function testComputers()
     {
-        $this->assertRouteWorks('/computers/');
+        $route = "/computer/";
+        $this->assertRouteWorks($route);
     }
     
     public function testComputerTypes()
     {
-        $this->assertRouteWorks('/computertypes/');
+        $route = "/computertype/";
+        $this->assertRouteWorks($route);
+        $this->assertItemIdExists($route, '1');
+
     }
     
     public function testGroups()
     {
-        $this->assertRouteWorks('/groups/');
+        $route = "/group/";
+        $this->assertRouteWorks($route);
+        $this->assertItemIdExists($route, '1');
     }
     
     public function testLocations()
     {
-        $this->assertRouteWorks('/locations/');
+        $route = "/location/";
+        $this->assertRouteWorks($route);
+        $this->assertItemIdExists($route, '1');
     }
     
     public function testOutOfServiceCodes()
     {
-        $this->assertRouteWorks('/outofservicecodes/');
+        $route = "/outofservicecode/";
+        $this->assertRouteWorks($route);
+        $this->assertItemIdExists($route, '1');
     }
 
     public function testVendors()
     {
-        $this->assertRouteWorks('/vendors/');
+        $route = "/vendor/";
+        $this->assertRouteWorks($route);
+        $this->assertItemIdExists($route, '1');
     }
 
     public function testWarranties()
     {
-        $this->assertRouteWorks('/warranties/');
+        $route = "/warranty/";
+        $this->assertRouteWorks($route);
+        $this->assertItemIdExists($route, '1');
     }
 
 }

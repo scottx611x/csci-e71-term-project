@@ -33,7 +33,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-12-17",
                 0,
                 "DLD48QLXRP",
-                2020
+                2020,
+                'Town',
+                10.22
             ],
             [
                 2,
@@ -55,7 +57,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-01-24",
                 0,
                 "YMQ15QJ5AZ",
-                2018
+                2018,
+                'State',
+                10.22
             ],
             [
                 3,
@@ -77,7 +81,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-01-10",
                 1,
                 "YWK78JJ5HZ",
-                2019
+                2019,
+                'Town',
+                5.22
             ],
             [
                 4,
@@ -99,7 +105,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-04-23",
                 1,
                 "IUC41XA0JC",
-                2025
+                2025,
+                'Town',
+                0.00
             ],
             [
                 5,
@@ -119,9 +127,11 @@ class AssetsTableSeeder extends Seeder
                 2,
                 "Deacon",
                 "2017-10-22",
-                0,
+                1,
                 "AJU13OV8UJ",
-                2024
+                2024,
+                'State',
+                50.00
             ],
             [
                 6,
@@ -141,9 +151,11 @@ class AssetsTableSeeder extends Seeder
                 2,
                 "Jasper",
                 "2017-01-03",
-                1,
+                0,
                 "KGE89KI6DU",
-                2019
+                2019,
+                'Federal',
+                9.402
             ],
             [
                 7,
@@ -165,7 +177,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-09-20",
                 1,
                 "GLW83AB1OV",
-                2025
+                2025,
+                'Town',
+                6.49
             ],
             [
                 8,
@@ -187,7 +201,9 @@ class AssetsTableSeeder extends Seeder
                 "2018-09-17",
                 0,
                 "KUU44PCBMV",
-                2017
+                2017,
+                'State',
+                7.43
             ],
             [
                 9,
@@ -209,7 +225,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-06-25",
                 0,
                 "EXV74CV0ZZ",
-                2021
+                2021,
+                'Federal',
+                2.32
             ],
             [
                 10,
@@ -231,7 +249,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-06-24",
                 0,
                 "YKN72ZQ6NI",
-                2018
+                2018,
+                'State',
+                10.22
             ],
             [
                 11,
@@ -253,7 +273,9 @@ class AssetsTableSeeder extends Seeder
                 "2018-04-05",
                 1,
                 "UDO93WDR8G",
-                2020
+                2020,
+                'State',
+                10.22
             ],
             [
                 12,
@@ -275,7 +297,9 @@ class AssetsTableSeeder extends Seeder
                 "2018-05-03",
                 0,
                 "QM48OHY0NI",
-                2018
+                2018,
+                'State',
+                10.22
             ],
             [
                 13,
@@ -297,7 +321,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-10-30",
                 0,
                 "EFH52JMO6M",
-                2019
+                2019,
+                'State',
+                10.22
             ],
             [
                 14,
@@ -319,7 +345,9 @@ class AssetsTableSeeder extends Seeder
                 "2018-09-18",
                 1,
                 "DCT55JIU2C",
-                2018
+                2018,
+                'State',
+                10.22
             ],
             [
                 15,
@@ -339,9 +367,11 @@ class AssetsTableSeeder extends Seeder
                 5,
                 "Barclay",
                 "2018-03-15",
-                1,
+                0,
                 "EQH65GTE4L",
-                2018
+                2018,
+                'State',
+                10.22
             ],
             [
                 16,
@@ -361,9 +391,11 @@ class AssetsTableSeeder extends Seeder
                 3,
                 "Bruno",
                 "2018-09-15",
-                1,
+                0,
                 "LAR03LAD1M",
-                2022
+                2022,
+                'State',
+                10.22
             ],
             [
                 17,
@@ -383,9 +415,11 @@ class AssetsTableSeeder extends Seeder
                 2,
                 "Sybill",
                 "2017-03-16",
-                0,
+                1,
                 "ZLH43DGE0L",
-                2024
+                2024,
+                'State',
+                10.22
             ],
             [
                 18,
@@ -407,7 +441,9 @@ class AssetsTableSeeder extends Seeder
                 "2018-04-27",
                 0,
                 "TZD23DXK0U",
-                2022
+                2022,
+                'State',
+                10.22
             ],
             [
                 19,
@@ -429,7 +465,9 @@ class AssetsTableSeeder extends Seeder
                 "2017-06-13",
                 0,
                 "IPG08DQI2O",
-                2022
+                2022,
+                'State',
+                10.22
             ],
             [
                 20,
@@ -451,7 +489,9 @@ class AssetsTableSeeder extends Seeder
                 "2018-08-16",
                 0,
                 "EAU79FKK8Y",
-                2023
+                2023,
+                'State',
+                10.22
             ]
         ];
 
@@ -461,7 +501,6 @@ class AssetsTableSeeder extends Seeder
             Asset::insert([
                 'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
-                'id' => $record[0],
                 'description' => $record[1],
                 'owner' => $record[2],
                 'purchase_price' => $record[3],
@@ -480,7 +519,9 @@ class AssetsTableSeeder extends Seeder
                 'assigned_date' => $record[16],
                 'is_computer' => $record[17],
                 'tag' => $record[18],
-                'scheduled_retirement_year' => $record[19]
+                'scheduled_retirement_year' => $record[19],
+                'funding_source' => $record[20],
+                'percent_federal_participation' => $record[21]
             ]);
             $count--;
         }

@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
          $this->call(AssetsTableSeeder::class);
          $this->call(ComputersTableSeeder::class);
          $this->call(AssetRepairsTableSeeder::class);
+         $this->call(UsersTableSeeder::class);
+         $this->call(KeywordsTableSeeder::class);
+         $this->call(AssetKeywordTableSeeder::class);
     }
 }

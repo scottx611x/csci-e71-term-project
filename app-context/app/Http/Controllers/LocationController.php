@@ -11,14 +11,13 @@ class LocationController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $result = Location::all();
-            // dump($result->toArray());
-            return;
+            $locations = Location::all();
+            return view('location.list')->with(['locations' => $locations]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = Location::findOrFail($n);
-        // dump($result->toArray());
+        $location = Location::findOrFail($n);
+        return view('location.show')->with(['location' => $location]);
     }
 }

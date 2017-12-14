@@ -41,7 +41,6 @@ class LocationsTableSeeder extends Seeder
             Location::insert([
                 'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
                 'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
-                'id' => $record[0],
                 'description' => $record[1]
             ]);
             $count--;

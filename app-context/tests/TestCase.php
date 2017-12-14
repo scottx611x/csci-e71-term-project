@@ -3,11 +3,21 @@
 namespace Tests;
 
 use App\Asset;
+use App\User;
+
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+
+    public function setUp()
+    {   
+        parent::setUp();
+
+        // Authenticate a User for all test runs
+        $this->be(User::find(1));
+    }
 
     public function createTestAsset() : Asset
     {
@@ -42,6 +52,8 @@ abstract class TestCase extends BaseTestCase
         $asset->model = "Cool Model";
         $asset->operating_system = "Ubuntu 16.04 LTS";
         $asset->mac_address = "1A:2A:3A:4A:5A:6A";
+        $asset->quantity = 1;
+        $asset->funding_source = "Town";
         return json_decode(json_encode($asset), true);
     }
 }

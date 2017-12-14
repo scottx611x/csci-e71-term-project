@@ -11,14 +11,13 @@ class OutOfServiceCodeController extends Controller
     {
         if (is_null($n)) {
             // Get all rows
-            $result = OutOfServiceCode::all();
-            // dump($result->toArray());
-            return;
+            $outofservicecodes = OutOfServiceCode::all();
+            return view('outofservicecode.list')->with(['outofservicecodes' => $outofservicecodes]);
         }
 
         # Get row by id or
         # Throw an exception if the lookup fails
-        $result = OutOfServiceCode::findOrFail($n);
-        // dump($result->toArray());
+        $outofservicecode = OutOfServiceCode::findOrFail($n);
+        return view('outofservicecode.show')->with(['outofservicecode' => $outofservicecode]);
     }
 }
