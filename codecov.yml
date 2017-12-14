@@ -1,2 +1,5 @@
 ignore:
- - app-context/app/Http/Controllers/Auth/*  # ignore Laravel-specific code
+  # ignore Laravel-specific code
+  - app-context/app/Http/Controllers/Auth/*  
+  - app-context/app/Http/Middleware/*
+  
