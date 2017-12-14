@@ -421,15 +421,3 @@
         </div>
     </div>
 </div>
-<div class="form-group row">
-    <label for="keywords" class="col-sm-2 col-form-label">Keywords</label>
-    <div class="col-sm-10">
-        <div class="form-check">
-            @foreach ($keywordsForCheckboxes as $id => $name)
-                <input class="form-check-input" type="checkbox" name='keywords[]' id='{{ "checkbox_".$id }}' value='{{ $id }}'
-                {{ (isset($keywordIdsForThisAsset) and in_array($id, $keywordIdsForThisAsset)) ? 'CHECKED' : '' }} >
-                <label for='{{ "checkbox_".$id }}'> {{ $name }} </label> <br>
-            @endforeach
-        </div>
-    </div>
-</div>

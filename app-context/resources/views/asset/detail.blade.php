@@ -105,9 +105,6 @@
         <dd class="col-sm-9">{{ $asset->computer->mac_address }}</dd>
     @endif
 
-    <dt class="col-sm-3">Keywords</dt>
-    <dd class="col-sm-9">{{ implode(', ', $asset->keywords->pluck('name')->all()) }}</dd>
-
     <dt class="col-sm-3">Created at</dt>
     <dd class="col-sm-9">{{ $asset->created_at }}</dd>
 
