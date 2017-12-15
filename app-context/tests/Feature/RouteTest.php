@@ -116,6 +116,24 @@ class RoutesTest extends TestCase
 
         $this->assertEquals($initialCount, Asset::count());
     }
+
+    public function testExportAsset()
+    {
+        $response = $this->get('/asset/1/export/');
+        $response->assertHeader('Content-Type', 'text/csv');
+    }
+
+    public function testExportAssets()
+    {
+        $response = $this->get('/asset/export/');
+        $response->assertHeader('Content-Type', 'text/csv');
+    }
+
+    public function testExportAssetsFromSearch()
+    {
+        $response = $this->get('asset/export/search?id_search_input=2&submitbtn=submit-search-by-id&export=true');
+        $response->assertHeader('Content-Type', 'text/csv');
+    }
     
     public function testAssetRepairs()
     {

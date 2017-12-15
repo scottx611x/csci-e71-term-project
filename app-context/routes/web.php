@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/asset', 'AssetController@store');
     Route::get('/asset/{id?}', 'AssetController@index');
     Route::get('/asset/{id?}/edit', 'AssetController@edit');
+    Route::get('/asset/{id?}/export', 'AssetController@export');
     Route::put('/asset/{id?}', 'AssetController@update');
     Route::get('/asset/{id?}/delete', 'AssetController@delete');
     Route::delete('/asset/{id}', 'AssetController@destroy');

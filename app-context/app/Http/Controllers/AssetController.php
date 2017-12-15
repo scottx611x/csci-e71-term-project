@@ -140,6 +140,16 @@ class AssetController extends Controller
             ]);
         }
 
+        public function export($id)
+        {
+            if (is_null($id)) {
+                // Export all
+            }
+            else {
+                // Export $id
+            }
+        }
+
         // Process the form for updating an existing asset
         public function update(Request $request, $id)
         {
@@ -304,6 +314,9 @@ class AssetController extends Controller
         */
         public function search(Request $request)
         {
+/////// Check for export paramter and process
+
+
             $assets = [];
             $alertMsg = "";
 
