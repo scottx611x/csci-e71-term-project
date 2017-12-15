@@ -140,14 +140,48 @@ class AssetController extends Controller
             ]);
         }
 
-        public function export($id)
+        public function export($id = null)
         {
-            if (is_null($id)) {
-                // Export all
-            }
-            else {
-                // Export $id
-            }
+            dump("test");
+            // $headers = array(
+            //     'Content-Type' => 'text/csv',
+            //     'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            //     'Content-Disposition' => 'attachment; filename=data.csv',
+            //     'Expires' => '0',
+            //     'Pragma' => 'public'
+            // );
+            
+            // if (is_null($id)) {
+            //     // Export all
+            //     $list = Asset::all()->toArray();
+            //     array_unshift($list, array_keys($list[0]));
+
+            //     $callback = function() use ($list)
+            //     {
+            //         $FH = fopen('php://output', 'w');
+            //         foreach ($list as $row) {
+            //             fputcsv($FH, $row);
+            //         }
+            //         fclose($FH);
+            //     };
+    
+            //     return Response::stream($callback, 200, $headers);
+            // }
+            // else {
+            //     // Export $id
+            //     $asset = Asset::findOrFail($id);
+
+            //     $callback = function() use ($asset)
+            //     
+            //         $FH = fopen('php://output', 'w');
+            //         fputcsv($FH, $asset);
+            //         fclose($FH);
+            //     };
+    
+            //     return Response::stream($callback, 200, $headers);
+            // }
+
+           
         }
 
         // Process the form for updating an existing asset
