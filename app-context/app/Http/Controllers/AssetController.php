@@ -155,11 +155,11 @@ class AssetController extends Controller
             }
             else {
                 // Export 1
-                $asset = Asset::findOrFail($id);
+                $asset = Asset::where('id', '=', $id)->get();
 
                 $callback = function($excel) use ($asset) {
                     $excel->sheet('', function($sheet) use ($asset) {
-                        $sheet->fromModel($asset);
+                        $sheet->fromArray($asset);
                     });
                 };
             }
