@@ -12,6 +12,9 @@ use App\Warranty;
 use App\OutOfServiceCode;
 use App\ComputerType;
 use App\Keyword;
+use Excel;
+
+ob_start(); // necessary for CSV export
 
 class AssetController extends Controller
 {
@@ -142,46 +145,27 @@ class AssetController extends Controller
 
         public function export($id = null)
         {
-            dump("test");
-            // $headers = array(
-            //     'Content-Type' => 'text/csv',
-            //     'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
-            //     'Content-Disposition' => 'attachment; filename=data.csv',
-            //     'Expires' => '0',
-            //     'Pragma' => 'public'
-            // );
-            
-            // if (is_null($id)) {
-            //     // Export all
-            //     $list = Asset::all()->toArray();
-            //     array_unshift($list, array_keys($list[0]));
+            if (is_null($id)) {
+                // Export all
+                $callback = function($excel) {
+                    $excel->sheet('', function($sheet) {
+                        $sheet->fromArray(Asset::get());
+                    });
+                };
+            }
+            else {
+                // Export 1
+                $asset = Asset::findOrFail($id);
 
-            //     $callback = function() use ($list)
-            //     {
-            //         $FH = fopen('php://output', 'w');
-            //         foreach ($list as $row) {
-            //             fputcsv($FH, $row);
-            //         }
-            //         fclose($FH);
-            //     };
-    
-            //     return Response::stream($callback, 200, $headers);
-            // }
-            // else {
-            //     // Export $id
-            //     $asset = Asset::findOrFail($id);
+                $callback = function($excel) use ($asset) {
+                    $excel->sheet('', function($sheet) use ($asset) {
+                        $sheet->fromModel($asset);
+                    });
+                };
+            }
 
-            //     $callback = function() use ($asset)
-            //     
-            //         $FH = fopen('php://output', 'w');
-            //         fputcsv($FH, $asset);
-            //         fclose($FH);
-            //     };
-    
-            //     return Response::stream($callback, 200, $headers);
-            // }
-
-           
+            $csv = Excel::create('data', $callback);
+            $csv->download('csv');
         }
 
         // Process the form for updating an existing asset
