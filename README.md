@@ -163,27 +163,25 @@ Sprint 3
 ========
 Velocity estimate: 14 (Based on Sprint 1 + 2)
 
-Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/BURNDOWN-SPRINT3.png) TODO
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/BURNDOWN-SPRINT3.png) TODO
 
-Goal: TODO
+Goal: To make requested changes and implement search and authentication
 
-Daily Scrum 12/xx/17
+Daily Scrum 12/13/17
 --------------------
 "Daily Scrum"s are held on M-W-F schedule
 
-TODO
-
 What did we do since last daily scrum? 
- * Scott - 
- * Rob - 
- * Sri - 
- * Nick - 
+ * Scott - Worked on CD system/AWS deployment and integrating Sri's changes
+ * Rob - Research on containers, fleshing out user personas
+ * Sri - Implemented search and authentication, and UI improvements
+ * Nick - Researched CSV export
 
 What will we do in next period?
-TODO
+In mobbing session (everyone), flesh out BDD tests to capture desired functionality, discuss and improve search UI. Because we have time, added CSV reporting item into sprint backlog (Nick).
 
 Impediments?
-TODO
+Scheduling meetings early in week was difficult due to very different schedules and end-of-year outside activities. We resolved to schedule meetings daily to catch up. We discussed our burndown charts, where items were not getting "done" until late in the sprint. We've been working largely on many stories at once and wrapping them up at once. While this works in the sprint, we can see how this might break down (e.g. a last minute illness) thus delaying all work. In the future, we will work on and complete sprint tasks more in sequence, rather than in parallel, to have a steadier burndown.
 
 Mobbing Video
 ---------
