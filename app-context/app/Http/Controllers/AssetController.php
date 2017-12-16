@@ -124,25 +124,26 @@ class AssetController extends Controller
             'outofservicecode:id'
             ])->find($id);
 
-            if (!$asset) {
-                return redirect('/asset')->with('alert', 'Asset '.$id.' Not Found.');
-            }
-
-            $keywordIdsForThisAsset = $asset->keywords->pluck('id')->all();
-
-            return view('asset.edit')->with([
-                'asset' => $asset,
-                'keywordIdsForThisAsset' => $keywordIdsForThisAsset,
-                'keywordsForCheckboxes' => Keyword::getListForCheckboxes(),
-                'groupsForDropdown' => Group::getListForDropdown(),
-                'locationsForDropdown' => Location::getListForDropdown(),
-                'vendorsForDropdown' => Vendor::getListForDropdown(),
-                'warrantiesForDropdown' => Warranty::getListForDropdown(),
-                'outOfServiceCodesForDropdown' => OutOfServiceCode::getListForDropdown(),
-                'computerTypesForDropdown' => ComputerType::getListForDropdown(),
-            ]);
+        if (!$asset) {
+            return redirect('/asset')->with('alert', 'Asset '.$id.' Not Found.');
         }
 
+        $keywordIdsForThisAsset = $asset->keywords->pluck('id')->all();
+
+        return view('asset.edit')->with([
+            'asset' => $asset,
+            'keywordIdsForThisAsset' => $keywordIdsForThisAsset,
+            'keywordsForCheckboxes' => Keyword::getListForCheckboxes(),
+            'groupsForDropdown' => Group::getListForDropdown(),
+            'locationsForDropdown' => Location::getListForDropdown(),
+            'vendorsForDropdown' => Vendor::getListForDropdown(),
+            'warrantiesForDropdown' => Warranty::getListForDropdown(),
+            'outOfServiceCodesForDropdown' => OutOfServiceCode::getListForDropdown(),
+            'computerTypesForDropdown' => ComputerType::getListForDropdown(),
+        ]);
+    }
+
+    // Export one or more assets
     public function export($id = null)
     {
         if (is_null($id)) {
@@ -377,7 +378,12 @@ class AssetController extends Controller
         $searchFieldsCount = 0;    // Number of search fields used
 
         // Run search criteria based on provided search fields
-        $results = Asset::with('keywords');
+        $results = Asset::where('id','>','0');
+        // $results = Asset::where('description','like','%'.(isset($_GET['description_search_input']) ? $_GET['description_search_input'] : '').'%')
+        //                 ->where('funding_source','like','%'.isset($_GET['funding_source_search_input']) ? $_GET['funding_source_search_input'] : ''.'%')
+        //                 ->where('assigned_to','like','%'.isset($_GET['assigned_to_search_input']) ? $_GET['assigned_to_search_input'] : ''.'%')
+        //                 ->where('owner','like','%'.isset($_GET['owner_search_input']) ? $_GET['owner_search_input'] : ''.'%');
+        // $searchFieldsCount = 1;
         foreach( $_GET as $key => $val)
         {
             switch ( $key ) {
@@ -416,7 +422,6 @@ class AssetController extends Controller
         }
 
         if ($exportMode) {
-            //$assets = Asset::where('description','like','%e%')->get();
             $callback = function($excel) use ($assets) {
                 $excel->sheet('', function($sheet) use ($assets) {
                     $sheet->fromArray($assets);
