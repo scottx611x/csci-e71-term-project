@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Asset;
+use App\ComputerType;
+use App\User;
 use Tests\TestCase;
 use Tests\Unit\AssetDatabaseTest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -117,6 +119,21 @@ class RoutesTest extends TestCase
         $this->assertEquals($initialCount, Asset::count());
     }
     
+    public function testAssetSearchPage()
+    {
+        $this->assertRouteWorks('/asset/search');
+    }
+
+    public function testAssetSearchById()
+    {
+        $this->assertRouteWorks('/asset/search?id_search_input=2&submitbtn=submit-search-by-id');
+    }
+
+    public function testAssetSearchAdvanced()
+    {
+        $this->assertRouteWorks('/asset/search?description_search_input=cool&funding_source_search_input=&assigned_to_search_input=&owner_search_input=&submitbtn=submit-advanced-search');
+    }
+    
     public function testAssetRepairs()
     {
         $route = "/assetrepairs/";
@@ -135,6 +152,65 @@ class RoutesTest extends TestCase
         $route = "/computertype/";
         $this->assertRouteWorks($route);
         $this->assertItemIdExists($route, '1');
+    }
+    
+    public function testComputerTypesCreatePage()
+    {
+        $route = "/computertype/create/";
+        $this->assertRouteWorks($route);
+    }
+
+    public function testCreateNewComputerTypeInsertsItemAndRedirectsWithValidPost()
+    {
+        $initialCount = ComputerType::count();
+        $id = $initialCount + 1;
+
+        $computertype = new ComputerType();
+        $computertype->description = "Ionic";
+        $response = $this->post('/computertype', json_decode(json_encode($computertype), true));
+       
+        $response->assertRedirect('/computertype/'.$id);
+        $this->assertEquals($id, ComputerType::count());
+
+        $savedComputerType = ComputerType::findOrFail($id);
+
+        $this->assertEquals($computertype->description, $savedComputerType->description);   
+    }
+
+    public function testCreateNewComputerTypeRedirectsWithInvalidPostAndDatabaseUnchanged()
+    {
+        $initialCount = ComputerType::count();
+        $response = $this->post('/computertype/');
+        $response->assertRedirect('/');
+        $this->assertEquals($initialCount, ComputerType::count());
+    }
+
+    public function testUpdateExistingComputerType()
+    {   
+        $computertype = new ComputerType();
+        $computertype->description = "Ionic";
+        $computertypeAsJson = json_decode(json_encode($computertype), true);
+
+        $newDescription = "Updated description";
+
+        $initialCount = ComputerType::count();
+        $id = ComputerType::count() + 1;
+
+        $response = $this->post('/computertype', $computertypeAsJson);
+        $response->assertRedirect('/computertype/'.$id);
+        $this->assertEquals($id, ComputerType::count());
+
+        $savedComputerType = ComputerType::findOrFail($id);
+        $savedComputerTypeOriginalDescription =  $savedComputerType->description;
+
+        $computertypeAsJson["description"] = $newDescription;
+
+        $response = $this->put('/computertype/'.$id, $computertypeAsJson);
+        $response->assertRedirect('/computertype/'.$id);
+
+        $updatedComputerType = ComputerType::findOrFail($id);
+        $this->assertFalse($updatedComputerType->description == $savedComputerTypeOriginalDescription);
+        $this->assertEquals($updatedComputerType->description, $newDescription);
     }
     
     public function testGroups()
@@ -171,5 +247,4 @@ class RoutesTest extends TestCase
         $this->assertRouteWorks($route);
         $this->assertItemIdExists($route, '1');
     }
-
 }
