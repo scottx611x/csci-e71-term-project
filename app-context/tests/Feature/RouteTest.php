@@ -116,30 +116,6 @@ class RoutesTest extends TestCase
 
         $this->assertEquals($initialCount, Asset::count());
     }
-
-    public function testExportAsset()
-    {
-        $response = $this->get('/asset/2/export');
-        $response->assertStatus(200);
-    }
-
-    public function testExportAssets()
-    {
-        $response = $this->get('/asset/export');
-        //dump($response);
-    }
-
-    public function testExportAssetsFromSearch()
-    {
-        $response = $this->get('asset/export/search?id_search_input=2&submitbtn=submit-search-by-id&export=1');
-        //dump($response);
-    }
-
-    public function testExportAssetsFromAdvancedSearch()
-    {
-        $response = $this->get('asset/search?description_search_input=e&funding_source_search_input=&assigned_to_search_input=&owner_search_input=&submitbtn=submit-advanced-search&export=1');
-        //dump($response);
-    }
     
     public function testAssetRepairs()
     {

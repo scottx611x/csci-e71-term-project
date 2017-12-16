@@ -152,9 +152,6 @@ class AssetController extends Controller
             // Export 1
             $this->_export(array(Asset::find($id)));
         }
-
-        $csv = Excel::create('data', $callback);
-        $csv->download('csv');
     }
 
     // Process the form for updating an existing asset
