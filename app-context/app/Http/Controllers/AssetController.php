@@ -14,8 +14,6 @@ use App\ComputerType;
 use App\Keyword;
 use Excel;
 
-ob_start(); // necessary for CSV export
-
 class AssetController extends Controller
 {
     public function index($n = null)
@@ -148,21 +146,11 @@ class AssetController extends Controller
     {
         if (is_null($id)) {
             // Export all
-            $callback = function($excel) {
-                $excel->sheet('', function($sheet) {
-                    $sheet->fromArray(Asset::get());
-                });
-            };
+            $this->_export(Asset::get());
         }
         else {
             // Export 1
-            $asset = Asset::where('id', '=', $id)->get();
-
-            $callback = function($excel) use ($asset) {
-                $excel->sheet('', function($sheet) use ($asset) {
-                    $sheet->fromArray($asset);
-                });
-            };
+            $this->_export(array(Asset::find($id)));
         }
 
         $csv = Excel::create('data', $callback);
@@ -343,24 +331,13 @@ class AssetController extends Controller
         {
             if (isset($_GET['id_search_input']) && !empty($_GET['id_search_input'])) {
                 $id = $_GET['id_search_input'];
-                $result = Asset::with('keywords')->find($id);
-                
-                if($result) $assets[] = $result;
+                $assets = array(Asset::find($id));
             } else {
                 $alertMsg = "No Id provided for search";
             }
 
             if ($exportMode) {
-                $asset = Asset::where('id', '=', $id)->get();
-
-                $callback = function($excel) use ($asset) {
-                    $excel->sheet('', function($sheet) use ($asset) {
-                        $sheet->fromArray($asset);
-                    });
-                };
-
-                $csv = Excel::create('data', $callback);
-                $csv->download('csv');
+                $this->_export($assets);
             }
             else {
                 return view('asset.search')->with(['assets' => $assets,
@@ -417,14 +394,7 @@ class AssetController extends Controller
         }
 
         if ($exportMode) {
-            $callback = function($excel) use ($assets) {
-                $excel->sheet('', function($sheet) use ($assets) {
-                    $sheet->fromArray($assets);
-                });
-            };
-
-            $csv = Excel::create('data', $callback);
-            $csv->download('csv');
+            $this->_export($assets);
         }
         else {
             return view('asset.search')->with(['assets' => $assets,
@@ -436,6 +406,78 @@ class AssetController extends Controller
                 'owner_search_input' => isset($_GET['owner_search_input']) ? $_GET['owner_search_input'] : ''
             ]);
         }
-      
     }
+      
+    private function _export($assets) {
+        $callback = function($excel) use ($assets) {
+            $excel->sheet('', function($sheet) use ($assets) {
+                $sheet->appendRow(array(
+                    "Id",
+                    "Description",
+                    "Quantity",
+                    "Purchase Price",
+                    "Purchase Date",
+                    "Funding Source",
+                    "Federal Participation (%)",
+                    "Serial Number",
+                    "Notes",
+                    "Estimated Life (months)",
+                    "Assigned To",
+                    "Assigned Date",
+                    "Owner",
+                    "Tag",
+                    "Scheduled Retirement Year",
+                    "Group",
+                    "Location",
+                    "Warranty",
+                    "Vendor",
+                    "Out of Service?",
+                    "Out of Service Date",
+                    "Out of Service Reason",
+                    "Computer?",
+                    "Computer Type",
+                    "Memory",
+                    "Model",
+                    "Operating System",
+                    "MAC Address"
+                ));
+                foreach ($assets as $asset) {
+                    $sheet->appendRow(array(
+                        $asset->id,
+                        $asset->description,
+                        $asset->quantity,
+                        $asset->purchase_price,
+                        $asset->purchase_date,
+                        $asset->funding_source,
+                        $asset->percent_federal_participation,
+                        $asset->serial_number,
+                        $asset->notes,
+                        $asset->estimated_life_months,
+                        $asset->assigned_to,
+                        $asset->assigned_date,
+                        $asset->owner,
+                        $asset->tag,
+                        $asset->scheduled_retirement_year,
+                        $asset->group->description,
+                        $asset->location->description,
+                        $asset->warranty->description,
+                        $asset->vendor->company,
+                        $asset->is_out_of_service ? "Yes" : "No",
+                        $asset->is_out_of_service ? $asset->out_of_service_date : "",
+                        $asset->is_out_of_service ? $asset->outofservicecode->reason : "",
+                        $asset->is_computer ? "Yes" : "No",
+                        $asset->is_computer ? $asset->computer->computertype->description : "",
+                        $asset->is_computer ? $asset->computer->memory : "",
+                        $asset->is_computer ? $asset->computer->model : "",
+                        $asset->is_computer ? $asset->computer->operating_system : "",
+                        $asset->is_computer ? $asset->computer->mac_address : "",
+                    ));
+                }
+            });
+        };
+
+        $csv = Excel::create('data', $callback);
+        $csv->download('csv');
+    }
+    
 }
