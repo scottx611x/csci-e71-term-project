@@ -254,7 +254,7 @@ class AssetController extends Controller
 
         $this->validate($request, [
             'owner' => 'required|max:50',
-            'description' => 'max:50',
+            'description' => 'required|max:50',
             'quantity' => 'required|min:1|max:100',
             'notes' => 'max:191',
             'purchase_price' => 'required|numeric',
@@ -265,7 +265,7 @@ class AssetController extends Controller
             'estimated_life_months' => 'required|numeric',
             'tag' => 'max:10',
             'scheduled_retirement_year' => 'required|numeric',
-            'assigned_to' => 'required|alpha|max:30',
+            'assigned_to' => 'required|max:30',
             'assigned_date' => 'required|date',
             'group_id' => 'required|numeric',
             'location_id' => 'required|numeric',
@@ -379,11 +379,6 @@ class AssetController extends Controller
 
         // Run search criteria based on provided search fields
         $results = Asset::where('id','>','0');
-        // $results = Asset::where('description','like','%'.(isset($_GET['description_search_input']) ? $_GET['description_search_input'] : '').'%')
-        //                 ->where('funding_source','like','%'.isset($_GET['funding_source_search_input']) ? $_GET['funding_source_search_input'] : ''.'%')
-        //                 ->where('assigned_to','like','%'.isset($_GET['assigned_to_search_input']) ? $_GET['assigned_to_search_input'] : ''.'%')
-        //                 ->where('owner','like','%'.isset($_GET['owner_search_input']) ? $_GET['owner_search_input'] : ''.'%');
-        // $searchFieldsCount = 1;
         foreach( $_GET as $key => $val)
         {
             switch ( $key ) {

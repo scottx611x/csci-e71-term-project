@@ -13,6 +13,10 @@
                     View Assets
                 </h2>
             </div>
+            <div class="row justify-content-left">
+                <a class="btn btn-success" href="{{ URL::to('asset/export') }}">Export (CSV)</a>
+            </div>
+            <br/>
 
             @include('asset.list')
 
