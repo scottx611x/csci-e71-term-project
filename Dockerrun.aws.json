@@ -17,7 +17,7 @@
             "image": "scottx611x/cscie71termproject_app:latest",
             "mountPoints": [
                 {
-                    "containerPath": "/var/www/html",
+                    "containerPath": "/var/www",
                     "sourceVolume": "app_context"
                 }
             ],
@@ -29,7 +29,7 @@
                     "hostPort": 9000
                 }
             ],
-            "workingDirectory": "/var/www/html"
+            "workingDirectory": "/var/www"
         },
         {
             "environment": [
