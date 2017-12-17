@@ -1,5 +1,4 @@
 app-context/.env
 app-context/build
 app-context/vendor
-app-context/composer.lock
 .idea
