@@ -6,7 +6,7 @@
             "environment": [
                 {
                     "name": "DB_PORT",
-                    "value": "3306"
+                    "value": "33061"
                 },
                 {
                     "name": "DB_HOST",
