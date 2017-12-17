@@ -29,7 +29,7 @@ class RoutesTest extends TestCase
 
     public function testGetAsset()
     {
-        $this->assertItemIdExists('/asset/', '1');
+        $this->assertItemIdExists('/asset/', '2');
     }
 
     public function testAssetCreatePage()
@@ -78,7 +78,7 @@ class RoutesTest extends TestCase
 
     public function testEditExistingAsset()
     {
-        $response = $this->get('/asset/1/edit/');
+        $response = $this->get('/asset/2/edit/');
         $response->assertStatus(200);
     }
 
@@ -135,7 +135,6 @@ class RoutesTest extends TestCase
         $route = "/computertype/";
         $this->assertRouteWorks($route);
         $this->assertItemIdExists($route, '1');
-
     }
     
     public function testGroups()

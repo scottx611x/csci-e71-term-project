@@ -3,7 +3,7 @@
 <div class="form-group row">
     <label for="description" class="col-sm-2 col-form-label">Description</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" name="description" id="description" value='{{ old('description', $asset->description) }}' maxlength="50" placeholder="Description">
+        <input type="text" class="form-control" name="description" id="description" value='{{ old('description', $asset->description) }}' maxlength="50" placeholder="Description" required="required">
         @if($errors->get('description'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('description') as $error)
@@ -16,7 +16,7 @@
 <div class="form-group row">
     <label for="purchase_price" class="col-sm-2 col-form-label">Quantity<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="number"  min="1" max="1000" class="form-control" name="quantity" id="quantity" value='{{ old('quantity', $asset->quantity) }}' placeholder="Quantity">
+        <input type="number"  min="1" max="1000" class="form-control" name="quantity" id="quantity" value='{{ old('quantity', $asset->quantity) }}' placeholder="Quantity" required="required">
         @if($errors->get('quantity'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('quantity') as $error)
@@ -29,7 +29,7 @@
 <div class="form-group row">
     <label for="purchase_price" class="col-sm-2 col-form-label">Purchase Price<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="number" step="0.01" class="form-control" name="purchase_price" id="purchase_price" value='{{ old('purchase_price', $asset->purchase_price) }}' placeholder="Purchase Price">
+        <input type="number" step="0.01" class="form-control" name="purchase_price" id="purchase_price" value='{{ old('purchase_price', $asset->purchase_price) }}' placeholder="Purchase Price" required="required">
         @if($errors->get('purchase_price'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('purchase_price') as $error)
@@ -42,7 +42,7 @@
 <div class="form-group row">
     <label for="purchase_date" class="col-sm-2 col-form-label">Purchase Date<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="date" step="0.01" class="form-control" name="purchase_date" id="purchase_date" value='{{ old('purchase_date', $asset->purchase_date) }}' placeholder="Purchase Date">
+        <input type="date" step="0.01" class="form-control" name="purchase_date" id="purchase_date" value='{{ old('purchase_date', $asset->purchase_date) }}' placeholder="Purchase Date (YYYY-MM-DD)" required="required">
         @if($errors->get('purchase_date'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('purchase_date') as $error)
@@ -55,7 +55,7 @@
 <div class="form-group row">
     <label for="funding_source" class="col-sm-2 col-form-label">Funding Source<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" name="funding_source" id="funding_source" value='{{ old('funding_source', $asset->funding_source) }}' maxlength="50" placeholder="Funding Source">
+        <input type="text" class="form-control" name="funding_source" id="funding_source" value='{{ old('funding_source', $asset->funding_source) }}' maxlength="50" placeholder="Funding Source" required="required">
         @if($errors->get('funding_source'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('funding_source') as $error)
@@ -120,7 +120,7 @@
 <div class="form-group row">
     <label for="assigned_to" class="col-sm-2 col-form-label">Assigned To<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" name="assigned_to" id="assigned_to" value='{{ old('assigned_to', $asset->assigned_to) }}' maxlength="30" placeholder="Assigned To">
+        <input type="text" class="form-control" name="assigned_to" id="assigned_to" value='{{ old('assigned_to', $asset->assigned_to) }}' maxlength="30" placeholder="Assigned To" required="required">
         @if($errors->get('assigned_to'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('assigned_to') as $error)
@@ -133,7 +133,7 @@
 <div class="form-group row">
     <label for="assigned_date" class="col-sm-2 col-form-label">Assigned Date<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="date" class="form-control" name="assigned_date" id="assigned_date" value='{{ old('assigned_date', $asset->assigned_date) }}' placeholder="Assigned Date">
+        <input type="date" class="form-control" name="assigned_date" id="assigned_date" value='{{ old('assigned_date', $asset->assigned_date) }}' placeholder="Assigned Date (YYYY-MM-DD)" required="required">
         @if($errors->get('assigned_date'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('assigned_date') as $error)
@@ -146,7 +146,7 @@
 <div class="form-group has-success row">
     <label for="owner" class="col-sm-2 col-form-label">Owner<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" name="owner" id="owner" value='{{ old('owner', $asset->owner) }}' maxlength="50" placeholder="Owner">
+        <input type="text" class="form-control" name="owner" id="owner" value='{{ old('owner', $asset->owner) }}' maxlength="50" placeholder="Owner" required="required">
         @if($errors->get('owner'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('owner') as $error)
@@ -172,7 +172,7 @@
 <div class="form-group row">
     <label for="assigned_date" class="col-sm-2 col-form-label">Scheduled Retirement Year<i class="fa fa-asterisk" aria-hidden="true"></i></label>
     <div class="col-sm-10">
-        <input type="number" class="form-control"  min="2017" max="9999" name='scheduled_retirement_year' id="scheduled_retirement_year" value='{{ old('scheduled_retirement_year', $asset->scheduled_retirement_year) }}' placeholder="Scheduled Retirement Year">
+        <input type="number" class="form-control"  min="2017" max="9999" name='scheduled_retirement_year' id="scheduled_retirement_year" value='{{ old('scheduled_retirement_year', $asset->scheduled_retirement_year) }}' placeholder="Scheduled Retirement Year" required="required">
         @if($errors->get('scheduled_retirement_year'))
             <ul class="alert alert-danger" role="alert">
                 @foreach($errors->get('scheduled_retirement_year') as $error)
