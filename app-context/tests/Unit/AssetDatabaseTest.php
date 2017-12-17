@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Asset;
+use App\ComputerType;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database;
@@ -260,5 +261,41 @@ class AssetDatabaseTest extends TestCase
         $savedAsset = Asset::findOrFail($asset->id);
 
         $this->assertEquals($asset->scheduled_retirement_year, $savedAsset->scheduled_retirement_year);
+    }
+
+    public function testAddNewComputerTypeIncrementsCount()
+    {
+        $initialCount = ComputerType::count();
+        
+        $computertype = new ComputerType();
+        $computertype->description = "type 1";       
+        $computertype->save();
+
+        $this->assertEquals($initialCount + 1, ComputerType::count());
+    }
+    
+    public function testAddNewComputerTypeSavesDescription()
+    {
+        $computertype = new ComputerType();
+        $computertype->description = "type 1";
+        $computertype->save();
+
+        $savedComputertype = ComputerType::findOrFail($computertype->id);
+
+        $this->assertEquals($computertype->description, $savedComputertype->description);
+    }
+
+    public function testModifyComputerTypeSavesDescription()
+    {
+        $computertype = new ComputerType();
+        $computertype->description = "type 1";      
+        $computertype->save();
+
+        $computertype->description = "new description";
+        $computertype->save();
+
+        $savedComputertype = ComputerType::findOrFail($computertype->id);
+
+        $this->assertEquals($computertype->description, $savedComputertype->description);
     }
 }
