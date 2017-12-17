@@ -1,7 +1,5 @@
 FROM php:7.0.4-fpm
 
-COPY install_deps.sh /var/www/
-
 RUN apt-get update && apt-get install -y libmcrypt-dev \
     mysql-client libmagickwand-dev --no-install-recommends \
     && pecl install xdebug \
