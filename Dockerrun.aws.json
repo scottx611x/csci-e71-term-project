@@ -29,7 +29,8 @@
                     "hostPort": 9000
                 }
             ],
-            "workingDirectory": "/var/www"
+            "workingDirectory": "/var/www",
+            "command": ["sh", "install_deps.sh"]
         },
         {
             "environment": [
