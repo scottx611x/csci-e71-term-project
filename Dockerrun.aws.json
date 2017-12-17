@@ -17,7 +17,7 @@
             "image": "scottx611x/cscie71termproject_app:latest",
             "mountPoints": [
                 {
-                    "containerPath": "/var/www",
+                    "containerPath": "/var/www/html",
                     "sourceVolume": "app_context"
                 }
             ],
@@ -29,7 +29,7 @@
                     "hostPort": 9000
                 }
             ],
-            "workingDirectory": "/var/www",
+            "workingDirectory": "/var/www/html",
             "command": ["sh", "install_deps.sh"]
         },
         {
