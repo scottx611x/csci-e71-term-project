@@ -5,36 +5,6 @@
         {
             "environment": [
                 {
-                    "name": "DB_PORT",
-                    "value": "33061"
-                },
-                {
-                    "name": "DB_HOST",
-                    "value": "database"
-                }
-            ],
-            "essential": true,
-            "image": "scottx611x/cscie71termproject_app:latest",
-            "mountPoints": [
-                {
-                    "containerPath": "/var/www/html",
-                    "sourceVolume": "app_context"
-                }
-            ],
-            "name": "app",
-            "memory": 1024,
-            "portMappings": [
-                {
-                    "containerPort": 8000,
-                    "hostPort": 9000
-                }
-            ],
-            "workingDirectory": "/var/www/html",
-            "command": ["sh", "install_deps.sh"]
-        },
-        {
-            "environment": [
-                {
                     "name": "MYSQL_DATABASE",
                     "value": "homestead"
                 },
@@ -67,6 +37,36 @@
                     "hostPort": 33061
                 }
             ]
+        },
+        {
+            "environment": [
+                {
+                    "name": "DB_PORT",
+                    "value": "3306"
+                },
+                {
+                    "name": "DB_HOST",
+                    "value": "database"
+                }
+            ],
+            "essential": true,
+            "image": "scottx611x/cscie71termproject_app:latest",
+            "mountPoints": [
+                {
+                    "containerPath": "/var/www/html",
+                    "sourceVolume": "app_context"
+                }
+            ],
+            "name": "app",
+            "memory": 1024,
+            "portMappings": [
+                {
+                    "containerPort": 8000,
+                    "hostPort": 9000
+                }
+            ],
+            "workingDirectory": "/var/www/html",
+            "command": ["sh", "install_deps.sh"]
         },
         {
             "essential": true,
