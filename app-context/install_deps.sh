@@ -5,4 +5,4 @@ php /usr/local/bin/composer install --no-interaction --prefer-source --no-dev
 php artisan key:generate
 php artisan optimize
 php artisan migrate
-php artisan serve --port=8000
+php artisan serve --host=0.0.0.0 --port=8000
