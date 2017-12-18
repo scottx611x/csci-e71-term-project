@@ -204,7 +204,7 @@ TODO
 
 Product Increment Working Software
 ----------------------------------
-http://aits.srinivasyelamanchili.me/
+http://aits.scott-ouellette.com/
 
 Deployment
 ----------
