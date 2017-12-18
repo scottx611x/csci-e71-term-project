@@ -71,7 +71,7 @@
                     <h4>Results: {{ count($assets) }} Record(s) Found</h4>
                 </div>
                 <div class="row justify-content-left">
-                    <a class="btn btn-success" href="{{ URL::to(isset($_SERVER["REQUEST_URI"]) ? $_SERVER["REQUEST_URI"] : ''.'&export=1') }}">Export (CSV)</a>
+                    <a class="btn btn-success" href="{{ URL::to((isset($_SERVER["REQUEST_URI"]) ? $_SERVER["REQUEST_URI"] : '').'&export=1') }}">Export (CSV)</a>
                 </div>
                 <br/>
                 @include('asset.list')
