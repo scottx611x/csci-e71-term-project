@@ -31,9 +31,6 @@ after_success:
 - pushd app-context
 - bash <(curl -s https://codecov.io/bash)
 - popd
-- pushd deployment
-- if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then sudo
-  sh scripts/docker_tag_push.sh; fi
 
 deploy:
   skip_cleanup: true
