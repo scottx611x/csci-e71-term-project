@@ -1,52 +1,44 @@
 language: php
-
 cache:
   directories:
-    - app-context/vendor
+  - app-context/vendor
+sudo: true
 
-# Docker on Travis needs sudo
-sudo: True
+addons:
+  ssh_known_hosts: 165.227.219.214
 
-env:
-  global:
-  - secure: pG5QD7bTE+WSJqRKwBXH1exeGhGUAHJrT8gj4YtGS35KYnanv+G7FBZZqX91zRjW59gpJTb+J2NFTVQXqb1Ddbi/DlCq5C1ChANS9c+IwVcm1qGjZ1EDsFSB1biS9bVlRGOnQTPwEzCLOcmZ2gMF1tB9h7IIAt4oIkZXjnHiz7BTIMR2LZIreKuyc6pTBO7SRWxZC5wvKRLsn0obpISXN2gZLIdioifvnuujDdREMyzqDO+IsSGvGsGFKF3uLZ8mVSUTiftQnKfzyhzwhtTBoDB9OAdt7+MxpTudHhMgZzC1DUOjtk7yXN57V2eOj0gt7oRKARCesgTFAkjT1nGOr6eVqzuVIl95pkmUUCqr5reISw6gO3te4keNuEdrIMZR9KHJXAWq82PaXIE0Fa62KbGRvVNHA8wkuwO3DjpEjHGat9nVVgRCbTdNh/qYgIv8oTq+04IcgvmLUSXgGMu2LQn99r5XqPP/CwKopY7XOw+Jtww16KBtczSlCZdiW+SkLgJP5Wjk/iynUvwi3aPyUbTBNxUIQTqNExTW48HG3xRj3hUnskxfP7xeehTg4k0ZdZZM9xW+S8BVBGdhTb1aqX/vRnb1/oDc5HnueEUIX0Ky8EMHb7xbweBKTzCBw/Jocg5wDJQB8lRr4A8KAOcWQPHE2hvQizFkSKsTzAb2Bzo=
-  - secure: s9z4f0mh/u2JcuZttyEGPnq9TP4wS96FDmIYRncgEp+GEvmgcfhnTHgTlGUNKXtQyr1Rvm3fBGGZ36eLowF7SK9fujzsHtJtrHgJ88MDMrciQ5uijPZsBc51aNMH7Fo6ELmQ74L1sk/UW8Xbc9nNCvgPArEWJlYbAL0pLNEk1PGZW8zAbzhHmufxCrxzW8r/XtgMfwgkb2BAz9HzZDI8LB3dr2WThkfOX7TeJTtH/P3PgghRPG1BJqPvTLziM8/s7bVGd+2nekBAhyd8R42eTt6ruSKYKhiJYDOYdOjR67vMrEVywTiFYJ7bR6yHXneCQfWwSHrC7y+WxogDUjDtA5aHjtJgHeC8xCCKNFK44I0MkXmbXwb1XSKBRJr7zmyLquG2YaYZCBsExT2AOQ9HaMTncFDQszBS0IMiqeV0hC3lqRTKDDGdA+5+KGPpyFVnO2JS8oy0osmeN37sHrJCJRhQG31dksGDnAmmmPY8yEo7AMP3USTgylttRCa7/FZ1Cl3HraPCcJDZgEMv2h1u4+eBZcn2sltUJQ2L1NN2PNcMElbtum1rkQQ1KP+oV+d0o3rlbvh3Q7v8so7RRIvBz55gTSXpqIzibixHhxokFmBXhwvQDT3Muiyo6Lh2/Qipc4BcOwwFo/Y2kUBzcBVF38fSM9zRtNqnSCPIa0mc7Gg=
+before_install:
+- openssl aes-256-cbc -K $encrypted_648937c86ebf_key -iv $encrypted_648937c86ebf_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa
 
 before_script:
-  - cp app-context/.env.dev app-context/.env
-  - pushd app-context
-  - docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source
-  - popd
-
-  - docker-compose build
-  # Run our services in a detached manner
-  - docker-compose up -d
-  - sleep 10s
-  - docker-compose exec -T app php artisan key:generate
-  - docker-compose exec -T app php artisan optimize
-  - docker-compose exec -T app php artisan migrate --seed
-
+- cp app-context/.env.dev app-context/.env
+- pushd app-context
+- docker run --rm -v $(pwd):/app composer/composer install --no-interaction --prefer-source
+- popd
+- docker-compose build
+- docker-compose up -d
+- sleep 10s
+- docker-compose exec -T app php artisan key:generate
+- docker-compose exec -T app php artisan optimize
+- docker-compose exec -T app php artisan migrate --seed
 script:
-  - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
-
+- docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
 after_success:
-  - pushd app-context
-  - bash <(curl -s https://codecov.io/bash)
-  - popd
+- pushd app-context
+- bash <(curl -s https://codecov.io/bash)
+- popd
+- pushd deployment
+- if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then sudo
+  sh scripts/docker_tag_push.sh; fi
 
-  - pushd deployment
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then sudo sh scripts/docker_tag_push.sh; fi
-
-# Deploy Container to AWS
 deploy:
-  provider: elasticbeanstalk
-  access_key_id: $ACCESSKEYID
-  secret_access_key:
-    secure: "$SECRETACCESSKEY"
-  region: "us-west-1"  
-  app: "Alpine_Academy"
-  env: "alpineacademy-dev"
-  bucket_name: "elasticbeanstalk-us-west-1-970407962922"
+  skip_cleanup: true
+  provider: script
+  script: chmod +x deployment/deploy.sh && deployment/deploy.sh
   on:
     branch: master
 
@@ -55,3 +47,4 @@ notifications:
   slack:
     rooms:
       secure: h6mnzyAo2YvFLxXf+3M4/Kn/ZoLAj1YM6UFXg1WQNlSc82SpvZPZjWmYrjFEIRmH0wT7WCkjALWgA4ejMZqY0Pxuyv84zgh9nR2703AbckhQzeXBiori6UaKvFCRguE2b/7ZGKtBpdzBFEKV9GOcq8D2BXsU72n3aNFY2L5Z0ThH3JhWsGwsTxM4CBln3HcfZQoWjcjqaCE7VKuWWAQu1ZR+5KWOEHJgA2wnpfIIsf6UE3NdBkNuBFfTwv3u0nyN3479+b9x+e/H0s6mTZKyieTJtVtcxnOft3giKC5SVMGn70RMJk9tfoc7y8K8MsBeERb/BcCAixAXw05ck4PqwZGyL9v5rUh6ovNcff8NREQiveK4laZE+lJo/j71c/+mIsYkRssSLfCbs7DvC3fuRLMX807fHkHembCgV8NRhFdPflAFqbRgoQRPeDM/4KW0M7vEDoTzL9hZTphMd2tOJsD7K/6lxufixqTpPNzQC9mKviEti9PWrDpctaRd+lomS+GKY3r2bMqDA+eqZKJ4PSHoq5AmeJyRicrq7XApVREz38UQzgiEySPtAQKEXwfuOh/DDIx8nQXcwL/qiNUpSaabKVkyMK61yqB2QSGWos5vsxRasWiXqzRJaFDR7InFdgECFR9smab2rMbAV3mNgMeRmuxLuqnJrf19W0X+AqY=
+
