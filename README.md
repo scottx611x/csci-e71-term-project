@@ -206,8 +206,8 @@ http://aits.scott-ouellette.com/
 
 Continuous Integration System
 ------------------------------
-We use Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds as our continuous integration system. Travis runs our test suite on every commit. Travis passing tests merged to master https://drive.google.com/file/d/1z_4SUyw8k-TM64scDa6bj5Edhkw3pqI7/view?usp=sharing.
+Travis passing tests merged to master https://drive.google.com/file/d/1z_4SUyw8k-TM64scDa6bj5Edhkw3pqI7/view?usp=sharing.
 
 Continuous Deployment
-----------
+---------------------
 https://drive.google.com/file/d/1RoWFTpQhWS78rF3XUjOzIJoCJeyq5mjx/view?usp=sharing
