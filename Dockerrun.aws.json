@@ -23,8 +23,7 @@
             ],
             "name": "app",
             "links": [
-              "database",
-              "web"
+              "database"
             ],
             "memory": 1024,
             "portMappings": [
