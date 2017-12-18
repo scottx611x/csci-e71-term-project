@@ -25,7 +25,7 @@ Far: "Eliminate overhead of managing educational equipment"
 Stakeholders
 ------------
 * School Administrators - Michael Bradley, Vice Principal, Alpine Academy (https://app.xtensio.com/folio/m723zhos)
-* Administrative Assistant
+* Resource Specialist - Dana Serini (https://app.xtensio.com/folio/bqjivd9x)
 * IT Personnel
 
 Product Backlog
