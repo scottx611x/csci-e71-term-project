@@ -163,7 +163,7 @@ Sprint 3
 ========
 Velocity estimate: 14 (Based on Sprint 1 + 2)
 
-Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/BURNDOWN-SPRINT3.png) TODO
+Burndown chart: (https://github.com/scottx611x/csci-e71-term-project/blob/master/docker-context/BURNDOWN-SPRINT3.png)
 
 Goal: To make requested changes and implement search and authentication
 
@@ -191,8 +191,14 @@ Sprint 3 Backlog:
 ---------
 https://github.com/scottx611x/csci-e71-term-project/milestone/4?closed=1
 
-Sprint Review 12/04/17
+Testing
+-------
+We have Behavior tests (app-context/features) and Unit tests (app-context/tests). The Unit folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/tests/Unit is where we are testing individual bits of code to behave as expected. The Beharior folder https://github.com/scottx611x/csci-e71-term-project/tree/master/app-context/features is where we are using the Gherkin-style Behat tests to test whole features of the application. Test output is visible in Travis CI https://travis-ci.org/scottx611x/csci-e71-term-project/builds
+
+Sprint Review 12/08/17
 ----------------------
+
+
 
 TODO
 
