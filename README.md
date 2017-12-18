@@ -185,7 +185,7 @@ Scheduling meetings early in week was difficult due to very different schedules 
 
 Mobbing Video
 ---------
-TODO
+https://drive.google.com/file/d/1Gs4ZejX9P2rawvHDS9183wCAYCzsTlwW/view?usp=sharing
 
 Sprint 3 Backlog:
 ---------
